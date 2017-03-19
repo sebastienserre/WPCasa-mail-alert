@@ -19,12 +19,12 @@ class thfo_mailalert {
 
 	public static function install() {
 		global $wpdb;
-		$wpdb->query( "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}thfo_mailalert(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR (255), email VARCHAR (255) NOT NULL, tel VARCHAR (20), city VARCHAR (255), max_price VARCHAR (10), min_price VARCHAR (10), room VARCHAR (2));" );
+		$wpdb->query( "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}wpcasama_mailalert(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR (255), email VARCHAR (255) NOT NULL, tel VARCHAR (20), city VARCHAR (255), max_price VARCHAR (10), min_price VARCHAR (10), room VARCHAR (2), subscription DATE" );
 	}
 
 	public static function uninstall() {
 		global $wpdb;
-		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}thfo_mailalert;" );
+		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wpcasama_mailalert;" );
 	}
 
 
