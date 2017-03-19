@@ -17,17 +17,6 @@ class thfo_mailalert {
 
 	}
 
-	public static function install() {
-		global $wpdb;
-		$wpdb->query( "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}wpcasama_mailalert(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR (255), email VARCHAR (255) NOT NULL, tel VARCHAR (20), city VARCHAR (255), max_price VARCHAR (10), min_price VARCHAR (10), room VARCHAR (2), subscription DATE" );
-	}
-
-	public static function uninstall() {
-		global $wpdb;
-		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wpcasama_mailalert;" );
-	}
-
-
 	public function save_results() {
 
 		if ( isset( $_POST['thfo_mailalert'] ) ) {
@@ -45,7 +34,7 @@ class thfo_mailalert {
 			$room  = $_POST['thfo_mailalert_room'];
 			$date = current_time('mysql');
 
-			$wpdb->replace( "{$wpdb->prefix}thfo_mailalert", array(
+			$wpdb->replace( "{$wpdb->prefix}wpcasama_mailalert", array(
 				'name'      => $name,
 				'email'     => $email,
 				'tel'       => $phone,
@@ -62,7 +51,7 @@ class thfo_mailalert {
 	public function thfo_delete_subscriber(){
 		if (isset($_GET['delete']) && ! empty($_GET['delete'])){
 			global $wpdb;
-			$wpdb->delete("{$wpdb->prefix}thfo_mailalert", array('email' => $_GET['delete']));
+			$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert", array('email' => $_GET['delete']));
 		}
 	}
 

@@ -40,10 +40,10 @@ class thfo_mailalert_unsubscribe {
 			}
 
 			global $wpdb;
-			$row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}thfo_mailalert WHERE email = '$mail'");
+			$row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE email = '$mail'");
 
 			if (!is_null($row)) {
-				$wpdb->delete("{$wpdb->prefix}thfo_mailalert", array('email' => $mail)); ?>
+				$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert", array('email' => $mail)); ?>
 				<div class="thfo-mailalert-del"> <?php _e("Your mail address has been successfully deleted from our database","thfo-mail-alert"); ?> </div>
 			<?php }
 		}

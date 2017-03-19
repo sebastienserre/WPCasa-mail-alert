@@ -200,12 +200,19 @@ class thfo_mailalert_admin_menu {
 	public function  thfo_menu_html(){
 
 		global $wpdb;
-		$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}thfo_mailalert ");
+		$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ");
 		$count = count($subscribers);
 
 
 		echo '<h2>' . get_admin_page_title() . '</h2>';
-		echo '<p>'; printf( _n('%s subscriber:','%s subscribers:',$count, 'wpcasa-mail-alert' ), number_format_i18n($count) ); echo '</p>';
+		echo '<p>';
+		if ( $count === 0 ){
+		    _e('0 subscriber' , 'wpcasa-mail-alert');
+        } else {
+			printf( _n( '%s subscriber:', '%s subscribers:', $count, 'wpcasa-mail-alert' ), number_format_i18n( $count ) );
+		}
+
+		echo '</p>';
 
 		?>
 
@@ -257,7 +264,7 @@ class thfo_mailalert_admin_menu {
 		if (isset($_GET['delete']) && $_GET['delete'] == 'yes'){
 			$id = $_GET['id'];
 			global $wpdb;
-			$wpdb->delete("{$wpdb->prefix}thfo_mailalert",array('id' => $id));
+			$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert",array('id' => $id));
 		}
 	}
 
