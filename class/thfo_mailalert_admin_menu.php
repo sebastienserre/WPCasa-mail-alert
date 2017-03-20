@@ -82,8 +82,10 @@ class thfo_mailalert_admin_menu {
 
 	public function thfo_max_price(){
 		$max_price = get_option('thfo_max_price')?>
+		<?php do_action('wpcasama_pro_before_max_price_option'); ?>
 		<input name="thfo_max_price" id="thfo_max_price" type="text" value="<?php if ( !empty($max_price)) : echo $max_price; endif ?>">
 		<p><?php _e('Please enter maximum price separated by a comma','thfo_mail_alert') ?></p>
+        <?php do_action('wpcasama_pro_after_max_price_option'); ?>
 
 	<?php }
 
@@ -95,6 +97,7 @@ class thfo_mailalert_admin_menu {
 		$pages = get_pages(array( 'post_publish' => 'publish'));
 		//var_dump($pages);
 		?>
+		<?php do_action('wpcasama_pro_before_unsubscribe_page'); ?>
 		<select name='thfo_unsubscribe_page' id='thfo_unsubscribe_page'>
 			<?php foreach ( $pages as $page ) { ?>
 
@@ -108,6 +111,7 @@ class thfo_mailalert_admin_menu {
 
 			<?php } ?>
 		</select>
+		<?php do_action('wpcasama_pro_after_unsubscribe_page'); ?>
 	<?php }
 
 
