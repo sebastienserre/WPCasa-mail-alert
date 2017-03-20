@@ -4,67 +4,73 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 
 function thfo_search_subscriber() {
 	global $post;
-	var_dump('valid');
 
 	if ( $post->post_type === 'listing' ) {
-		var_dump(' listing');
 		global $wpdb;
 		/**
 		 * get city location
 		 **/
 
 		$terms = wp_get_object_terms( $post->ID, 'location' );
-		$city = $terms[0]->name;
+		if ( ! empty( $terms ) ) {
+			$city = $terms[0]->name;
+		}
 
 		/**
 		 * get price from property
 		 */
 		$prices = get_post_meta( $post->ID, '_price' );
-		$price = (int)$prices[0];
+		if ( ! empty( $prices ) ) {
+			$price = (int) $prices[0];
+		}
 
 		/**
 		 * get bedrooms number from property
 		 */
 
 		$rooms = get_post_meta( $post->ID, '_details_1' );
-		$nb_room = (int)$rooms[0];
 
+		if ( ! empty( $rooms ) ) {
+			$nb_room = (int) $rooms[0];
+		}
 
 		/**
 		 * get subcriber list for this city
 		 */
 
-		$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE city = '$city' " );
+		if ( ! empty( $city ) ) {
+			$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE city = '$city' " );
 
-		/**
-		 * @since 1.4.0
-		 * Fires after selecting subscribers
-		 */
-		$subscribers = apply_filters('thfo-get-subscriber-list', $subscribers);
+			/**
+			 * @since 1.4.0
+			 * Fires after selecting subscribers
+			 */
+			$subscribers = apply_filters( 'thfo-get-subscriber-list', $subscribers );
 
-		/**
-		 * Search is running!
-		 */
+			/**
+			 * Search is running!
+			 */
 
-		/**
-		 * Fires before searching subscribers
-		 * @since 1.4.0
-		 */
-		do_action( 'thfo_before_search' );
+			/**
+			 * Fires before searching subscribers
+			 * @since 1.4.0
+			 */
+			do_action( 'thfo_before_search' );
 
-		foreach ( $subscribers as $subscriber ) {
-			if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
+			foreach ( $subscribers as $subscriber ) {
+				if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
 
-				if ($nb_room >= $subscriber->room) {
-					$mail = $subscriber->email;
+					if ( $nb_room >= $subscriber->room ) {
+						$mail = $subscriber->email;
 
-					/**
-					 * @since 1.4.0
-					 * Fires after mail list created and before sending mail
-					 */
+						/**
+						 * @since 1.4.0
+						 * Fires after mail list created and before sending mail
+						 */
 
-					//var_dump( $mail );
-					thfo_send_mail( $mail );
+						//var_dump( $mail );
+						thfo_send_mail( $mail );
+					}
 				}
 			}
 		}
