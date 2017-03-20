@@ -55,7 +55,7 @@ class thfo_mailalert_admin_menu {
 		register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender');
 		register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender_mail');
 		register_setting('thfo_newsletter_settings', 'thfo_newsletter_object');
-		register_setting('thfo_newsletter_settings', 'thfo_newsletter_content');
+        register_setting('thfo_newsletter_settings', 'thfo_newsletter_content');
 		register_setting('thfo_newsletter_settings', 'thfo_newsletter_footer');
 		register_setting('thfo_newsletter_settings', 'empathy-setting-logo');
 

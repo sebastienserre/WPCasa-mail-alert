@@ -59,7 +59,7 @@ class thfo_mailalert_widget extends WP_Widget {
 				<label for="thfo_mailalert_phone"> <?php _e('Your Phone number', 'wpcasa-mail-alert') ?></label>
 				<input id="thfo_mailalert_phone" name="thfo_mailalert_phone" />
 				<label for="thfo_mailalert_city"> <?php _e('City', 'wpcasa-mail-alert') ?></label>
-				<select name="thfo_mailalert_city">
+				<select name="thfo_mailalert_city" required>
 					<?php
 					$city = get_terms( 'location' );
 					foreach ($city as $c){
