@@ -48,6 +48,29 @@ class thfo_mailalert_widget extends WP_Widget {
 
 		$prices = get_option('thfo_max_price');
 		$prices = $this->multiexplode(array(',',', '), $prices);
+		/**
+		 * Find number of rooms
+		 */
+
+		$rooms = get_posts(array( 'post_type' => array( 'listing' ), ));
+		//var_dump($rooms);
+		$nb_rooms= array();
+		foreach ( $rooms as $room) {
+			//var_dump($room);
+			$nb_room =  get_post_meta( $room->ID, '_details_1'  );
+			foreach ($nb_room as $room){
+				$nb_rooms[] = intval($room);
+				//var_dump(intval($room));
+			}
+			//var_dump( $nb_room);
+		}
+
+		sort($nb_rooms, SORT_NUMERIC);
+		$nb_rooms = array_unique($nb_rooms);
+
+		//var_dump($nb_rooms);
+
+		do_action('wpcasama_info');
 		?>
 
 		<form action="" method="post">
@@ -89,11 +112,12 @@ class thfo_mailalert_widget extends WP_Widget {
 				</select>
 				<label for="thfo_mailalert_room"> <?php _e('Room', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_room">
-					<option name="thfo_mailalert_room" value="1">1</option>
-					<option name="thfo_mailalert_room" value="2">2</option>
-					<option name="thfo_mailalert_room" value="3">3</option>
-					<option name="thfo_mailalert_room" value="4">4</option>
-					<option name="thfo_mailalert_room" value="5">5</option>
+					<?php
+					foreach ($nb_rooms as $nb_room){ ?>
+                        <option name="thfo_mailalert_room" value="<?php echo $nb_room; ?>"><?php echo $nb_room; ?></option>
+					<?php }
+
+					?>
 				</select>
                 <?php do_action('wpcasama_end_widget'); ?>
 			</p>
