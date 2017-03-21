@@ -95,6 +95,7 @@ class thfo_mailalert_widget extends WP_Widget {
 					<option name="thfo_mailalert_room" value="4">4</option>
 					<option name="thfo_mailalert_room" value="5">5</option>
 				</select>
+                <?php do_action('wpcasama_end_widget'); ?>
 			</p>
 			<input name="thfo_mailalert" class="moretag btn btn-primary" type="submit" />
 		</form>
