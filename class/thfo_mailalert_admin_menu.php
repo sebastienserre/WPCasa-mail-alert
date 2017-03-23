@@ -230,8 +230,9 @@ class thfo_mailalert_admin_menu {
 				<th><?php _e('Minimum price', 'wpcasa-mail-alert') ?></th>
 				<th><?php _e('Maximum price', 'wpcasa-mail-alert') ?></th>
 				<th><?php _e('Room', 'wpcasa-mail-alert') ?></th>
+				<?php do_action('thfo_after_header_subscriber_table', 10,1); ?>
 				<th><?php _e('Delete', 'wpcasa-mail-alert') ?></th>
-                <?php do_action('thfo_after_header_subscriber_table'); ?>
+
 			</tr>
 			<?php
 			foreach ($subscribers as $subscriber){
