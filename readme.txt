@@ -25,7 +25,7 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 
 <ul>
 	<li>Allow search by number of bath</li>
-	<li>Allow search by type (For Sale or For Sale)</li>
+	<li>Allow search by type (For Sale or For Rent)</li>
 </ul>
 
 A premium version working with more features (as nb of rooms dynamic) exists [HERE](https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/).
