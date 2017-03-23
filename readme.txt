@@ -1,4 +1,4 @@
-=== WPCasa Mail Alert Legacy===
+=== WPCasa Mail Alert ===
 Plugin Name: WPCasa Mail Alert
 Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 Contributors: sebastien@thivinfo.com
