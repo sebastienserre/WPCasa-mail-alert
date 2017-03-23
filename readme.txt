@@ -11,6 +11,23 @@ License: GPL V2 or later
 
 == Description ==
 WPCasa Mail Alert will display a widget to add a form on your Website using WPCasa Framework from WPSIght. Once registred, you'll receive a mail when the RealEstate Agency will add or update a property corresponding to your search!
+
+<h3>Features</h3>
+
+<ul>
+    <li>Allow Search by numbers of bedrooms</li>
+    <li>Allow Search city</li>
+    <li>Allow search by minimum Price</li>
+    <li>Allow search by maximum Price</li>
+</ul>
+
+<h3>WPCasa Mail Alert PRO</h3>
+
+<ul>
+	<li>Allow search by number of bath</li>
+	<li>Allow search by type (For Sale or For Sale)</li>
+</ul>
+
 A premium version working with more features (as nb of rooms dynamic) exists [HERE](https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/).
 
 == Installation ==
@@ -45,4 +62,5 @@ use automatic upgrade
 
 == Changelog ==
 
+* 1.1.0 adaptation for premium plugin
 * 1.0.0 Initial version

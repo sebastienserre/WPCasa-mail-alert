@@ -35,6 +35,29 @@ function thfo_search_subscriber() {
 		}
 
 		/**
+		 * get bathroom number for property
+		 * Premium Feature
+		 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
+		 */
+
+		$bath = get_post_meta( $post->ID, '_details_2' );
+
+		if ( ! empty( $bath ) ) {
+			$nb_bath = (int) $bath[0];
+		} else {
+			$nb_bath = '';
+		}
+
+		/**
+		 * Get type of offer for property
+		 * Premium Feature
+		 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
+		 */
+
+		$type = get_post_meta( $post->ID, '_price_offer' );
+
+
+		/**
 		 * get subcriber list for this city
 		 */
 
@@ -57,19 +80,23 @@ function thfo_search_subscriber() {
 			 */
 			do_action( 'thfo_before_search' );
 
+
 			foreach ( $subscribers as $subscriber ) {
+
 				if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
 
 					if ( $nb_room >= $subscriber->room ) {
-						$mail = $subscriber->email;
 
-						/**
-						 * @since 1.4.0
-						 * Fires after mail list created and before sending mail
-						 */
+						if ($nb_bath >= $subscriber->bath) {
 
-						//var_dump( $mail );
-						thfo_send_mail( $mail );
+							if ($type[0] == $subscriber->type) {
+
+
+								$mail = $subscriber->email;
+
+								thfo_send_mail( $mail );
+							}
+						}
 					}
 				}
 			}
