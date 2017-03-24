@@ -21,13 +21,8 @@ class thfo_mailalert_admin_menu {
 	}
 
 	public function general_html(){
-	    if (defined('WPCASAMA_PRO_VERSION')){
-		    echo '<h1>' . get_admin_page_title() . ' ' . WPCASAMA_PRO_VERSION ;
-		    echo ' Pro</h1>';
-        } else {
-		    echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
-		    echo '</h1>';
-	    }
+		    echo '<h1>' . get_admin_page_title() . '</h1>';
+
 		?>
 		<form method="post" action="options.php">
 			<?php settings_fields('thfo_newsletter_options') ?>
@@ -229,8 +224,14 @@ class thfo_mailalert_admin_menu {
 		$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ");
 		$count = count($subscribers);
 
+		if (defined('WPCASAMA_PRO_VERSION')){
+			echo '<h1>' . get_admin_page_title() . ' ' . WPCASAMA_PRO_VERSION ;
+			echo ' Pro</h1>';
+		} else {
+			echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
+			echo '</h1>';
+		}
 
-		echo '<h2>' . get_admin_page_title() . '</h2>';
 		echo '<p>';
 		if ( $count === 0 ){
 		    _e('0 subscriber' , 'wpcasa-mail-alert');
