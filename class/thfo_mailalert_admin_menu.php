@@ -238,6 +238,8 @@ class thfo_mailalert_admin_menu {
 			printf( _n( '%s subscriber:', '%s subscribers:', $count, 'wpcasa-mail-alert' ), number_format_i18n( $count ) );
 		}
 
+		//printf( _n( '%s subscriber:', '%s subscribers:', $count, 'wpcasa-mail-alert' ), number_format_i18n( $count ) );
+
 		echo '</p>';
 
 		?>

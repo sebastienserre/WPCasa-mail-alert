@@ -16,7 +16,7 @@ class thfo_mailalert_unsubscribe {
 	public function unsubscribe_html()
 	{ ?>
 		<form class="thfo_unsubscribe" method="post" action="">
-			<label><?php _e('Please add your mail', 'thfo_mailalert'); ?></label>
+			<label><?php _e('Please add your mail', 'wpcasa-mail-alert'); ?></label>
 			<input type="email" name="email" <?php
 			if ( isset($_GET['remove']) && ! empty($_GET['remove'])){ ?>
 				value="<?php echo $_GET['remove']; ?>"
@@ -44,7 +44,7 @@ class thfo_mailalert_unsubscribe {
 
 			if (!is_null($row)) {
 				$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert", array('email' => $mail)); ?>
-				<div class="thfo-mailalert-del"> <?php _e("Your mail address has been successfully deleted from our database","thfo-mail-alert"); ?> </div>
+				<div class="thfo-mailalert-del"> <?php _e("Your mail address has been successfully deleted from our database","wpcasa-mail-alert"); ?> </div>
 			<?php }
 		}
 
