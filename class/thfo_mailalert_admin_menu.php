@@ -21,7 +21,14 @@ class thfo_mailalert_admin_menu {
 	}
 
 	public function general_html(){
-		echo '<h1>'.get_admin_page_title().'</h1>'; ?>
+	    if (defined('WPCASAMA_PRO_VERSION')){
+		    echo '<h1>' . get_admin_page_title() . ' ' . WPCASAMA_PRO_VERSION ;
+		    echo ' Pro</h1>';
+        } else {
+		    echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
+		    echo '</h1>';
+	    }
+		?>
 		<form method="post" action="options.php">
 			<?php settings_fields('thfo_newsletter_options') ?>
 			<?php do_settings_sections('thfo_general_options') ?>
@@ -124,7 +131,9 @@ class thfo_mailalert_admin_menu {
 
 			<?php } ?>
 		</select>
-		<?php do_action('wpcasama_pro_after_unsubscribe_page'); ?>
+		<?php
+        echo '<p>' . __('Use the [thfo_mailalert_unsubscribe] shortcode on the selected page', 'wpcasa-mail-alert') . '</p>';
+        do_action('wpcasama_pro_after_unsubscribe_page'); ?>
 	<?php }
 
 
