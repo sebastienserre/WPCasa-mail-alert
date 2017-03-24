@@ -84,8 +84,21 @@ class thfo_mailalert_admin_menu {
 		$max_price = get_option('thfo_max_price')?>
 		<?php do_action('wpcasama_pro_before_max_price_option'); ?>
 		<input name="thfo_max_price" id="thfo_max_price" type="text" value="<?php if ( !empty($max_price)) : echo $max_price; endif ?>">
-		<p><?php _e('Please enter maximum price separated by a comma','thfo_mail_alert') ?></p>
+		<p><?php _e('Please enter maximum price separated by a comma','wpcasa-mail-alert') ?></p>
         <?php do_action('wpcasama_pro_after_max_price_option'); ?>
+        <?php
+
+		/**
+		 * Promo for Pro Version on free one.
+         * If Pro -> More options!
+		 */
+
+        $url = 'https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/';
+        $value = sprintf( wp_kses( __( 'More options in the PRO Version from only 39$ per year <a href="%s">Here</a>.', 'wpcasa-mail-alert' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( $url ) );
+        $value = apply_filters( 'link_to_pro_version', $value );
+        echo '<div class="wpcasama-promo"> ' . $value . '</div>';
+
+        ?>
 
 	<?php }
 
