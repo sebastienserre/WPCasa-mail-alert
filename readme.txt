@@ -21,7 +21,7 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
     <li>Allow search by maximum Price</li>
 </ul>
 
-<h3><a href='https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/' title='Link to WPCasa Mail Alert Pro' />WPCasa Mail Alert PRO</a></h3>
+<h3><a href='https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/' title='Link to WPCasa Mail Alert Pro' >WPCasa Mail Alert PRO</a></h3>
 
 <ul>
 	<li>Allow search by number of bath</li>
