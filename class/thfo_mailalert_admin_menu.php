@@ -96,9 +96,11 @@ class thfo_mailalert_admin_menu {
 		 */
 
         $url = 'https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/';
-        $value = sprintf( wp_kses( __( 'More options in the PRO Version from only 39$ per year <a href="%s">Here</a>.', 'wpcasa-mail-alert' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( $url ) );
+        $value = '<div class="wpcasama-promo"> ';
+        $value .= sprintf( wp_kses( __( 'More options in the PRO Version from only 39$ per year <a href="%s">Here</a>.', 'wpcasa-mail-alert' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( $url ) );
+        $value .= '</div>';
         $value = apply_filters( 'link_to_pro_version', $value );
-        echo '<div class="wpcasama-promo"> ' . $value . '</div>';
+        echo $value;
 
         ?>
 
