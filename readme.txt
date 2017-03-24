@@ -3,7 +3,7 @@ Plugin Name: WPCasa Mail Alert
 Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 Contributors: sebastien@thivinfo.com
 Donate link: http://paypal.me/sebastienserre
-Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready
+Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
 Requires at least: 3.9
 Tested up to: 4.7
 Stable tag: 1.1.0
@@ -21,14 +21,13 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
     <li>Allow search by maximum Price</li>
 </ul>
 
-<h3>WPCasa Mail Alert PRO</h3>
+<h3>[WPCasa Mail Alert PRO](https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/)</h3>
 
 <ul>
 	<li>Allow search by number of bath</li>
 	<li>Allow search by type (For Sale or For Rent)</li>
 </ul>
 
-A premium version working with more features (as nb of rooms dynamic) exists [HERE](https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/).
 
 == Installation ==
 * 1- unzip
