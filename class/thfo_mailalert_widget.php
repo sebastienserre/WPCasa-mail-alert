@@ -75,12 +75,18 @@ class thfo_mailalert_widget extends WP_Widget {
 
 		<form action="" method="post">
 			<p>
-				<label for="thfo_mailalert_name"> <?php _e('Your name', 'wpcasa-mail-alert') ?>*</label>
+            <div class="wpcasama-widget-field"><label for="thfo_mailalert_name"> <?php _e('Your name', 'wpcasa-mail-alert') ?>*</label>
 				<input id="thfo_mailalert_name" name="thfo_mailalert_name" required/>
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_email"> <?php _e('Your Email', 'wpcasa-mail-alert') ?>*</label>
 				<input id="thfo_mailalert_email" name="thfo_mailalert_email" type="email" required/>
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_phone"> <?php _e('Your Phone number', 'wpcasa-mail-alert') ?></label>
 				<input id="thfo_mailalert_phone" name="thfo_mailalert_phone" />
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_city"> <?php _e('City', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_city" required>
 					<?php
@@ -91,6 +97,8 @@ class thfo_mailalert_widget extends WP_Widget {
 					<?php }
 					?>
 				</select>
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_min_price"> <?php _e('Minimum Price', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_min_price">
 					<option name="thfo_mailalert_min_price" value="0">0€</option>
@@ -101,6 +109,8 @@ class thfo_mailalert_widget extends WP_Widget {
 					<?php }
 					?>
 				</select>
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_price"> <?php _e('Maximum Price', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_price">
 					<?php
@@ -110,6 +120,8 @@ class thfo_mailalert_widget extends WP_Widget {
 					?>
 					<option name="thfo_mailalert_price" value="more"><?php _e('Infinite', 'wpcasa-mail-alert') ?></option>
 				</select>
+            </div>
+            <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_room"> <?php _e('Room', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_room">
 					<?php
@@ -119,6 +131,7 @@ class thfo_mailalert_widget extends WP_Widget {
 
 					?>
 				</select>
+            </div>
                 <?php do_action('wpcasama_end_widget'); ?>
 			</p>
 			<input name="thfo_mailalert" class="moretag btn btn-primary" type="submit" />
