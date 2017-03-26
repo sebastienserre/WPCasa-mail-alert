@@ -3,3 +3,16 @@
     padding: 1em;
     shape-margin: 2px;
 }
+.widget_thfo_mailalert input {
+	float: left;
+	width: 60%;
+}
+
+.widget_thfo_mailalert label {
+	float: left;
+	width: 40%;
+}
+
+.wpcasama-widget-field {
+	clear: both;
+}
