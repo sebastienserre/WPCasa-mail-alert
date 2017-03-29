@@ -4,7 +4,7 @@
 Plugin Name: WPCasa Mail Alert
 Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 Description: Allow Visitor to subscribe to a mail alert to receive a mail when a new property is added.
-Version: 1.1.3
+Version: 1.1.4
 Author: Sébastien Serre
 Author URI: http://www.thivinfo.com
 License: GPL2
@@ -30,11 +30,12 @@ class thfo_mail_alert {
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
+		add_action('admin_notices', array($this, 'wpcasa_mailalert_check_wpcasa'));
 
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
 		register_uninstall_hook( __FILE__, 'wpcasama_pro_deactivation' );
 
-		define( 'PLUGIN_VERSION', '1.1.3' );
+		define( 'PLUGIN_VERSION', '1.1.4' );
 
 	}
 
@@ -80,6 +81,16 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 
 	public function thfo_register_style() {
 		wp_enqueue_style( 'thfo_mailalert_style', plugins_url( 'assets/css/styles.css', __FILE__ ) );
+	}
+
+	public function wpcasa_mailalert_check_wpcasa(){
+		if ( ! class_exists('WPSight_Framework')){
+
+			echo '<div class="notice notice-error"><p>' . __('WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>';
+
+			deactivate_plugins(plugin_basename(__FILE__));
+
+		}
 	}
 
 
