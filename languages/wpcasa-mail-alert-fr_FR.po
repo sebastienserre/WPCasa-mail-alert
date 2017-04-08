@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-04-08 09:26+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"Language: fr-FR\n"
+"Project-Id-Version: Plugins - WPCasa Mail Alert - Stable (latest release)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-29 09:30+0000\n"
+"Last-Translator: sebastienserre <sebastien@thivinfo.com>\n"
+"Language-Team: French (France)"
+
+#: wpcasa-mailalert-pro.php:131
+msgid ""
+"WPCASA Mail Alert free is not activated. WPCasa Mail-Alert need it to work "
+"properly."
+msgstr ""
+"la version gratuite de WPCASA Mail Alert n'est pas activée. La version pro "
+"en a besoin pour fonctionner."
+
+#: wpcasa-mailalert-pro.php:131
+msgid " download it for free!"
+msgstr "La télécharger gratuitement."
+
+#: class/thfo_mailalert_unsubscribe.php:47
+msgid "Your mail address has been successfully deleted from our database"
+msgstr "Votre e-mail a été correctement supprimé de notre base de donnée."
+
+#: class/thfo_mailalert_admin_menu.php:26
+#: class/thfo_mailalert_admin_menu.php:26
+#: class/thfo_mailalert_admin_menu.php:105
+msgid "General Options"
+msgstr "Options Générales"
+
+#: class/thfo_mailalert_admin_menu.php:83
+msgid "Header picture"
+msgstr "Image d'entête."
+
+#: class/thfo_mailalert_admin_menu.php:95
+msgid "Object"
+msgstr "Sujet:"
+
+#: class/thfo_mailalert_admin_menu.php:116
+msgid "Unsubscribe Page"
+msgstr "Page de désabonnement"
+
+#: class/thfo_mailalert_admin_menu.php:252
+#, php-format
+msgid "1 subscriber:"
+msgid_plural "%s subscribers:"
+msgstr[0] "1 abonné"
+msgstr[1] "%s abonnés:"
+
+#: admin/updater/plugin-licence.php:4
+msgid "License"
+msgstr "Licence"
+
+#: admin/updater/plugin-licence.php:16
+msgid "Plugin License Options"
+msgstr "Licence"
+
+#: admin/updater/plugin-licence.php:19
+msgid "The license key is used to access automatic updates and support."
+msgstr ""
+"La clé de licence est utilisée pour obtenir  les mises à jours et le support."
+
+#: admin/updater/plugin-licence.php:20
+msgid ""
+"Trouble to activate your licence key? Do it manually by adding your website "
+"to your Thivinfo account"
+msgstr ""
+"Des soucis pour activer votre clé? Faites le manuellement depuis votre "
+"compte Thivinfo."
+
+#: admin/updater/plugin-licence.php:20
+msgid "Activate manually"
+msgstr "Activer manuellement"
+
+#: admin/updater/plugin-licence.php:25
+msgid "License Key"
+msgstr "Clé de licence"
+
+#: admin/updater/plugin-licence.php:29
+msgid "Enter your license key"
+msgstr "Saisissez votre clé de licence"
+
+#: admin/updater/plugin-licence.php:35 admin/updater/plugin-licence.php:45
+msgid "Activate License"
+msgstr "Activer la licence"
+
+#: admin/updater/plugin-licence.php:41
+msgid "Deactivate License"
+msgstr "Désactiver la licence"
+
+#. Name of the plugin
+msgid "WPCasa Mail Alert Pro"
+msgstr "WPCasa Mail Alert Pro"
+
+#. Description of the plugin/theme
+msgid ""
+"Allow Visitor to subscribe to a mail alert to receive a mail when a new "
+"property is added."
+msgstr ""
+"Autorisez les visiteurs de votre site a s'inscrire pour recevoir des alertes "
+"selon des critères de recherches."
+
+#: wpcasa-mailalert-pro.php:75
+msgid "You need to activate your license key to receive update."
+msgstr ""
+"Vous devez activer votre clé de licence pour recevoir des mises à jour."
+
+#: wpcasa-mailalert-pro.php:120
+msgid "Many thanks to register"
+msgstr "Merci de vous être abonnés."
+
+#: inc/wpcasama-widget-pro-functions.php:24
+#: inc/wpcasama-widget-pro-functions.php:63
+msgid "Bath"
+msgstr "Salle de bain"
+
+#: inc/wpcasama-widget-pro-functions.php:33
+#: inc/wpcasama-widget-pro-functions.php:62
+msgid "Type"
+msgstr "Type"
+
+#: inc/wpcasama-widget-pro-functions.php:36
+msgid "For Sale"
+msgstr "Vente"
+
+#: inc/wpcasama-widget-pro-functions.php:38
+msgid "For Rent"
+msgstr "Location"
+
+#: class/thfo_mailalert_widget.php:12 class/thfo_mailalert_admin_menu.php:18
+#: class/thfo_mailalert_admin_menu.php:18
+msgid "Mail Alert"
+msgstr "Alerte E-mail"
+
+#: class/thfo_mailalert_widget.php:12
+msgid "Form to add a property search mail alert"
+msgstr "Formulaire pour ajouter une alerte e-mail sur une recherche."
+
+#: class/thfo_mailalert_widget.php:85 class/thfo_mailalert_widget.php:87
+msgid "Your name"
+msgstr "Votre nom"
+
+#: class/thfo_mailalert_widget.php:90 class/thfo_mailalert_widget.php:92
+msgid "Your Email"
+msgstr "Votre e-mail"
+
+#: class/thfo_mailalert_widget.php:95 class/thfo_mailalert_widget.php:97
+msgid "Your Phone number"
+msgstr "Votre numéro de téléphone"
+
+#: class/thfo_mailalert_widget.php:100
+msgid "City"
+msgstr "Ville"
+
+#: class/thfo_mailalert_widget.php:112
+msgid "Minimum Price"
+msgstr "Prix minimum"
+
+#: class/thfo_mailalert_widget.php:125 class/thfo_mailalert_admin_menu.php:120
+msgid "Maximum Price"
+msgstr "Prix maximum"
+
+#: class/thfo_mailalert_widget.php:133
+msgid "Infinite"
+msgstr "Infini"
+
+#: class/thfo_mailalert_widget.php:137 class/thfo_mailalert_admin_menu.php:266
+msgid "Room"
+msgstr "Chambre"
+
+#: class/thfo_mailalert_search.php:92
+msgid "To unsubscribe to this mail please follow this link: "
+msgstr "Pour vous désabonner, merci de suivre ce lien:"
+
+#: class/thfo_mailalert_unsubscribe.php:19
+msgid "Please add your mail"
+msgstr "Veuillez ajouter votre e-mail."
+
+#: class/thfo_mailalert_unsubscribe.php:26
+msgid "unsubscribe"
+msgstr "Se désabonner."
+
+#: class/thfo_mailalert_admin_menu.php:22
+#: class/thfo_mailalert_admin_menu.php:22
+msgid "Mail Settings"
+msgstr "Réglages E-mail"
+
+#: class/thfo_mailalert_admin_menu.php:67
+msgid "Outgoing parameters"
+msgstr "Paramètres sortants"
+
+#: class/thfo_mailalert_admin_menu.php:79
+msgid "Sender"
+msgstr "Expéditeur"
+
+#: class/thfo_mailalert_admin_menu.php:87
+msgid "footer"
+msgstr "Pied de page"
+
+#: class/thfo_mailalert_admin_menu.php:91
+msgid "email"
+msgstr "e-mail"
+
+#: class/thfo_mailalert_admin_menu.php:99
+msgid "Content"
+msgstr "Contenu"
+
+#: class/thfo_mailalert_admin_menu.php:132
+msgid "Please enter maximum price separated by a comma"
+msgstr "Veuillez saisir les prix maximum séparés par une virgule"
+
+#: class/thfo_mailalert_admin_menu.php:137
+msgid "Select your options"
+msgstr "Sélectionnez vos options"
+
+#: class/thfo_mailalert_admin_menu.php:164
+msgid "Upload"
+msgstr "Mettre en ligne"
+
+#: class/thfo_mailalert_admin_menu.php:194
+msgid "Advise about outgoing parameters."
+msgstr "Renseignez vos paramètres d’e-mail sortant."
+
+#: class/thfo_mailalert_admin_menu.php:259
+msgid "Date"
+msgstr "Date"
+
+#: class/thfo_mailalert_admin_menu.php:260
+msgid "Name"
+msgstr "Nom"
+
+#: class/thfo_mailalert_admin_menu.php:261
+msgid "Email"
+msgstr "E-mail"
+
+#: class/thfo_mailalert_admin_menu.php:262
+msgid "Phone"
+msgstr "Téléphone"
+
+#: class/thfo_mailalert_admin_menu.php:263
+msgid "City Searched"
+msgstr "Ville recherchée"
+
+#: class/thfo_mailalert_admin_menu.php:264
+msgid "Minimum price"
+msgstr "Prix minimum"
+
+#: class/thfo_mailalert_admin_menu.php:265
+msgid "Maximum price"
+msgstr "Prix maximum"
+
+#: class/thfo_mailalert_admin_menu.php:267
+#: class/thfo_mailalert_admin_menu.php:291
+msgid "Delete"
+msgstr "Supprimer"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+msgstr "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+
+#. Author of the plugin/theme
+msgid "Sébastien Serre"
+msgstr "Sébastien Serre"
+
+#. Author URI of the plugin/theme
+msgid "http://www.thivinfo.com"
+msgstr "http://www.thivinfo.com"
