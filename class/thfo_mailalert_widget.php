@@ -48,6 +48,7 @@ class thfo_mailalert_widget extends WP_Widget {
 
 		$prices = get_option('thfo_max_price');
 		$prices = $this->multiexplode(array(',',', '), $prices);
+		$currency = wpsight_get_currency() ;
 		/**
 		 * Find number of rooms
 		 */
@@ -101,11 +102,11 @@ class thfo_mailalert_widget extends WP_Widget {
             <div class="wpcasama-widget-field">
 				<label for="thfo_mailalert_min_price"> <?php _e('Minimum Price', 'wpcasa-mail-alert') ?></label>
 				<select name="thfo_mailalert_min_price">
-					<option name="thfo_mailalert_min_price" value="0">0€</option>
+					<option name="thfo_mailalert_min_price" value="0">0 <?php  echo $currency ?></option>
 					<?php
 					foreach ($prices as $price){ ?>
 
-						<option name="thfo_mailalert_min_price" value="<?php echo $price  ?>"><?php echo $price  ?>€</option>
+						<option name="thfo_mailalert_min_price" value="<?php echo $price  ?>"><?php echo $price  ?><?php  echo $currency ?></option>
 					<?php }
 					?>
 				</select>
@@ -115,7 +116,7 @@ class thfo_mailalert_widget extends WP_Widget {
 				<select name="thfo_mailalert_price">
 					<?php
 					foreach ($prices as $price){ ?>
-						<option name="thfo_mailalert_price" value="<?php echo $price  ?>"><?php echo $price  ?>€</option>
+						<option name="thfo_mailalert_price" value="<?php echo $price  ?>"><?php echo $price  ?><?php  echo $currency ?></option>
 					<?php }
 					?>
 					<option name="thfo_mailalert_price" value="more"><?php _e('Infinite', 'wpcasa-mail-alert') ?></option>

@@ -6,7 +6,7 @@ Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
 Requires at least: 3.9
 Tested up to: 4.7
-Stable tag: 1.1.3
+Stable tag: 1.1.5
 License: GPL V2 or later
 
 == Description ==
@@ -61,6 +61,7 @@ use automatic upgrade
 
 == Changelog ==
 
+* 1.1.5 use currency unit from WPCasa Settings
 * 1.1.3 add light CSS to Widget
 * 1.1.1 add style and correct some small bug
 * 1.1.0 adaptation for premium plugin
