@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 09:30+0000\n"
+"POT-Creation-Date: 2017-04-08 12:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,40 +14,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: wpcasa-mailalert-pro.php:75
-msgid "You need to activate your license key to receive update."
-msgstr ""
-
-#: wpcasa-mailalert-pro.php:120
-msgid "Many thanks to register"
-msgstr ""
-
-#: wpcasa-mailalert-pro.php:131
+#: wpcasa-mail-alert.php:89
 msgid ""
-"WPCASA Mail Alert free is not activated. WPCasa Mail-Alert need it to work "
-"properly."
-msgstr ""
-
-#: wpcasa-mailalert-pro.php:131
-msgid " download it for free!"
-msgstr ""
-
-#: inc/wpcasama-widget-pro-functions.php:24
-#: inc/wpcasama-widget-pro-functions.php:63
-msgid "Bath"
-msgstr ""
-
-#: inc/wpcasama-widget-pro-functions.php:33
-#: inc/wpcasama-widget-pro-functions.php:62
-msgid "Type"
-msgstr ""
-
-#: inc/wpcasama-widget-pro-functions.php:36
-msgid "For Sale"
-msgstr ""
-
-#: inc/wpcasama-widget-pro-functions.php:38
-msgid "For Rent"
+"WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please "
+"activate WPCasa."
 msgstr ""
 
 #: class/thfo_mailalert_widget.php:12 class/thfo_mailalert_admin_menu.php:18
@@ -59,39 +29,39 @@ msgstr ""
 msgid "Form to add a property search mail alert"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:85 class/thfo_mailalert_widget.php:87
+#: class/thfo_mailalert_widget.php:79
 msgid "Your name"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:90 class/thfo_mailalert_widget.php:92
+#: class/thfo_mailalert_widget.php:83
 msgid "Your Email"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:95 class/thfo_mailalert_widget.php:97
+#: class/thfo_mailalert_widget.php:87
 msgid "Your Phone number"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:100
+#: class/thfo_mailalert_widget.php:91
 msgid "City"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:112
+#: class/thfo_mailalert_widget.php:103
 msgid "Minimum Price"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:125 class/thfo_mailalert_admin_menu.php:120
+#: class/thfo_mailalert_widget.php:115 class/thfo_mailalert_admin_menu.php:80
 msgid "Maximum Price"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:133
+#: class/thfo_mailalert_widget.php:122
 msgid "Infinite"
 msgstr ""
 
-#: class/thfo_mailalert_widget.php:137 class/thfo_mailalert_admin_menu.php:266
+#: class/thfo_mailalert_widget.php:126 class/thfo_mailalert_admin_menu.php:259
 msgid "Room"
 msgstr ""
 
-#: class/thfo_mailalert_search.php:92
+#: class/thfo_mailalert_search.php:125
 msgid "To unsubscribe to this mail please follow this link: "
 msgstr ""
 
@@ -107,145 +77,122 @@ msgstr ""
 msgid "Your mail address has been successfully deleted from our database"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:22
-#: class/thfo_mailalert_admin_menu.php:22
+#: class/thfo_mailalert_admin_menu.php:19
+#: class/thfo_mailalert_admin_menu.php:19
 msgid "Mail Settings"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:26
-#: class/thfo_mailalert_admin_menu.php:26
-#: class/thfo_mailalert_admin_menu.php:105
+#: class/thfo_mailalert_admin_menu.php:20
+#: class/thfo_mailalert_admin_menu.php:20
+#: class/thfo_mailalert_admin_menu.php:72
 msgid "General Options"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:67
+#: class/thfo_mailalert_admin_menu.php:55
 msgid "Outgoing parameters"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:79
+#: class/thfo_mailalert_admin_menu.php:64
 msgid "Sender"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:83
+#: class/thfo_mailalert_admin_menu.php:65
 msgid "Header picture"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:87
+#: class/thfo_mailalert_admin_menu.php:66
 msgid "footer"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:91
+#: class/thfo_mailalert_admin_menu.php:67
 msgid "email"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:95
+#: class/thfo_mailalert_admin_menu.php:68
 msgid "Object"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:99
+#: class/thfo_mailalert_admin_menu.php:69
 msgid "Content"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:116
+#: class/thfo_mailalert_admin_menu.php:79
 msgid "Unsubscribe Page"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:132
+#: class/thfo_mailalert_admin_menu.php:89
 msgid "Please enter maximum price separated by a comma"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:137
+#: class/thfo_mailalert_admin_menu.php:100
+#, php-format
+msgid ""
+"More options in the PRO Version from only 39,99€ per year <a href=\"%s\">"
+"Here</a>."
+msgstr ""
+
+#: class/thfo_mailalert_admin_menu.php:110
 msgid "Select your options"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:164
+#: class/thfo_mailalert_admin_menu.php:132
+msgid "Use the [thfo_mailalert_unsubscribe] shortcode on the selected page"
+msgstr ""
+
+#: class/thfo_mailalert_admin_menu.php:139
 msgid "Upload"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:194
+#: class/thfo_mailalert_admin_menu.php:171
 msgid "Advise about outgoing parameters."
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:252
+#: class/thfo_mailalert_admin_menu.php:239
+msgid "0 subscriber"
+msgstr ""
+
+#: class/thfo_mailalert_admin_menu.php:241
 #, php-format
-msgid "1 subscriber:"
+msgid "%s subscriber:"
 msgid_plural "%s subscribers:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: class/thfo_mailalert_admin_menu.php:259
+#: class/thfo_mailalert_admin_menu.php:252
 msgid "Date"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:260
+#: class/thfo_mailalert_admin_menu.php:253
 msgid "Name"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:261
+#: class/thfo_mailalert_admin_menu.php:254
 msgid "Email"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:262
+#: class/thfo_mailalert_admin_menu.php:255
 msgid "Phone"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:263
+#: class/thfo_mailalert_admin_menu.php:256
 msgid "City Searched"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:264
+#: class/thfo_mailalert_admin_menu.php:257
 msgid "Minimum price"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:265
+#: class/thfo_mailalert_admin_menu.php:258
 msgid "Maximum price"
 msgstr ""
 
-#: class/thfo_mailalert_admin_menu.php:267
-#: class/thfo_mailalert_admin_menu.php:291
+#: class/thfo_mailalert_admin_menu.php:261
+#: class/thfo_mailalert_admin_menu.php:286
 msgid "Delete"
 msgstr ""
 
-#: admin/updater/plugin-licence.php:4
-msgid "License"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:16
-msgid "Plugin License Options"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:19
-msgid "The license key is used to access automatic updates and support."
-msgstr ""
-
-#: admin/updater/plugin-licence.php:20
-msgid ""
-"Trouble to activate your licence key? Do it manually by adding your website "
-"to your Thivinfo account"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:20
-msgid "Activate manually"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:25
-msgid "License Key"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:29
-msgid "Enter your license key"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:35 admin/updater/plugin-licence.php:45
-msgid "Activate License"
-msgstr ""
-
-#: admin/updater/plugin-licence.php:41
-msgid "Deactivate License"
-msgstr ""
-
 #. Name of the plugin
-msgid "WPCasa Mail Alert Pro"
+msgid "WPCasa Mail Alert"
 msgstr ""
 
 #. Description of the plugin
