@@ -16,11 +16,15 @@ Domain Path: /languages
 class thfo_mail_alert {
 	function __construct() {
 
-		include_once plugin_dir_path( __FILE__ ) . '/class/thfo_mailalert_load.php';
-		include_once plugin_dir_path( __FILE__ ) . '/class/thfo_mailalert_widget.php';
-		include_once plugin_dir_path( __FILE__ ) . '/class/thfo_mailalert_search.php';
-		include_once plugin_dir_path( __FILE__ ) . '/class/thfo_mailalert_admin_menu.php';
-		include_once plugin_dir_path( __FILE__ ) . '/class/thfo_mailalert_unsubscribe.php';
+
+		define( 'PLUGIN_VERSION', '1.1.5' );
+		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ));
+
+		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_load.php';
+		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_widget.php';
+		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_search.php';
+		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_admin_menu.php';
+		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_unsubscribe.php';
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
@@ -35,7 +39,6 @@ class thfo_mail_alert {
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
 		register_uninstall_hook( __FILE__, 'wpcasama_pro_deactivation' );
 
-		define( 'PLUGIN_VERSION', '1.1.5' );
 
 	}
 
