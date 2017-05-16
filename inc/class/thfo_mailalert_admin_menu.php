@@ -15,7 +15,7 @@ class thfo_mailalert_admin_menu {
 	}
 
 	public function thfo_admin_menu(){
-		add_menu_page(__('Mail Alert', 'wpcasa-mail-alert'),__('Mail Alert', 'wpcasa-mail-alert'),'manage_options','wpcasa-mail-alert', array($this, 'thfo_menu_html'),plugin_dir_url( __DIR__ ) . 'assets/img/icon.png');
+		add_menu_page(__('Mail Alert', 'wpcasa-mail-alert'),__('Mail Alert', 'wpcasa-mail-alert'),'manage_options','wpcasa-mail-alert', array($this, 'thfo_menu_html'),WPCASAMA_PLUGIN_PATH . '/assets/img/icon.png');
 		add_submenu_page('wpcasa-mail-alert',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings', array($this,'menu_html'));
 		add_submenu_page('wpcasa-mail-alert',__('General Options', 'wpcasa-mail-alert'),__('General Options', 'wpcasa-mail-alert'),'manage_options', 'thfo_mailalert_options', array($this,'general_html'));
 	}

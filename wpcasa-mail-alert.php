@@ -19,6 +19,7 @@ class thfo_mail_alert {
 
 		define( 'PLUGIN_VERSION', '1.1.5' );
 		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ));
+		define('WPCASAMA_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
 
 		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_load.php';
 		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_widget.php';
