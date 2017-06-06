@@ -5,7 +5,7 @@ Contributors: sebastien@thivinfo.com
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
 Requires at least: 3.9
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: 1.1.6
 License: GPL V2 or later
 
@@ -26,6 +26,7 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 <ul>
 	<li>Allow search by number of bath</li>
 	<li>Allow search by type (For Sale or For Rent)</li>
+	<li>Add a Shortcode to display the form where ever you want</li>
 </ul>
 
 
