@@ -29,7 +29,6 @@ class thfo_mailalert_admin_menu {
 			<?php do_settings_sections('thfo_general_options') ?>
 			<?php submit_button(__('Save')); ?>
 
-
 		</form>
 	<?php }
 
