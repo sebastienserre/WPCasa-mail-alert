@@ -10,10 +10,38 @@
     display: block;
 }
 
+table.thfo_subscriber {
+    background: white;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 70%;
+    margin: 0 auto;
+    float: left;
+}
+
 .wpcasama-promo {
     font-size: 2rem;
     background: white;
     width: 60%;
     padding: 1%;
     margin-top: 10px;
+}
+.ads {
+    width: 20%;
+    background: white;
+    float: left;
+    border: solid 1px #fe5000;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 0.5em;
+}
+
+.wpcasama-stars {
+    margin-top: 1em;
+}
+
+.wpcasama-stars span.dashicons.dashicons-star-filled,
+.wpcasama-stars span.dashicons{
+    text-decoration: none;
 }
