@@ -26,6 +26,7 @@ class thfo_mail_alert {
 		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_search.php';
 		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_admin_menu.php';
 		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_unsubscribe.php';
+		include_once plugin_dir_path( __FILE__ ) . '/inc/admin/wpcasa-admin.php';
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
@@ -96,6 +97,7 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 
 		}
 	}
+
 
 
 }
