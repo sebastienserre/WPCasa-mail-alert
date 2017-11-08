@@ -29,12 +29,31 @@ table.thfo_subscriber {
 }
 .ads {
     width: 20%;
-    background: white;
     float: left;
     border: solid 1px #fe5000;
     border-radius: 10px;
     margin-left: 10px;
     padding: 0.5em;
+    background: #fe5000;
+    color: #ffffff;
+}
+
+.ads h4 {
+    font-size: x-large;
+    text-align: center;
+}
+
+.ads ul {
+    margin-left: 4em;
+    font-size: larger;
+    list-style-type: decimal;
+}
+
+.ads a {
+    color: #ffffff;
+    padding: 0.5em;
+    font-size: 2em;
+    text-align: center;
 }
 
 .wpcasama-stars {

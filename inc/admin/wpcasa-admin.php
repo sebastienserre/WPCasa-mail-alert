@@ -119,7 +119,7 @@
 	?>
 </table>
 		<div class="ads">
-			"Achete moi"
+            <?php wpcasama_display_ads(); ?>
 		</div>
         <div class="clear"></div>
         <div class="wpcasama-stars">
@@ -157,4 +157,20 @@
 <?php
 
 	}
+
+
+	function wpcasama_display_ads(){
+	    ?>
+        <div class="premium-ads">
+            <h4>WPCasa Mail Alert Pro</h4>
+            <ul>
+                <li><?php _e('Offer filter: sale or rent', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Number of Bath Filter', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Automatic Update', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Priority support', 'wpcasa-mail-alert'); ?></li>
+            </ul>
+            <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php _e('Buy WPCasa MailAlert Pro', 'wpcasa-mail-alert');  ?></a>
+        </div>
+        <?php
+    }
 
