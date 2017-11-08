@@ -17,16 +17,18 @@ class thfo_mail_alert {
 	function __construct() {
 
 
-		define( 'PLUGIN_VERSION', '1.1.6' );
-		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ));
-		define('WPCASAMA_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
+		define( 'PLUGIN_VERSION', '1.2.0' );
 
-		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_load.php';
-		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_widget.php';
-		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_search.php';
-		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_admin_menu.php';
-		include_once plugin_dir_path( __FILE__ ) . '/inc/class/thfo_mailalert_unsubscribe.php';
-		include_once plugin_dir_path( __FILE__ ) . '/inc/admin/wpcasa-admin.php';
+		define('WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+		define('WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ));
+
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_admin_menu.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
