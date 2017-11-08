@@ -166,6 +166,7 @@
             <ul>
                 <li><?php _e('Offer filter: sale or rent', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Number of Bath Filter', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Shortcode to display the form where ever you want', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Automatic Update', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Priority support', 'wpcasa-mail-alert'); ?></li>
             </ul>

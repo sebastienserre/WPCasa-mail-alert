@@ -4,11 +4,11 @@
 Plugin Name: WPCasa Mail Alert
 Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 Description: Allow Visitor to subscribe to a mail alert to receive a mail when a new property is added.
-Version: 1.1.6
+Version: 1.2.0
 Author: Sébastien Serre
 Author URI: http://www.thivinfo.com
 License: GPL2
-Tested up to: 4.7.3
+Tested up to: 4.8
 Text Domain: wpcasa-mail-alert
 Domain Path: /languages
 */
