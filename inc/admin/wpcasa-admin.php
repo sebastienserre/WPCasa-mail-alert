@@ -38,6 +38,8 @@
 			__( 'Mail Alert', 'wpcasa-mail-alert' ),
 			apply_filters( 'wpsight_listings_map_options', $options_wpacasama )
 		);
+
+		//var_dump($options['wpcasama']); die;
 		return $options;
 	}
 
@@ -213,6 +215,21 @@
 	add_settings_field('thfo_newsletter_object', __('Object','wpcasa-mail-alert'), 'object_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
 	add_settings_field('thfo_newsletter_content', __('Content','wpcasa-mail-alert'), 'content_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
 
+	/**
+     * transform old settings to new WPCasa Options
+     */
+
+	$prices = get_option('thfo_max_price');
+	if ( !empty($prices) ){
+		wpsight_add_option('thfo_max_price', $prices);
+		delete_option('thfo_max_price');
+    }
+
+    $thfo_unsubscribe_page = get_option('thfo_unsubscribe_page');
+	if ( !empty( $thfo_unsubscribe_page)){
+	    wpsight_add_option('thfo_unsubscribe_page', $thfo_unsubscribe_page);
+	    delete_option('thfo_unsubscribe_page');
+    }
 
 }
 	function media_html(){ ?>
