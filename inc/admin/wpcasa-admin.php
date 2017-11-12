@@ -218,6 +218,7 @@
 
 	/**
      * transform old settings to new WPCasa Options
+     * @since: 1.2.0
      */
 
 	$prices = get_option('thfo_max_price');
