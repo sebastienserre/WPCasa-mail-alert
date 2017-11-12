@@ -26,13 +26,13 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
-		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_admin_menu.php';
+		//include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_admin_menu.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
-		new thfo_mailalert_admin_menu();
+		//new thfo_mailalert_admin_menu();
 		new thfo_mailalert_unsubscribe();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );

@@ -1,14 +1,17 @@
 <?php
 	defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-
 	/**
 	 * Add options in WPCasa options page
 	 * Since 1.2.0
 	 */
+
+	add_action('admin_init', 'register_settings');
 	add_filter( 'wpsight_options', 'wpcasama_options' );
 
 	function wpcasama_options( $options ) {
+
+		do_action('wpcasama_before_settings');
 
 			$options_wpacasama = array(
 
@@ -26,15 +29,15 @@
 					'type'    => 'text',
 					'default' => __( 'Toggle Map', 'wpcasa-listings-map' ),
 				),
+
 			);
 
-
+			do_action('wpcasama_after_settings');
 
 		$options['wpcasama'] = array(
 			__( 'Mail Alert', 'wpcasa-mail-alert' ),
 			apply_filters( 'wpsight_listings_map_options', $options_wpacasama )
 		);
-
 		return $options;
 	}
 
@@ -44,12 +47,13 @@
 	function wpcasama_menu_list(){
 
 		add_submenu_page('wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ), __('Mail Alert Listing','wpcasa-mail-alert'), 'manage_options', 'wpcasa-listing', 'wpcasama_menu_html');
+		add_submenu_page('wpsight-settings',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings','menu_html');
 
 	}
 
 	function wpcasama_menu_html(){
 	global $wpdb;
-	$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ");
+	$subscribers = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ORDER BY subscription DESC");
 	$count = count($subscribers);
 
 	if (defined('WPCASAMA_PRO_VERSION')){
@@ -175,3 +179,111 @@
         <?php
     }
 
+	function menu_html()
+{
+	echo '<h1>'.get_admin_page_title().'</h1>'; ?>
+
+    <form method="post" action="options.php">
+		<?php settings_fields('thfo_newsletter_settings') ?>
+		<?php do_settings_sections('thfo_newsletter_settings') ?>
+		<?php submit_button(__('Save')); ?>
+
+
+    </form>
+
+	<?php
+}
+
+	function register_settings()
+{
+	/* Mail Settings */
+	add_settings_section('thfo_newsletter_section', __('Outgoing parameters','wpcasa-mail-alert'), 'section_html', 'thfo_newsletter_settings');
+
+	register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender');
+	register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender_mail');
+	register_setting('thfo_newsletter_settings', 'thfo_newsletter_object');
+	register_setting('thfo_newsletter_settings', 'thfo_newsletter_content');
+	register_setting('thfo_newsletter_settings', 'thfo_newsletter_footer');
+	register_setting('thfo_newsletter_settings', 'empathy-setting-logo');
+
+	add_settings_field('thfo_newsletter_sender', __('Sender','wpcasa-mail-alert'), 'sender_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+	add_settings_field('empathy-setting-logo', __('Header picture','wpcasa-mail-alert'), 'media_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+	add_settings_field('thfo_newsletter_footer', __('footer','wpcasa-mail-alert'), 'footer_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+	add_settings_field('thfo_newsletter_sender_mail', __('email','wpcasa-mail-alert'), 'sender_mail_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+	add_settings_field('thfo_newsletter_object', __('Object','wpcasa-mail-alert'), 'object_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+	add_settings_field('thfo_newsletter_content', __('Content','wpcasa-mail-alert'), 'content_html', 'thfo_newsletter_settings', 'thfo_newsletter_section');
+
+
+}
+	function media_html(){ ?>
+        <input type="text" name="empathy-setting-logo" id="empathy-setting-logo" value="<?php echo  esc_attr(get_option( 'empathy-setting-logo' )) ; ?>">
+        <a class="button" onclick="upload_image('empathy-setting-logo');"><?php _e('Upload', 'wpcasa-mail-alert') ?></a>
+        <script>
+            var uploader;
+            function upload_image(id) {
+                console.log(id);
+
+                //Extend the wp.media object
+                uploader = wp.media.frames.file_frame = wp.media({
+                    title: 'Choose Image',
+                    button: {
+                        text: 'Choose Image'
+                    },
+                    multiple: false
+                });
+
+                //When a file is selected, grab the URL and set it as the text field's value
+                uploader.on('select', function() {
+                    attachment = uploader.state().get('selection').first().toJSON();
+                    var url = attachment['url'];
+                    jQuery('#'+id).val(url);
+                });
+
+                //Open the uploader dialog
+                uploader.open();
+            }
+        </script>
+	<?php }
+
+function section_html()
+
+{
+
+	echo '<p>'.__('Advise about outgoing parameters.','wpcasa-mail-alert').'</p>';
+
+}
+
+function footer_html(){
+	?>
+    <textarea name="thfo_newsletter_footer"><?php echo get_option('thfo_newsletter_footer')?></textarea>
+
+	<?php
+}
+
+function sender_html()
+{?>
+    <input type="text" name="thfo_newsletter_sender" value="<?php echo get_option('thfo_newsletter_sender')?>"/>
+	<?php
+}
+
+function sender_mail_html()
+{?>
+    <input type="email" name="thfo_newsletter_sender_mail" value="<?php echo get_option('thfo_newsletter_sender_mail')?>"/>
+	<?php
+}
+
+function object_html()
+
+{?>
+
+    <input type="text" name="thfo_newsletter_object" value="<?php echo get_option('thfo_newsletter_object')?>"/>
+	<?php
+
+
+}
+
+function content_html()
+
+{
+	wp_editor(get_option('thfo_newsletter_content'),'thfo_newsletter_content' );
+}
