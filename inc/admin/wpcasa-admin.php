@@ -111,9 +111,10 @@
 				<td>
 					<?php
 
-						$url = admin_url( 'admin.php?page=' );
-						$url .= basename(dirname( __DIR__));
-						$url .= '&id='. $id .'&delete=yes';
+						$url = add_query_arg(array(
+						        'id' => $id,
+                            'delete' => 'yes'
+                        ));
 					?>
 					<a href="<?php echo esc_url($url); ?>" title="<?php _e('Delete', 'wpcasa-mail-alert') ?>"><span class="dashicons dashicons-trash"></span> </a>
 				</td>
