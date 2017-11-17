@@ -5,7 +5,7 @@ Contributors: sebastien@thivinfo.com
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
 Requires at least: 3.9
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: 1.2.0
 License: GPL V2 or later
 

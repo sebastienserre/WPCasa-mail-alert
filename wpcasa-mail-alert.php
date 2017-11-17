@@ -8,7 +8,7 @@ Version: 1.2.0
 Author: Sébastien Serre
 Author URI: http://www.thivinfo.com
 License: GPL2
-Tested up to: 4.8
+Tested up to: 4.9
 Text Domain: wpcasa-mail-alert
 Domain Path: /languages
 */
@@ -27,16 +27,26 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_admin_menu.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
+
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
+
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
+		new thfo_mailalert_admin_menu();
 		new thfo_mailalert_unsubscribe();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
-		add_action('admin_notices', array($this, 'wpcasa_mailalert_check_wpcasa'));
+
+		if (is_multisite()) {
+			add_action( 'network_admin_notices',  array($this, 'wpcasa_mailalert_check_wpcasa') );
+		} else {
+			add_action( 'admin_notices',  array($this, 'wpcasa_mailalert_check_wpcasa') );
+		}
 
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
 		register_uninstall_hook( __FILE__, 'wpcasama_pro_deactivation' );
