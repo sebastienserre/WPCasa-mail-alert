@@ -36,7 +36,6 @@ class thfo_mail_alert {
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
 		new thfo_mailalert_admin_menu();
-		new thfo_mailalert_unsubscribe();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );

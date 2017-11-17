@@ -1,152 +1,171 @@
 <?php
 
+	defined( 'ABSPATH' ) or	die( 'Cheatin&#8217; uh?' );
+
 add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 
-function thfo_search_subscriber() {
-	global $post;
+	function thfo_search_subscriber() {
+		global $post;
 
-	if ( $post->post_type === 'listing' ) {
-		global $wpdb;
-		/**
-		 * get city location
-		 **/
+		if ( $post->post_type === 'listing' ) {
+			global $wpdb;
+			/**
+			 * get city location
+			 **/
 
-		$terms = wp_get_object_terms( $post->ID, 'location' );
-		if ( ! empty( $terms ) ) {
-			$city = $terms[0]->name;
-		}
-
-		/**
-		 * get price from property
-		 */
-		$prices = get_post_meta( $post->ID, '_price' );
-		if ( ! empty( $prices ) ) {
-			$price = (int) $prices[0];
-		}
-
-		/**
-		 * get bedrooms number from property
-		 */
-
-		$rooms = get_post_meta( $post->ID, '_details_1' );
-
-		if ( ! empty( $rooms ) ) {
-			$nb_room = (int) $rooms[0];
-		}
-
-		/**
-		 * get bathroom number for property
-		 * Premium Feature
-		 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
-		 */
-
-		$bath = get_post_meta( $post->ID, '_details_2' );
-
-		if ( ! empty( $bath ) ) {
-			$nb_bath = (int) $bath[0];
-		} else {
-			$nb_bath = '';
-		}
-
-		/**
-		 * Get type of offer for property
-		 * Premium Feature
-		 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
-		 */
-
-		$type = get_post_meta( $post->ID, '_price_offer' );
-
-
-		/**
-		 * get subcriber list for this city
-		 */
-
-		if ( ! empty( $city ) ) {
-			$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE city = '$city' " );
+			$terms = wp_get_object_terms( $post->ID, 'location' );
+			if ( ! empty( $terms ) ) {
+				$city = $terms[0]->name;
+			}
 
 			/**
-			 * @since 1.4.0
-			 * Fires after selecting subscribers
+			 * get price from property
 			 */
-			$subscribers = apply_filters( 'thfo-get-subscriber-list', $subscribers );
+			$prices = get_post_meta( $post->ID, '_price' );
+			if ( ! empty( $prices ) ) {
+				$price = (int) $prices[0];
+			}
 
 			/**
-			 * Search is running!
+			 * get bedrooms number from property
 			 */
+
+			$rooms = get_post_meta( $post->ID, '_details_1' );
+
+			if ( ! empty( $rooms ) ) {
+				$nb_room = (int) $rooms[0];
+			}
 
 			/**
-			 * Fires before searching subscribers
-			 * @since 1.4.0
+			 * get bathroom number for property
+			 * Premium Feature
+			 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 			 */
-			do_action( 'thfo_before_search' );
+
+			$bath = get_post_meta( $post->ID, '_details_2' );
+
+			if ( ! empty( $bath ) ) {
+				$nb_bath = (int) $bath[0];
+			} else {
+				$nb_bath = '';
+			}
+
+			/**
+			 * Get type of offer for property
+			 * Premium Feature
+			 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
+			 */
+
+			$type = get_post_meta( $post->ID, '_price_offer' );
 
 
-			foreach ( $subscribers as $subscriber ) {
+			/**
+			 * get subcriber list for this city
+			 */
 
-				if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
+			if ( ! empty( $city ) ) {
+				$subscribers = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE city = '$city' " );
 
-					if ( $nb_room >= $subscriber->room ) {
+				/**
+				 * @since 1.4.0
+				 * Fires after selecting subscribers
+				 */
+				$subscribers = apply_filters( 'thfo-get-subscriber-list', $subscribers );
 
-						if ($nb_bath >= $subscriber->bath) {
+				/**
+				 * Search is running!
+				 */
 
-							if ($type[0] == $subscriber->type) {
+				/**
+				 * Fires before searching subscribers
+				 * @since 1.4.0
+				 */
+				do_action( 'thfo_before_search' );
 
 
-								$mail = $subscriber->email;
+				if ( ! defined('WPCASAMA_PRO_VERSION')) {
+					$mails = array();
+					foreach ( $subscribers as $subscriber ) {
 
-								thfo_send_mail( $mail );
+						if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
+
+							if ( $nb_room >= $subscriber->room ) {
+
+								array_push($mails ,$subscriber->email);
+								
 							}
 						}
 					}
 				}
 			}
 		}
+
+		if ( ! empty( $mails ) ) {
+			thfo_send_mail( $mails );
+		}
+
+
 	}
 
+	function thfo_send_mail( $mails ) {
+		global $post;
+		foreach ( $mails as $mail ) {
+			if ( ! is_email( $mail ) ) {
+				return false;
+			} else {
+				$recipient = $mail;
 
-}
+				$sender_mail = get_option( 'thfo_newsletter_sender_mail' );
+				if ( empty( $sender_mail ) ) {
+					$sender_mail = get_option( 'admin_email' );
+				}
 
-function thfo_send_mail($mail){
-	global $post;
-	$recipient = $mail;
-	$sender_mail = get_option('thfo_newsletter_sender_mail');
-	if ( empty($sender_mail)){
-		$sender_mail = get_option('admin_email');
+				$sender  = get_option( 'thfo_newsletter_sender' );
+				$content = "";
+				$object  = get_option( 'thfo_newsletter_object' );
+				$img     = get_option( 'empathy-setting-logo' );
+
+				$content .= '<img src="' .$img. '" alt="logo" /><br />';
+				//var_dump($content); die;
+				$content .= get_option( 'thfo_newsletter_content' );
+				$content .= '<br /><a href="' . get_permalink() . '"></a><br />';
+				$content .= $post->guid . "<br />";
+
+				$content .= '<p>' . __( 'To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert' );
+
+				$url     = get_option( 'thfo_unsubscribe_page' );
+				$content .= '<a href="' . esc_url( add_query_arg( array(
+						'remove' => $recipient,
+						'nonce'  => wp_create_nonce('nonce'),
+					), home_url( $url ) ) ) . '">'.  __( 'Here', 'wpcasa-mail-alert' ) .'</a><p>';
+
+				$content .= get_option( 'thfo_newsletter_footer' );
+
+
+				$headers[] = 'Content-Type: text/html; charset=UTF-8';
+
+				$headers[] = 'From:' . $sender . '<' . $sender_mail . '>';
+
+				/**
+				 * @since 1.4.0
+				 * Fires before sending mail
+				 */
+
+				do_action( 'thfo_before_sending_mail' );
+				remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+
+				$result = wp_mail( $recipient, $object, $content, $headers );
+
+			}
+		};
+
+		/**
+		 * @since 1.4.0
+		 * Fires immediatly after sending mail
+		 */
+
+		do_action( 'thfo_after_sending_mail' );
+
+
+
 	}
-
-	$sender = get_option('thfo_newsletter_sender');
-	$content = "";
-	$object = get_option('thfo_newsletter_object');
-	$img= get_option('empathy-setting-logo');
-	$content .= '<img src="' . $img . '" alt="logo" /><br />';
-	$content .= get_option('thfo_newsletter_content');
-	$content .= '<br /><a href="'.get_permalink().'"></a><br />';
-	$content .= $post->guid ."<br />";
-	$content .= '<p>' . __('To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert');
-	$url = get_option('thfo_unsubscribe_page');
-	$content .= esc_url(home_url($url.'?remove='.$recipient)) . '<p>';
-	$content .= get_option('thfo_newsletter_footer');
-
-	$headers[] = 'Content-Type: text/html; charset=UTF-8';
-
-	$headers[] = 'From:'.$sender.'<'.$sender_mail.'>';
-
-	/**
-	 * @since 1.4.0
-	 * Fires before sending mail
-	 */
-
-	do_action( 'thfo_before_sending_mail' );
-
-	$result = wp_mail($recipient, $object, $content, $headers);
-
-	/**
-	 * @since 1.4.0
-	 * Fires immediatly after sending mail
-	 */
-
-	do_action('thfo_after_sending_mail');
-
-	remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-
-}

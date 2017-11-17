@@ -1,31 +1,26 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sebastien
- * Date: 07/02/16
- * Time: 00:04
- */
-class thfo_mailalert_unsubscribe {
-	public function __construct()
-	{
-		add_shortcode('thfo_mailalert_unsubscribe',array($this,'unsubscribe_html'));
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-	}
+		add_shortcode('thfo_mailalert_unsubscribe','unsubscribe_html');
 
-	public function unsubscribe_html()
-	{ ?>
-		<form class="thfo_unsubscribe" method="post" action="">
-			<label><?php _e('Please add your mail', 'wpcasa-mail-alert'); ?></label>
-			<input type="email" name="email" <?php
-			if ( isset($_GET['remove']) && ! empty($_GET['remove'])){ ?>
-				value="<?php echo $_GET['remove']; ?>"
-			<?php }
+
+	function unsubscribe_html() { ?>
+        <form class="thfo_unsubscribe" method="post" action="">
+            <label><?php _e( 'Please add your mail', 'wpcasa-mail-alert' ); ?></label>
+            <input type="email" name="email" <?php
+				if ( isset( $_GET['remove'] ) && ! empty( $_GET['remove'] ) ) { ?>
+                    value="<?php echo $_GET['remove']; ?>"
+				<?php }
 
 			?>/>
-			<input type="submit" name="delete" value="<?php _e('unsubscribe','wpcasa-mail-alert'); ?>" />
-		</form>
+            <input type="submit" name="delete" value="<?php _e( 'unsubscribe', 'wpcasa-mail-alert' ); ?>"/>
+        </form>
 		<?php
+	}
+
+	add_action('init', 'wpcasama_unsubscribe');
+	function wpcasama_unsubscribe(){
 
 		/**
 		 * fires before deleting a subscriber
@@ -58,4 +53,4 @@ class thfo_mailalert_unsubscribe {
 
 	}
 
-}
+

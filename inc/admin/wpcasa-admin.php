@@ -95,7 +95,6 @@
 	</tr>
 	<?php
 		foreach ($subscribers as $subscriber){
-			$id = $subscriber->id;
 			$date = mysql2date('G', $subscriber->subscription, true) ?>
 			<tr>
 				<td><?php echo date_i18n('d/m/Y', $date ); ?></td>
@@ -112,8 +111,8 @@
 					<?php
 
 						$url = add_query_arg(array(
-						        'id' => $id,
-                            'delete' => 'yes'
+							'remove' => $subscriber->email,
+							'nonce'  => wp_create_nonce('nonce')
                         ));
 					?>
 					<a href="<?php echo esc_url($url); ?>" title="<?php _e('Delete', 'wpcasa-mail-alert') ?>"><span class="dashicons dashicons-trash"></span> </a>
