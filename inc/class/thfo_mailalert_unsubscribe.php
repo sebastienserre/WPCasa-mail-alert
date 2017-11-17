@@ -12,8 +12,11 @@
 				if ( isset( $_GET['remove'] ) && ! empty( $_GET['remove'] ) ) { ?>
                     value="<?php echo $_GET['remove']; ?>"
 				<?php }
-
 			?>/>
+
+	        <?php wp_nonce_field( 'form_unsubscribe', 'nonce') ?>
+
+
             <input type="submit" name="delete" value="<?php _e( 'unsubscribe', 'wpcasa-mail-alert' ); ?>"/>
         </form>
 		<?php
@@ -28,21 +31,22 @@
 		 */
 		do_action('thfo_before_deleting_subscriber');
 
-		if ( isset( $_POST['delete']) && ! empty( $_POST['delete']) )
-		{
-			if ( is_email($_POST['email'])){
-				$mail = sanitize_email($_POST['email']);
+		if ( isset( $_POST['delete']) && ! empty( $_POST['delete']) ) {
+			if ( wp_verify_nonce( $_POST['nonce'], 'form_unsubscribe' ) ) {
+				if ( is_email( $_POST['email'] ) ) {
+					$mail = sanitize_email( $_POST['email'] );
+				}
+
+				global $wpdb;
+				$row = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE email = '$mail'" );
+
+				if ( ! is_null( $row ) ) {
+					$wpdb->delete( "{$wpdb->prefix}wpcasama_mailalert", array( 'email' => $mail ) ); ?>
+                    <div class="thfo-mailalert-del"> <?php _e( "Your mail address has been successfully deleted from our database", "wpcasa-mail-alert" ); ?> </div>
+				<?php } else { ?>
+                    <div class="thfo-mailalert-del"> <?php _e( "Your mail address doesn't exist in our database", "wpcasa-mail-alert" ); ?> </div>
+				<?php }
 			}
-
-			global $wpdb;
-			$row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE email = '$mail'");
-
-			if (!is_null($row)) {
-				$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert", array('email' => $mail)); ?>
-				<div class="thfo-mailalert-del"> <?php _e("Your mail address has been successfully deleted from our database","wpcasa-mail-alert"); ?> </div>
-			<?php } else { ?>
-                <div class="thfo-mailalert-del"> <?php _e("Your mail address doesn't exist in our database","wpcasa-mail-alert"); ?> </div>
-			<?php }
 		}
 
 		/**
