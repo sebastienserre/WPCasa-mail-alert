@@ -36,6 +36,7 @@ table.thfo_subscriber {
     padding: 0.5em;
     background: #fe5000;
     color: #ffffff;
+    text-align: center;
 }
 
 .ads h4 {
@@ -47,12 +48,13 @@ table.thfo_subscriber {
     margin-left: 4em;
     font-size: larger;
     list-style-type: decimal;
+    text-align: left;
 }
 
 .ads a {
     color: #ffffff;
-    padding: 0.5em;
     font-size: 2em;
+    line-height: 2em;
     text-align: center;
 }
 

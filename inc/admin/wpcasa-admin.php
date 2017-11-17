@@ -175,8 +175,11 @@
                 <li><?php _e('Shortcode to display the form where ever you want', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Automatic Update', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Priority support', 'wpcasa-mail-alert'); ?></li>
+                <p><?php _e('... and soon ...', 'wpcasa-mail-alert'); ?></p>
+                <li><?php _e('Type of property filter', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Easy mail customization', 'wpcasa-mail-alert'); ?></li>
             </ul>
-            <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php _e('Buy WPCasa MailAlert Pro', 'wpcasa-mail-alert');  ?></a>
+            <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php _e('Buy WPCasa MailAlert Pro for only 39.90€', 'wpcasa-mail-alert');  ?></a>
         </div>
         <?php
     }
