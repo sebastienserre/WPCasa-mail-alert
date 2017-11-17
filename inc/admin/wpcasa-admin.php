@@ -79,7 +79,7 @@
 
 ?>
 
-<table class="thfo_subscriber" >
+<table class="thfo_subscriber <?php if ( defined('WPCASAMA_PRO_VERSION')){ echo 'fullwidth'; } ?>" >
 	<tr>
 		<th><?php _e('Date', 'wpcasa-mail-alert') ?></th>
 		<th><?php _e('Name', 'wpcasa-mail-alert') ?></th>
@@ -124,9 +124,11 @@
 
 	?>
 </table>
+        <?php if ( !defined('WPCASAMA_PRO_VERSION')){ ?>
 		<div class="ads">
             <?php wpcasama_display_ads(); ?>
 		</div>
+        <?php } ?>
         <div class="clear"></div>
         <div class="wpcasama-stars">
         <span id="wpcasama-footer-credits">
@@ -170,8 +172,9 @@
         <div class="premium-ads">
             <h4>WPCasa Mail Alert Pro</h4>
             <ul>
+                <li><?php _e('No Ads', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Offer filter: sale or rent', 'wpcasa-mail-alert'); ?></li>
-                <li><?php _e('Number of Bath Filter', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('Number of Bathroom Filter', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Shortcode to display the form where ever you want', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Automatic Update', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Priority support', 'wpcasa-mail-alert'); ?></li>
