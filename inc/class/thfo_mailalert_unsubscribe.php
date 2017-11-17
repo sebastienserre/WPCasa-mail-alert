@@ -20,6 +20,25 @@
             <input type="submit" name="delete" value="<?php _e( 'unsubscribe', 'wpcasa-mail-alert' ); ?>"/>
         </form>
 		<?php
+		/**
+         *
+		 * @since 1.2.0
+         *
+		 */
+        do_action('wpcasama_after_submit_unsubscribe');
+	}
+
+	/**
+     * Add msg on deletion
+	 * @author sebastienserre
+     * @since 1.2.0
+	 */
+	function wpcasama_message_unsubscribe_ok(){
+	    echo '<div class="thfo-mailalert-del">'. __( "Your mail address has been successfully deleted from our database", "wpcasa-mail-alert" ).'</div>';
+    }
+
+	function wpcasama_message_unsubscribe_nok(){
+		echo '<div class="thfo-mailalert-del">'. __( "Your mail address doesn't exist in our database", "wpcasa-mail-alert" ).'</div>';
 	}
 
 	add_action('init', 'wpcasama_unsubscribe');
@@ -31,7 +50,7 @@
 		 */
 		do_action('thfo_before_deleting_subscriber');
 
-		if ( isset( $_POST['delete']) && ! empty( $_POST['delete']) ) {
+		if ( isset( $_POST['delete'] ) && ! empty( $_POST['delete'] ) ) {
 			if ( wp_verify_nonce( $_POST['nonce'], 'form_unsubscribe' ) ) {
 				if ( is_email( $_POST['email'] ) ) {
 					$mail = sanitize_email( $_POST['email'] );
@@ -41,17 +60,17 @@
 				$row = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}wpcasama_mailalert WHERE email = '$mail'" );
 
 				if ( ! is_null( $row ) ) {
-					$wpdb->delete( "{$wpdb->prefix}wpcasama_mailalert", array( 'email' => $mail ) ); ?>
-                    <div class="thfo-mailalert-del"> <?php _e( "Your mail address has been successfully deleted from our database", "wpcasa-mail-alert" ); ?> </div>
-				<?php } else { ?>
-                    <div class="thfo-mailalert-del"> <?php _e( "Your mail address doesn't exist in our database", "wpcasa-mail-alert" ); ?> </div>
-				<?php }
+					$wpdb->delete( "{$wpdb->prefix}wpcasama_mailalert", array( 'email' => $mail ) );
+					add_action( 'wpcasama_after_submit_unsubscribe', 'wpcasama_message_unsubscribe_ok' );
+				} else {
+					add_action( 'wpcasama_after_submit_unsubscribe', 'wpcasama_message_unsubscribe_nok' );
+				}
 			}
 		}
 
 		/**
 		 * fires after deleting a subscriber
-		 * @since 1.4.0
+		 * @since 1.2.0
 		 */
 		do_action('thfo_after_deleting_subscriber');
 
