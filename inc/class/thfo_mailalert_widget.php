@@ -140,6 +140,8 @@
                 </p>
                 <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>
             </form>
+            <?php $url     = wpsight_get_option( 'thfo_unsubscribe_page' );?>
+            <div class="unsubscribe_link"><a href=" <?php echo get_the_permalink( $url ) . '">'.  __( 'Link to unsubcribe page', 'wpcasa-mail-alert' ) ?></a> </div>
 			<?php
 			echo $args['after_widget'];
 		}

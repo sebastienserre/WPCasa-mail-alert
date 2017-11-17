@@ -112,8 +112,8 @@
 
 						$url = add_query_arg(array(
 							'remove' => $subscriber->email,
-							'nonce'  => wp_create_nonce('nonce')
-                        ));
+							'_nonce' => wp_create_nonce('_nonce-' . $subscriber->email)
+						));
 					?>
 					<a href="<?php echo esc_url($url); ?>" title="<?php _e('Delete', 'wpcasa-mail-alert') ?>"><span class="dashicons dashicons-trash"></span> </a>
 				</td>

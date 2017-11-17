@@ -53,4 +53,14 @@
 
 	}
 
+	add_action('admin_init', 'wpcasama_unsubscribe_admin');
+    function wpcasama_unsubscribe_admin(){
 
+	    if (isset($_GET['remove']) && !empty($_GET['remove'])) {
+		    $nonce = $_GET['_nonce'];
+		    if ( wp_verify_nonce( $nonce, '_nonce-' . urldecode( $_GET['remove'] ) ) ) {
+			    global $wpdb;
+			    $wpdb->delete( "{$wpdb->prefix}wpcasama_mailalert", array( 'email' => urldecode( $_GET['remove'] ) ) );
+		    }
+	    }
+    }
