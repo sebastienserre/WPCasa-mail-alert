@@ -1,3 +1,7 @@
+.clear{
+	clear: both;
+}
+
 .thfo-mailalert-del {
     background-color: #E0FCBA;
     padding: 1em;
