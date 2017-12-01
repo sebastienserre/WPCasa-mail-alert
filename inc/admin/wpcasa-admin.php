@@ -58,6 +58,7 @@
 	$subscribers = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ORDER BY subscription DESC");
 	$count = count($subscribers);
 
+
 	if (defined('WPCASAMA_PRO_VERSION')){
 		echo '<h1>' . get_admin_page_title() . ' ' . WPCASAMA_PRO_VERSION ;
 		echo ' Pro</h1>';
