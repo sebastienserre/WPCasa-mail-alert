@@ -35,7 +35,7 @@
 			do_action('wpcasama_after_settings');
 
 		$options['wpcasama'] = array(
-			__( 'Mail Alert', 'wpcasa-mail-alert' ),
+			__( 'WPCasa Mail Alert', 'wpcasa-mail-alert' ),
 			apply_filters( 'wpsight_listings_map_options', $options_wpacasama )
 		);
 
