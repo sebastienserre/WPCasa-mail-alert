@@ -27,7 +27,6 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
-		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_admin_menu.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
 
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
@@ -35,7 +34,6 @@ class thfo_mail_alert {
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
-		new thfo_mailalert_admin_menu();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
