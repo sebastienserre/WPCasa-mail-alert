@@ -27,7 +27,7 @@
 					'desc'    => __( 'Please enter maximum price separated by a comma', 'wpcasa-mail-alert' ),
 					'id'      => 'thfo_max_price',
 					'type'    => 'text',
-					'default' => __( 'Toggle Map', 'wpcasa-listings-map' ),
+					'default' => __( '', 'wpcasa-listings-map' ),
 				),
 
 			);
