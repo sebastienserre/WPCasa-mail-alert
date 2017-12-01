@@ -37,29 +37,6 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 			}
 
 			/**
-			 * get bathroom number for property
-			 * Premium Feature
-			 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
-			 */
-
-			$bath = get_post_meta( $post->ID, '_details_2' );
-
-			if ( ! empty( $bath ) ) {
-				$nb_bath = (int) $bath[0];
-			} else {
-				$nb_bath = '';
-			}
-
-			/**
-			 * Get type of offer for property
-			 * Premium Feature
-			 * https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
-			 */
-
-			$type = get_post_meta( $post->ID, '_price_offer' );
-
-
-			/**
 			 * get subcriber list for this city
 			 */
 
@@ -83,6 +60,7 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 				do_action( 'thfo_before_search' );
 
 
+
 				if ( ! defined('WPCASAMA_PRO_VERSION')) {
 					$mails = array();
 					foreach ( $subscribers as $subscriber ) {
@@ -96,6 +74,8 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 							}
 						}
 					}
+				} else {
+					wpcasama_pro_search($subscribers, $price, $nb_room);
 				}
 			}
 		}
