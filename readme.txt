@@ -62,6 +62,7 @@ use automatic upgrade
 
 == Changelog ==
 
+* 1.2.0 Settings are merged in WPCasa Setting page for better User Experience
 * 1.1.5 use currency unit from WPCasa Settings
 * 1.1.3 add light CSS to Widget
 * 1.1.1 add style and correct some small bug

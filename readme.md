@@ -52,6 +52,8 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Changelog
 
+### 1.2.0
+* Settings are merged in WPCasa Setting page for better User Experience
 ### 1.1.5
 * use currency unit from WPCasa Settings
 ### 1.1.3
