@@ -17,7 +17,7 @@
 
 				'thfo_unsubscribe_page' => array(
 					'name' => __( 'Unsubscribe Page', 'wpcasa-mail-alert' ),
-					'desc' => __( 'Please select the page that use the [thfo_mailalert_unsubscribe] shortcode on the selected page.', 'wpcasa-listings-map' ),
+					'desc' => sprintf(__( 'Please select the page that uses %s on the selected page.', 'wpcasa-mail-alert' ), '[thfo_mailalert_unsubscribe]'),
 					'id'   => 'thfo_unsubscribe_page',
 					'type' => 'pages'
 				),
