@@ -43,7 +43,7 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 = Is my subscriber can easily unsubscribe to the mail? =
 * Yes! They have to click on the link present on all mail received or make a link somewhere to the unsubscribe page created at the plugin activation.
 
-= Do I need to remove something after de-acivation and deletion of this plugin? =
+= Do I need to remove something after de-activation and deletion of this plugin? =
 * I'm sorry you leave. The plugin is deleting all DB created by the plugin activation. You only have to manually delete the unsubscribe page.
 
 = Is the Bedrooms number a minimum in the search? =
@@ -62,6 +62,7 @@ use automatic upgrade
 
 == Changelog ==
 
+* 1.2.2 Improve translations - Remove unused old files
 * 1.2.0 Settings are merged in WPCasa Setting page for better User Experience
 * 1.1.5 use currency unit from WPCasa Settings
 * 1.1.3 add light CSS to Widget

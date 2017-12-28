@@ -183,7 +183,7 @@
                 <li><?php _e('Type of property filter', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Easy mail customization', 'wpcasa-mail-alert'); ?></li>
             </ul>
-            <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php sprintf(_e('Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert'), WPCASAMA_PLUGIN_PRICE);  ?></a>
+            <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php printf(__('Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert'), WPCASAMA_PLUGIN_PRICE);  ?></a>
         </div>
         <?php
     }
