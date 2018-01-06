@@ -106,7 +106,7 @@
 				<td><?php echo $subscriber->min_price ?>€</td>
 				<td><?php echo $subscriber->max_price ?>€</td>
 				<td><?php echo $subscriber->room ?></td>
-				<?php do_action('thfo_after_tr_subscriber_table'); ?>
+				<?php do_action('thfo_after_tr_subscriber_table', $subscriber); ?>
 
 				<td>
 					<?php
