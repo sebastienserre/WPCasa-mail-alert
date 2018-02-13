@@ -49,6 +49,9 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 = Is the Bedrooms number a minimum in the search? =
 * Yes!
 
+= When mails are sent? =
+* When a Property is saved or updated, WPCasa Mail Alert is checking if this property meet criterias of subscribers and send mails accordingly.
+
 
 == Upgrade Notice ==
 

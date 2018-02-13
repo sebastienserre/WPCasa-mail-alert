@@ -43,6 +43,10 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 * Yes!
 
+### When mails are sent? 
+* When a Property is saved or updated, WPCasa Mail Alert is checking if this property meet criterias of subscribers and send mails accordingly.
+
+
 ## Screenshots
 
 ![Widget](https://ps.w.org/wpcasa-mail-alert/assets/screenshot-1.png "Widget")
