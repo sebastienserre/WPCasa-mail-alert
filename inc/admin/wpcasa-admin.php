@@ -125,6 +125,7 @@
 
 	?>
 </table>
+        <?php do_action('thfo/wpcasama/after-table'); ?>
         <?php if ( !defined('WPCASAMA_PRO_VERSION')){ ?>
 		<div class="ads">
             <?php wpcasama_display_ads(); ?>
