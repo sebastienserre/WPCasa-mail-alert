@@ -66,3 +66,7 @@ table.thfo_subscriber {
 .wpcasama-stars span.dashicons{
     text-decoration: none;
 }
+
+.wpcasama-subscriber {
+    overflow: hidden;
+}
