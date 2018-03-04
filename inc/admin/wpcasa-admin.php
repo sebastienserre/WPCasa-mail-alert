@@ -79,7 +79,7 @@
 	echo '</p>';
 
 ?>
-
+<div class="wpcasama-subscriber">
 <table class="thfo_subscriber <?php if ( defined('WPCASAMA_PRO_VERSION')){ echo 'fullwidth'; } ?>" >
 	<tr>
 		<th><?php _e('Date', 'wpcasa-mail-alert') ?></th>
@@ -125,6 +125,7 @@
 
 	?>
 </table>
+</div>
         <?php do_action('thfo/wpcasama/after-table'); ?>
         <?php if ( !defined('WPCASAMA_PRO_VERSION')){ ?>
 		<div class="ads">
