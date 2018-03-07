@@ -25,17 +25,7 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 			if ( ! empty( $prices ) ) {
 				$price = (int) $prices[0];
 			}
-
-			/**
-			 * get bedrooms number from property
-			 */
-
-			$rooms = get_post_meta( $post->ID, '_details_1' );
-
-			if ( ! empty( $rooms ) ) {
-				$nb_room = (int) $rooms[0];
-			}
-
+			
 			/**
 			 * get subcriber list for this city
 			 */
@@ -67,15 +57,15 @@ add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 
 						if ( $price <= $subscriber->max_price && $price >= $subscriber->min_price ) {
 
-							if ( $nb_room >= $subscriber->room ) {
+							
 
 								array_push($mails ,$subscriber->email);
 								
-							}
+							
 						}
 					}
 				} else {
-					wpcasama_pro_search($subscribers, $price, $nb_room);
+					wpcasama_pro_search($subscribers, $price);
 				}
 			}
 		}

@@ -15,7 +15,6 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 <h3>Features</h3>
 
 <ul>
-    <li>Allow Search by numbers of bedrooms</li>
     <li>Allow Search city</li>
     <li>Allow search by minimum Price</li>
     <li>Allow search by maximum Price</li>
@@ -45,9 +44,6 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 
 = Do I need to remove something after de-activation and deletion of this plugin? =
 * I'm sorry you leave. The plugin is deleting all DB created by the plugin activation. You only have to manually delete the unsubscribe page.
-
-= Is the Bedrooms number a minimum in the search? =
-* Yes!
 
 
 == Upgrade Notice ==

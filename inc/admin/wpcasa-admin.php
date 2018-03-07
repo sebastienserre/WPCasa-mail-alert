@@ -89,7 +89,6 @@
 		<th><?php _e('City Searched', 'wpcasa-mail-alert') ?></th>
 		<th><?php _e('Minimum price', 'wpcasa-mail-alert') ?></th>
 		<th><?php _e('Maximum price', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Room', 'wpcasa-mail-alert') ?></th>
 		<?php do_action('thfo_after_header_subscriber_table', 10,1); ?>
 		<th><?php _e('Delete', 'wpcasa-mail-alert') ?></th>
 
@@ -105,7 +104,6 @@
 				<td><?php echo $subscriber->city ?></td>
 				<td><?php echo $subscriber->min_price ?>€</td>
 				<td><?php echo $subscriber->max_price ?>€</td>
-				<td><?php echo $subscriber->room ?></td>
 				<?php do_action('thfo_after_tr_subscriber_table', $subscriber); ?>
 
 				<td>

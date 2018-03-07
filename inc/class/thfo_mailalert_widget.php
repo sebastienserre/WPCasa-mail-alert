@@ -50,23 +50,6 @@
 
 			$prices   = $this->multiexplode( array( ',', ', ' ), $prices );
 			$currency = wpsight_get_currency();
-			/**
-			 * Find number of rooms
-			 */
-
-			$rooms = get_posts( array( 'post_type' => array( 'listing' ), ) );
-			//var_dump($rooms);
-			$nb_rooms = array();
-			foreach ( $rooms as $room ) {
-				//var_dump($room);
-				$nb_room = get_post_meta( $room->ID, '_details_1' );
-				foreach ( $nb_room as $room ) {
-					$nb_rooms[] = intval( $room );
-				}
-			}
-
-			sort( $nb_rooms, SORT_NUMERIC );
-			$nb_rooms = array_unique( $nb_rooms );
 
 			do_action( 'wpcasama_info' );
 			?>
@@ -124,18 +107,7 @@
                                 value="more"><?php _e( 'Infinite', 'wpcasa-mail-alert' ) ?></option>
                     </select>
                 </div>
-                <div class="wpcasama-widget-field">
-                    <label for="thfo_mailalert_room"> <?php _e( 'Room', 'wpcasa-mail-alert' ) ?></label>
-                    <select name="thfo_mailalert_room">
-						<?php
-							foreach ( $nb_rooms as $nb_room ) { ?>
-                                <option name="thfo_mailalert_room"
-                                        value="<?php echo $nb_room; ?>"><?php echo $nb_room; ?></option>
-							<?php }
 
-						?>
-                    </select>
-                </div>
 				<?php do_action( 'wpcasama_end_widget' ); ?>
                 </p>
                 <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>

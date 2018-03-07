@@ -8,7 +8,6 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Features
 
-* Allow Search by numbers of bedrooms
 * Allow Search city
 * Allow search by minimum Price
 * Allow search by maximum Price
@@ -39,9 +38,6 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 * I'm sorry you leave. The plugin is deleting all DB created by the plugin activation. You only have to manually delete the unsubscribe page.
 
-### Is the Bedrooms number a minimum in the search?  
-
-* Yes!
 
 ## Screenshots
 

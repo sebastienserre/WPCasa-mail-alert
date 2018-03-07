@@ -37,7 +37,6 @@ class thfo_mailalert {
 			$city  = $_POST['thfo_mailalert_city'];
 			$price = $_POST['thfo_mailalert_price'];
 			$minprice = $_POST['thfo_mailalert_min_price'];
-			$room  = $_POST['thfo_mailalert_room'];
 			$date = current_time('mysql');
 
 			do_action( 'thfo_before_saving_result' );
@@ -49,7 +48,6 @@ class thfo_mailalert {
 				'tel'          => $phone,
 				'city'         => $city,
 				'max_price'    => $price,
-				'room'         => $room,
 				'subscription' => $date,
 				'min_price'    => $minprice,
 			);
