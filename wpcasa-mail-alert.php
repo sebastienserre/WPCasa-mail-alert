@@ -47,7 +47,7 @@ class thfo_mail_alert {
 		}
 
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
-		register_uninstall_hook( __FILE__, 'wpcasama_pro_deactivation' );
+		register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 
 
 	}
@@ -67,7 +67,6 @@ tel VARCHAR (20),
 city VARCHAR (255),
 max_price VARCHAR (10),
 min_price VARCHAR (10),
-room VARCHAR (2),
 subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
   PRIMARY KEY  (id)
 ) $charset_collate;";
@@ -78,10 +77,9 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		do_action( 'wpcasama_pro_activation' );
 	}
 
-	function wpcasama_pro_deactivation() {
+	function wpcasama_uninstall() {
 		global $wpdb;
 		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wpcasama_mailalert;" );
-		do_action( 'wpcasama_pro_deactivation' );
 	}
 
 	public function thfo_load_textdomain() {
