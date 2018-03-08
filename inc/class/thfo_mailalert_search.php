@@ -1,6 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-	defined( 'ABSPATH' ) or	die( 'Cheatin&#8217; uh?' );
 
 add_action( 'post_submitbox_misc_actions', 'thfo_search_subscriber' );
 
