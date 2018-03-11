@@ -14,7 +14,8 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 [WPCASA MAIL ALERT PRO](https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/ "WPCASA MAIL ALERT PRO WEBSITE")  
 
-* Allow search by number of bath
+* Allow search by all of standards features form WPCasa
+* Allow export of subscribers list in CSV format
 * Allow search by type (For Sale or For Rent)
 * Add a Shortcode to display the form where ever you want
 
