@@ -23,7 +23,8 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 <h3><a href='https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/' title='Link to WPCasa Mail Alert Pro' >WPCasa Mail Alert PRO</a></h3>
 
 <ul>
-	<li>Allow search by number of bath</li>
+	<li>Allow search by all of standards features form WPCasa</li>
+	<li>Allow export of subscribers list in CSV format</li>
 	<li>Allow search by type (For Sale or For Rent)</li>
 	<li>Add a Shortcode to display the form where ever you want</li>
 </ul>
