@@ -48,7 +48,7 @@
 	add_action('admin_menu', 'wpcasama_menu_list', 15);
 	function wpcasama_menu_list(){
 
-		add_submenu_page('wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ), __('Mail Alert Listing','wpcasa-mail-alert'), 'manage_options', 'wpcasa-listing', 'wpcasama_menu_html');
+		add_submenu_page('wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Mail Alert', 'wpcasa' ), __('Mail Alert Listing','wpcasa-mail-alert'), 'manage_options', 'wpcasa-listing', 'wpcasama_menu_html');
 		add_submenu_page('wpsight-settings',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings','menu_html');
 
 	}
@@ -60,8 +60,8 @@
 
 
 	if (defined('WPCASAMA_PRO_VERSION')){
-		echo '<h1>' . get_admin_page_title() . ' ' . WPCASAMA_PRO_VERSION ;
-		echo ' Pro</h1>';
+		echo '<h1>' . get_admin_page_title() . ' Pro ' . WPCASAMA_PRO_VERSION .'</h1>';
+
 	} else {
 		echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
 		echo '</h1>';
