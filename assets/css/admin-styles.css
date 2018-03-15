@@ -15,7 +15,6 @@ table.thfo_subscriber {
     padding: 10px;
     border: 1px solid;
     border-radius: 10px;
-    width: 70%;
     margin: 0 auto;
     float: left;
 }
@@ -29,10 +28,10 @@ table.thfo_subscriber {
 }
 .ads {
     width: 20%;
-    float: left;
+    float: right;
     border: solid 1px #fe5000;
     border-radius: 10px;
-    margin-left: 10px;
+    margin: 0 20px;
     padding: 0.5em;
     background: #fe5000;
     color: #ffffff;
@@ -69,4 +68,5 @@ table.thfo_subscriber {
 
 .wpcasama-subscriber {
     overflow: hidden;
+    float: left;
 }

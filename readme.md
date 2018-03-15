@@ -49,6 +49,8 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Changelog
 
+### 1.2.6
+ * Add style to subscribers list
 ### 1.2.5 
 * Fix a function name to avoid conflicts
 ### 1.2.4 
