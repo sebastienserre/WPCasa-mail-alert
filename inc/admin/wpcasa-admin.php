@@ -49,7 +49,7 @@
 	function wpcasama_menu_list(){
 
 		add_submenu_page('wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Mail Alert', 'wpcasa' ), __('Mail Alert Listing','wpcasa-mail-alert'), 'manage_options', 'wpcasa-listing', 'wpcasama_menu_html');
-		add_submenu_page('wpsight-settings',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings','menu_html');
+		add_submenu_page('wpsight-settings',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings','wpcasama_menu');
 
 	}
 
@@ -175,7 +175,7 @@
             <ul>
                 <li><?php _e('No Ads', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Offer filter: sale or rent', 'wpcasa-mail-alert'); ?></li>
-                <li><?php _e('Number of Bathroom Filter', 'wpcasa-mail-alert'); ?></li>
+                <li><?php _e('All Standards features from WPCasa', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Shortcode to display the form where ever you want', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Automatic Update', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('Priority support', 'wpcasa-mail-alert'); ?></li>
@@ -188,7 +188,7 @@
         <?php
     }
 
-	function menu_html()
+	function wpcasama_menu()
 {
 	echo '<h1>'.get_admin_page_title().'</h1>'; ?>
 
