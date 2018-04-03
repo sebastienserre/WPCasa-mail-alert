@@ -29,6 +29,11 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
+		
+		/**
+		 * 2.0.0
+		 */
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
 
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 
