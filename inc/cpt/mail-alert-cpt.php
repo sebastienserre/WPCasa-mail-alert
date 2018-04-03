@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 				'label'                 => __( 'Email Alert', 'wpcasa-mail-alert' ),
 				'description'           => __( 'Receive an email when listings match your criterias', 'wpcasa-mail-alert' ),
 				'labels'                => $labels,
-				'supports'              => array( 'title', 'editor', 'custom-fields' ),
+				'supports'              => array( 'title' ),
 				'hierarchical'          => false,
 				'public'                => true,
 				'show_ui'               => true,
