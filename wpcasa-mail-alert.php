@@ -35,6 +35,7 @@ class thfo_mail_alert {
 		 * 2.0.0
 		 */
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
 		include_once( WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/acf.php' );
 
 		
@@ -42,13 +43,15 @@ class thfo_mail_alert {
 
 		new thfo_mailalert();
 		new thfo_mailalert_widget();
+		
+		new wpcasama_metabox();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
 		add_filter('acf/settings/path', array($this, 'wpcasama_settings_path') );
 		add_filter('acf/settings/dir', array( $this, 'wpcasama_settings_dir') );
-		add_action('add_meta_boxes', array($this, 'wpcasama_add_metabox') );
+		
 
 		if (is_multisite()) {
 			add_action( 'network_admin_notices',  array($this, 'wpcasa_mailalert_check_wpcasa') );
@@ -138,27 +141,7 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		return $dir;
 		
 	}
-	
-	function wpcasama_add_metabox(){
-		add_meta_box('wpcasama_author_alert', __('About Author', 'wpcasa-mail-alert'), array($this, 'wpcasama_author_metabox'), 'wpcasa-mail-alerte', 'side');
-		
-		if ( !defined('WPCASAMA_PRO_VERSION')) {
-			add_meta_box( 'wpcasama_ads_alert', __( 'Discover Pro Version', 'wpcasa-mail-alert' ), array(
-				$this,
-				'wpcasama_ads_metabox'
-			), 'wpcasa-mail-alerte', 'side' );
-		}
-	}
-	
-	function  wpcasama_author_metabox(){
-		echo 'Test';
-	}
-	
-	function  wpcasama_ads_metabox(){
-		
-		echo wpcasama_display_ads();
-	}
-	
+
 	
 
 

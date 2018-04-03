@@ -171,7 +171,7 @@
 	function wpcasama_display_ads(){
 	    ?>
         <div class="premium-ads">
-            <h4>WPCasa Mail Alert Pro</h4>
+            <h4><a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank">WPCasa Mail Alert Pro</a></h4>
             <ul>
                 <li><?php _e('No Ads', 'wpcasa-mail-alert'); ?></li>
                 <li><?php _e('All Standards features from WPCasa', 'wpcasa-mail-alert'); ?></li>
