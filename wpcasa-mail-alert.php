@@ -29,13 +29,15 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		
 		/**
 		 * 2.0.0
 		 */
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
+		include_once( WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/acf.php' );
 
-		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
+		
 
 
 		new thfo_mailalert();
@@ -44,6 +46,8 @@ class thfo_mail_alert {
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
+		add_filter('acf/settings/path', array($this, 'wpcasama_settings_path') );
+		add_filter('acf/settings/dir', array( $this, 'wpcasama_settings_dir') );
 
 		if (is_multisite()) {
 			add_action( 'network_admin_notices',  array($this, 'wpcasa_mailalert_check_wpcasa') );
@@ -107,6 +111,30 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			deactivate_plugins(plugin_basename(__FILE__));
 
 		}
+	}
+
+
+	/*
+	 * Include ACF
+	 *
+	 */
+	public function wpcasama_settings_path( $path ) {
+		
+		// update path
+		$path = WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/';
+		// return
+		return $path;
+		
+	}
+	
+	function wpcasama_settings_dir( $dir ) {
+		
+		// update path
+		$dir = WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/';
+		
+		// return
+		return $dir;
+		
 	}
 
 
