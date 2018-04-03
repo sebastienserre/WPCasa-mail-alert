@@ -48,6 +48,7 @@ class thfo_mail_alert {
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
 		add_filter('acf/settings/path', array($this, 'wpcasama_settings_path') );
 		add_filter('acf/settings/dir', array( $this, 'wpcasama_settings_dir') );
+		add_action('add_meta_boxes', array($this, 'wpcasama_add_metabox') );
 
 		if (is_multisite()) {
 			add_action( 'network_admin_notices',  array($this, 'wpcasa_mailalert_check_wpcasa') );
@@ -57,6 +58,7 @@ class thfo_mail_alert {
 
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
 		register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
+		
 
 
 	}
@@ -136,6 +138,28 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		return $dir;
 		
 	}
+	
+	function wpcasama_add_metabox(){
+		add_meta_box('wpcasama_author_alert', __('About Author', 'wpcasa-mail-alert'), array($this, 'wpcasama_author_metabox'), 'wpcasa-mail-alerte', 'side');
+		
+		if ( !defined('WPCASAMA_PRO_VERSION')) {
+			add_meta_box( 'wpcasama_ads_alert', __( 'Discover Pro Version', 'wpcasa-mail-alert' ), array(
+				$this,
+				'wpcasama_ads_metabox'
+			), 'wpcasa-mail-alerte', 'side' );
+		}
+	}
+	
+	function  wpcasama_author_metabox(){
+		echo 'Test';
+	}
+	
+	function  wpcasama_ads_metabox(){
+		
+		echo wpcasama_display_ads();
+	}
+	
+	
 
 
 
