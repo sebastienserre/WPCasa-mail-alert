@@ -36,9 +36,10 @@ class thfo_mail_alert {
 		 */
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/cpt-acf.php';
 		include_once( WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/acf.php' );
 
-		
+		include_once('3rd-party/acf/acf.php' );
 
 
 		new thfo_mailalert();
@@ -123,7 +124,7 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 	 * Include ACF
 	 *
 	 */
-	public function wpcasama_settings_path( $path ) {
+/*	public function wpcasama_settings_path( $path ) {
 		
 		// update path
 		$path = WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/';
@@ -141,7 +142,7 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		return $dir;
 		
 	}
-
+*/
 	
 
 
