@@ -55,7 +55,6 @@
 			?>
 
             <form action="" method="post">
-                <p>
                 <div class="wpcasama-widget-field"><label
                             for="thfo_mailalert_name"> <?php _e( 'Your name', 'wpcasa-mail-alert' ) ?>*</label>
                     <input id="thfo_mailalert_name" name="thfo_mailalert_name" required/>
@@ -107,13 +106,18 @@
                                 value="more"><?php _e( 'Infinite', 'wpcasa-mail-alert' ) ?></option>
                     </select>
                 </div>
+                <div class="wpcasama-widget-field">
+                    <label for="wpcasama-account-agreement" required ><?php printf(__('I agree to create an account on %1$s to receive e-mail alerts.', 'wpcasa-mail-alert'), get_bloginfo('name'))?></label>
+                    <input name="wpcasama-account-agreement" type="checkbox" value="checked" >
+                </div>
 
 				<?php do_action( 'wpcasama_end_widget' ); ?>
-                </p>
+				
                 <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>
             </form>
             <?php $url     = wpsight_get_option( 'thfo_unsubscribe_page' );?>
             <div class="unsubscribe_link clear"><a href=" <?php echo get_the_permalink( $url ) . '">'.  __( 'Link to unsubscribe page', 'wpcasa-mail-alert' ) ?></a> </div>
+            
 			<?php
 			echo $args['after_widget'];
 		}
