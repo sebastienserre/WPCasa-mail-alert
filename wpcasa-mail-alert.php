@@ -23,7 +23,7 @@ class thfo_mail_alert {
 		define('WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ));
 		define('WPCASAMA_PLUGIN_PRICE', '19,90€');
-
+		
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
@@ -34,12 +34,11 @@ class thfo_mail_alert {
 		/**
 		 * 2.0.0
 		 */
+		
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
-		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/cpt-acf.php';
-		include_once( WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/acf.php' );
 
-		include_once('3rd-party/acf/acf.php' );
+	
 
 
 		new thfo_mailalert();
@@ -50,8 +49,8 @@ class thfo_mail_alert {
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
-		add_filter('acf/settings/path', array($this, 'wpcasama_settings_path') );
-		add_filter('acf/settings/dir', array( $this, 'wpcasama_settings_dir') );
+		add_filter('acf/helpers/get_path', array($this, 'wpcasama_settings_path') );
+		add_filter('acf/helpers/get_dir', array( $this, 'wpcasama_settings_dir') );
 		
 
 		if (is_multisite()) {
@@ -118,34 +117,6 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 
 		}
 	}
-
-
-	/*
-	 * Include ACF
-	 *
-	 */
-/*	public function wpcasama_settings_path( $path ) {
-		
-		// update path
-		$path = WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/';
-		// return
-		return $path;
-		
-	}
-	
-	function wpcasama_settings_dir( $dir ) {
-		
-		// update path
-		$dir = WPCASAMA_PLUGIN_PATH . '/3rd-party/acf/';
-		
-		// return
-		return $dir;
-		
-	}
-*/
-	
-
-
 
 }
 
