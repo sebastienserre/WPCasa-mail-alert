@@ -1,11 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 
-/**
- * Created by PhpStorm.
- * User: sebastien
- * Date: 27/01/16
- * Time: 17:14
- */
 class thfo_mailalert {
 
 	//public $params = array();
