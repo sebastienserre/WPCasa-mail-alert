@@ -20,3 +20,19 @@
 .wpcasama-widget-field {
 	clear: both;
 }
+
+/**
+Style added in 2.0.0
+ */
+
+/**
+Account Page
+ */
+.alert_main {
+	float: left;
+	width: auto;
+	margin: 0 10px 0 0;
+	border: 1px black solid;
+	padding: 5px;
+	/* border-radius: 20px; */
+}
