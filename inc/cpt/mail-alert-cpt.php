@@ -70,3 +70,23 @@ if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 		add_action( 'init', 'wpcasama_cpt', 0 );
 		
 	}
+	
+	function wpcasama_hide_publishing_actions(){
+		$my_post_type = 'wpcasa-mail-alerte';
+		global $post;
+		if($post->post_type == $my_post_type){
+			$style = '
+                <style type="text/css">
+                    #misc-publishing-actions,
+                    #minor-publishing-actions,
+                    #major-publishing-actions input{
+                        display:none;
+                    }
+                </style>
+            ';
+			echo apply_filters('wpcasama/savedata/style', $style);
+		}
+	}
+	
+	add_action('admin_head-post.php', 'wpcasama_hide_publishing_actions');
+	add_action('admin_head-post-new.php', 'wpcasama_hide_publishing_actions');
