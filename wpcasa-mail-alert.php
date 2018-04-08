@@ -37,6 +37,7 @@ class thfo_mail_alert {
 		
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 
 	
 
@@ -45,6 +46,7 @@ class thfo_mail_alert {
 		new thfo_mailalert_widget();
 		
 		new wpcasama_metabox();
+		new wpcasama_account();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
