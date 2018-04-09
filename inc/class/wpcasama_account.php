@@ -4,8 +4,12 @@
 	class wpcasama_account {
 		
 		private $user_id;
-		
+	
 		function __construct() {
+			
+			
+			
+			
 			add_shortcode('wpcasama_account', array( $this , 'wpcasama_account'));
 			
 			add_action('init', array($this, 'wpcasama_account_delete_alert'));
@@ -14,8 +18,11 @@
 		}
 		
 		function wpcasama_account(){
-			$output = '';
+			
 			$this->user_id = get_current_user_id();
+			
+			$output = '';
+			
 			
 			if ($this->user_id == 0 ){
 				$this->wpcasama_acount_login();
@@ -91,7 +98,7 @@
 					$alert_main .= '<p class="alert_city"><span>' . __( 'City:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_city'][0] . '</p>';
 					$alert_main .= '<p class="alert_min"><span>' . __( 'Minimum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_min_price'][0] . '</p>';
 					$alert_main .= '<p class="alert_max"><span>' . __( 'Maximum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['maximum_price'][0] . '</p>';
-					$alert_main .= '<p class="alert_delete"><a href="' . $delete_link . '">Delete</a></p>';
+					$alert_main .= '<p class="alert_delete"><a href="' . $delete_link . '">' . __('Delete', 'wpcasa-mail-alert') . '</a></p>';
 					$alert_main .= '</div><!-- alert_main -->';
 					
 					
@@ -105,7 +112,27 @@
 		}
 		
 		function wpcasama_account_profile(){
-			return 'profile';
+			
+			$user_data = get_userdata($this->user_id);
+			
+			ob_start(); ?>
+			<form method="post">
+				<label for="name"><?php _e('Name:', 'wpcasa-mail-alert') ?></label>
+				<input name="name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->last_name; } ?>">
+				
+				<label for="firstname"><?php _e('Firstame:', 'wpcasa-mail-alert') ?></label>
+				<input name="firstnamename" type="text" value="<?php if (!empty($user_data)){ echo $user_data->first_name; } ?>">
+				
+				<label for="displayname"><?php _e('Display Name:', 'wpcasa-mail-alert') ?></label>
+				<input name="displayname" type="text" value="<?php if (!empty($user_data)){ echo $user_data->display_name; } ?>">
+				
+				<label for="email"><?php _e('E-mail:', 'wpcasa-mail-alert') ?></label>
+				<input name="email" type="text" value="<?php if (!empty($user_data)){ echo $user_data->user_email; } ?>">
+				
+				<input name="save_profile" type="submit">
+			</form>
+			
+			<?php return ob_get_clean();
 		}
 		
 		function wpcasama_account_delete_alert(){
