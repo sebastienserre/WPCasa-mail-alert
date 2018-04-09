@@ -39,7 +39,7 @@
 		}
 		
 		function wpcasama_acount_login(){
-			$output = '<p>' . __('You need to be logged to view this content', 'wpcasa-mail-alert') . '</p>';
+			$output = '<p>' . __('You need to be logged in to view this content', 'wpcasa-mail-alert') . '</p>';
 			
 			echo $output;
 		}
