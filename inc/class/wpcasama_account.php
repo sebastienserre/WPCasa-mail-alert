@@ -51,12 +51,12 @@
 			
 			$output =  '<div class="wpcasama-account-main">';
 			
-			$output .=  '<div class="wpcasama-account-left">';
+			$output .=  '<div class="wpcasama-account-top">';
 			$output .= '<p><a href="'. $alerts_link .'">' . __('My alerts', 'wpcasa-mail-alert') . '</a></p>';
 			$output .= '<p><a href="'. $profile_link .'">' . __('My Profile', 'wpcasa-mail-alert') . '</a></p>';
-			$output .=  '</div><!-- wpcasama-account-left -->';
+			$output .=  '</div><!-- wpcasama-account-top -->';
 			
-			$output .=  '<div class="wpcasama-account-right">';
+			$output .=  '<div class="wpcasama-account-bottom clear">';
 			
 			if (isset($_GET['page']) && $_GET['page'] == 'alert'){
 				$output .=  $this->wpcasama_account_alert();
@@ -65,7 +65,7 @@
 				$output .=  $this->wpcasama_account_profile();
 			}
 			
-			$output .=  '</div><!-- wpcasama-account-right -->';
+			$output .=  '</div><!-- wpcasama-account-bottom -->';
 			
 			$output .=  '</div><!-- wpcasama-account-main -->';
 			
@@ -116,6 +116,12 @@
 			
 			$user_data = get_userdata($this->user_id);
 			
+			$delete_link = add_query_arg( array(
+				'action' => 'delete',
+				'id'     => $this->user_id,
+				'nonce'  => wp_create_nonce( 'delete_user' )
+			) );
+			
 			ob_start(); ?>
 			<form method="post">
 				<label for="ID"><?php _e('ID:', 'wpcasa-mail-alert') ?></label>
@@ -135,6 +141,7 @@
 				
 				<input name="save_profile" type="submit">
 			</form>
+			<a href="<?php echo $delete_link ?>"><?php _e('Delete my account', 'wpcasa-mail-alert'); ?></a>
 			
 			<?php return ob_get_clean();
 		}
@@ -149,9 +156,20 @@
 		
 		function wpcasama_account_delete_alert(){
 			$nonce = $_GET['nonce'];
-				if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' &&  wp_verify_nonce( $nonce, 'delete_alert' ) ) {
-					wp_delete_post( $_GET['id'] );
+			require_once(ABSPATH.'wp-admin/includes/user.php' );
+			
+			if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' &&  wp_verify_nonce( $nonce, 'delete_user' ) ) {
+					wp_delete_user( $_GET['id'] );
+					wp_redirect(home_url());
+					exit;
 				}
+		}
+		
+		function wpcasama_account_delete_user(){
+			$nonce = $_GET['nonce'];
+			if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' &&  wp_verify_nonce( $nonce, 'delete_alert' ) ) {
+				wp_delete_post( $_GET['id'] );
+			}
 		}
 		
 	}

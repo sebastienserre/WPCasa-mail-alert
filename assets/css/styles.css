@@ -35,3 +35,16 @@ Account Page
 	border: 1px black solid;
 	padding: 5px;
 }
+
+.wpcasama-account-top p {
+	float: left;
+}
+
+.clear{
+	clear: both;
+}
+
+.wpcasama-account-top p {
+	float: left;
+	margin-right: 1em;
+}
