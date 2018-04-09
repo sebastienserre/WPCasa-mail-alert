@@ -8,7 +8,7 @@
 		function __construct() {
 			add_shortcode('wpcasama_account', array( $this , 'wpcasama_account'));
 			
-			
+			add_action('init', array($this, 'wpcasama_account_delete_alert'));
 			
 			
 		}
@@ -71,22 +71,33 @@
 				'post_type' =>  'wpcasa-mail-alerte'
 			);
 			
+
 			$alerts = get_posts( $args );
-			
-			foreach ( $alerts as $alert){
-				
-				$id = $alert->ID;
-				$meta = get_post_custom($id);
-				
-				$alert_main .= '<div class="alert_main">';
-				$alert_main .= '<p class="alert_id"><span>' . __('ID:', 'wpcasa-mail-alert') . ' </span>' . $id .'</p>';
-				$alert_main .= '<p class="alert_city"><span>'. __('City:', 'wpcasa-mail-alert' ). ' </span>' . $meta['wpcasama_city'][0] .'</p>';
-				$alert_main .= '<p class="alert_min"><span>'. __('Minimum Price:', 'wpcasa-mail-alert' ). ' </span>' . $meta['wpcasama_min_price'][0] .'</p>';
-				$alert_main .= '<p class="alert_max"><span>'. __('Maximum Price:', 'wpcasa-mail-alert' ). ' </span>' . $meta['maximum_price'][0] .'</p>';
-				$alert_main .= '<p class="alert_delete">Delete</p>';
-				$alert_main .= '</div><!-- alert_main -->';
-				
-				
+			$alert_main = '';
+			if ( !empty( $alerts) ) {
+				foreach ( $alerts as $alert ) {
+					
+					$id   = $alert->ID;
+					$meta = get_post_custom( $id );
+					
+					$delete_link = add_query_arg( array(
+						'action' => 'delete',
+						'id'     => $id,
+						'nonce'  => wp_create_nonce( 'delete_alert' )
+					) );
+					
+					$alert_main .= '<div class="alert_main">';
+					$alert_main .= '<p class="alert_id"><span>' . __( 'ID:', 'wpcasa-mail-alert' ) . ' </span>' . $id . '</p>';
+					$alert_main .= '<p class="alert_city"><span>' . __( 'City:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_city'][0] . '</p>';
+					$alert_main .= '<p class="alert_min"><span>' . __( 'Minimum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_min_price'][0] . '</p>';
+					$alert_main .= '<p class="alert_max"><span>' . __( 'Maximum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['maximum_price'][0] . '</p>';
+					$alert_main .= '<p class="alert_delete"><a href="' . $delete_link . '">Delete</a></p>';
+					$alert_main .= '</div><!-- alert_main -->';
+					
+					
+				}
+			} else {
+				$alert_main = '<p>' . __('You do not have any e-mail alert', 'wpcasa-mail-alert') . '</p>';
 			}
 			
 			
@@ -95,6 +106,13 @@
 		
 		function wpcasama_account_profile(){
 			return 'profile';
+		}
+		
+		function wpcasama_account_delete_alert(){
+			$nonce = $_GET['nonce'];
+				if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' &&  wp_verify_nonce( $nonce, 'delete_alert' ) ) {
+					wp_delete_post( $_GET['id'] );
+				}
 		}
 		
 	}
