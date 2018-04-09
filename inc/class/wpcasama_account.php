@@ -13,6 +13,7 @@
 			add_shortcode('wpcasama_account', array( $this , 'wpcasama_account'));
 			
 			add_action('init', array($this, 'wpcasama_account_delete_alert'));
+			add_action('init', array($this, 'wpcasama_account_update_profile'));
 			
 			
 		}
@@ -117,23 +118,34 @@
 			
 			ob_start(); ?>
 			<form method="post">
-				<label for="name"><?php _e('Name:', 'wpcasa-mail-alert') ?></label>
-				<input name="name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->last_name; } ?>">
+				<label for="ID"><?php _e('ID:', 'wpcasa-mail-alert') ?></label>
+				<input name="ID" type="text" value="<?php if (!empty($user_data)){ echo $user_data->ID; } ?>" readonly>
 				
-				<label for="firstname"><?php _e('Firstame:', 'wpcasa-mail-alert') ?></label>
-				<input name="firstnamename" type="text" value="<?php if (!empty($user_data)){ echo $user_data->first_name; } ?>">
+				<label for="last_name"><?php _e('Name:', 'wpcasa-mail-alert') ?></label>
+				<input name="last_name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->last_name; } ?>">
 				
-				<label for="displayname"><?php _e('Display Name:', 'wpcasa-mail-alert') ?></label>
-				<input name="displayname" type="text" value="<?php if (!empty($user_data)){ echo $user_data->display_name; } ?>">
+				<label for="first_name"><?php _e('Firstame:', 'wpcasa-mail-alert') ?></label>
+				<input name="first_name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->first_name; } ?>">
 				
-				<label for="email"><?php _e('E-mail:', 'wpcasa-mail-alert') ?></label>
-				<input name="email" type="text" value="<?php if (!empty($user_data)){ echo $user_data->user_email; } ?>">
+				<label for="display_name"><?php _e('Display Name:', 'wpcasa-mail-alert') ?></label>
+				<input name="display_name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->display_name; } ?>">
+				
+				<label for="user_email"><?php _e('E-mail:', 'wpcasa-mail-alert') ?></label>
+				<input name="user_email" type="text" value="<?php if (!empty($user_data)){ echo $user_data->user_email; } ?>">
 				
 				<input name="save_profile" type="submit">
 			</form>
 			
 			<?php return ob_get_clean();
 		}
+		
+		function wpcasama_account_update_profile(){
+			
+			if (isset($_POST['save_profile']) && ! empty($_POST['save_profile'])){
+				wp_update_user($_POST);
+			}
+		}
+		
 		
 		function wpcasama_account_delete_alert(){
 			$nonce = $_GET['nonce'];
