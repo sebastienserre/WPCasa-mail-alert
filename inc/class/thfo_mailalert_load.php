@@ -14,7 +14,7 @@ class thfo_mailalert {
 		add_action( 'wp_loaded', array( $this, 'thfo_delete_subscriber' ) );
 		
 	}
-	
+
 	/**
 	 * @since 2.0.0
 	 * Save Results from Widget to PostMeta
@@ -22,8 +22,6 @@ class thfo_mailalert {
 	public function save_results() {
 
 		if ( isset( $_POST['thfo_mailalert'] ) ) {
-			
-			var_dump($_POST);
 			
 			/**
 			 * If no agreement => back to form with error message
@@ -50,7 +48,14 @@ class thfo_mailalert {
 			
 			apply_filters('wpcasama/savedata/user', $userdata);
 			
-			$user_id = wp_insert_user( $userdata ) ;
+			$user_exists = get_user_by('email', $userdata['user_email']);
+			
+			
+			if ( $user_exists == false ){
+				$user_id = wp_insert_user( $userdata );
+			} else {
+				$user_id = $user_exists->ID;
+			}
 			
 			
 			/**
