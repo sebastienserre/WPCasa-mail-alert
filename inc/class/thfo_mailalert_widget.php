@@ -57,7 +57,7 @@
             <form action="" method="post">
                 <div class="wpcasama-widget-field"><label
                             for="thfo_mailalert_name"> <?php _e( 'Your name', 'wpcasa-mail-alert' ) ?>*</label>
-                    <input id="thfo_mailalert_name" name="thfo_mailalert_name" required/>
+                    <input id="thfo_mailalert_name" name="thfo_mailalert_name" value="<?php if (isset($_POST['thfo_mailalert']) && !empty($_POST['thfo_mailalert_name']) ){ echo $_POST['thfo_mailalert_name']; } ?>" required/>
                 </div>
                 <div class="wpcasama-widget-field">
                     <label for="thfo_mailalert_email"> <?php _e( 'Your Email', 'wpcasa-mail-alert' ) ?>*</label>

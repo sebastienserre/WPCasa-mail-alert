@@ -53,6 +53,7 @@ class thfo_mail_alert {
 		add_action( 'wp_enqueue_scripts', array( $this, 'thfo_register_style' ) );
 		add_filter('acf/helpers/get_path', array($this, 'wpcasama_settings_path') );
 		add_filter('acf/helpers/get_dir', array( $this, 'wpcasama_settings_dir') );
+		add_action('init', array($this, 'wpcasama_remove_adminbar'));
 		
 
 		if (is_multisite()) {
@@ -64,8 +65,19 @@ class thfo_mail_alert {
 		register_activation_hook( __FILE__, array( $this, 'wpcasama_pro_activation' ) );
 		register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 		
+		
 
-
+	}
+	
+	/**
+	 * Hide admin bar for non admin
+	 */
+	function wpcasama_remove_adminbar(){
+		$user = wp_get_current_user();
+		$allowed_roles = array('administrator');
+		if( ! array_intersect($allowed_roles, $user->roles ) ) {
+			add_filter( 'show_admin_bar', '__return_false' );
+		}
 	}
 
 	function wpcasama_pro_activation() {
