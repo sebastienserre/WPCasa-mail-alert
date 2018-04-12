@@ -70,8 +70,8 @@ class thfo_mailalert {
 				'meta_input' => array(
 					'wpcasama_phone' => $_POST['thfo_mailalert_phone'],
 					'wpcasama_city' => $_POST['thfo_mailalert_city'],
-					'wpcasama_min_price' => $_POST['thfo_mailalert_min_price'],
-					'maximum_price' => $_POST['thfo_mailalert_price'],
+					'wpcasama_min_price' => intval($_POST['thfo_mailalert_min_price']),
+					'wpcasama_max_price' => intval($_POST['thfo_mailalert_price']),
 				),
 				
 			);

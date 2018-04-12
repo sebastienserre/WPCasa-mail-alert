@@ -101,7 +101,7 @@
 					$alert_main .= '<p class="alert_id"><span>' . __( 'ID:', 'wpcasa-mail-alert' ) . ' </span>' . $id . '</p>';
 					$alert_main .= '<p class="alert_city"><span>' . __( 'City:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_city'][0] . '</p>';
 					$alert_main .= '<p class="alert_min"><span>' . __( 'Minimum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_min_price'][0] . $currency . '</p>';
-					$alert_main .= '<p class="alert_max"><span>' . __( 'Maximum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['maximum_price'][0] . $currency . '</p>';
+					$alert_main .= '<p class="alert_max"><span>' . __( 'Maximum Price:', 'wpcasa-mail-alert' ) . ' </span>' . $meta['wpcasama_max_price'][0] . $currency . '</p>';
 					$alert_main .= '<p class="alert_delete"><a href="' . $delete_link . '">' . __('Delete', 'wpcasa-mail-alert') . '</a></p>';
 					$alert_main .= '</div><!-- alert_main -->';
 					
