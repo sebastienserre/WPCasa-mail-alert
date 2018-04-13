@@ -4,10 +4,16 @@
 	
 	class wpcasama_search {
 		
+		public $subscribers = array();
+		
 		function __construct() {
-			add_action( 'post_submitbox_misc_actions', array( $this, 'wpcasama_search_alert' ) );
+			//add_action( 'post_submitbox_misc_actions', array( $this, 'wpcasama_search_alert' ) );
 		}
 		
+		
+		/**
+		 * @return array
+		 */
 		
 		function wpcasama_search_alert(){
 			
@@ -52,23 +58,15 @@
 			) );
 			
 			/**
-			 * $args = array(
-			'post_type'  => 'wpse_cpt',
-			'meta_query' => array(
-			'relation' => 'AND' //**** Use AND or OR as per your required Where Clause
-			array(
-			'key'     => 'post_code',
-			'value'   => '432C',
-			),
-			array(
-			'key'     => 'location',
-			'value'   => 'XYZ',
-			),
-			),
-			);
-			$query = new WP_Query( $args );
+			 * Get Emails from alerts in an array
 			 */
 			
-			var_dump($alerts);
+			foreach ($alerts as $alert){
+				
+				array_push($this->subscribers, get_userdata($alert->post_author));
+			}
+			
+			return $this->subscribers;
 		}
+
 	}
