@@ -70,3 +70,8 @@ table.thfo_subscriber {
     overflow: hidden;
     float: left;
 }
+
+form.wpcasama-settings-form {
+    width: 70%;
+    float: left;
+}
