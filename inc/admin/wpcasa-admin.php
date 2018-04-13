@@ -126,12 +126,18 @@
 </div>
         <?php do_action('thfo/wpcasama/after-table'); ?>
         <?php if ( !defined('WPCASAMA_PRO_VERSION')){ ?>
-		<div class="ads">
+		
             <?php wpcasama_display_ads(); ?>
-		</div>
+
         <?php } ?>
         <div class="clear"></div>
-        <div class="wpcasama-stars">
+
+<?php
+
+	}
+
+	function wpcasama_stars(){ ?>
+	            <div class="wpcasama-stars">
         <span id="wpcasama-footer-credits">
                 <span class="dashicons dashicons-wordpress"></span>
                 <?php _e( "You like WPCasa Mail Alert? Don't forget to rate it 5 stars!", "wpcasa-mail-alert" ) ?>
@@ -162,14 +168,12 @@
                     });
                 </script>
             </span>
-        </div>
-<?php
-
-	}
-
+        </div> <?php
+    }
 
 	function wpcasama_display_ads(){
 	    ?>
+        <div class="ads">
         <div class="premium-ads">
             <h4><a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank">WPCasa Mail Alert Pro</a></h4>
             <ul>
@@ -188,6 +192,8 @@
             </ul>
             <a href="<?php echo esc_url('https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');  ?>" title="<?php _e('link to Premium Version', 'wpcasa-mail-alert') ?>" target="_blank"><?php printf(__('Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert'), WPCASAMA_PLUGIN_PRICE);  ?></a>
         </div>
+        </div>
+        <div class="clear"></div>
         <?php
     }
 
@@ -195,15 +201,16 @@
 {
 	echo '<h1>'.get_admin_page_title().'</h1>'; ?>
 
-    <form method="post" action="options.php">
+    <form method="post" action="options.php" class="wpcasama-settings-form">
 		<?php settings_fields('thfo_newsletter_settings') ?>
 		<?php do_settings_sections('thfo_newsletter_settings') ?>
 		<?php submit_button(__('Save')); ?>
 
 
     </form>
-
-	<?php
+    
+	<?php wpcasama_display_ads();
+	wpcasama_stars();
 }
 
 	function register_settings()
