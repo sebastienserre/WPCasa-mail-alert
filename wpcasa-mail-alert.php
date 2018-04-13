@@ -40,6 +40,7 @@ class thfo_mail_alert {
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WpcasamaSendMail.php';
+		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 		
 		
 		
@@ -52,6 +53,7 @@ class thfo_mail_alert {
 		new wpcasama_account();
 		new wpcasama_search();
 		new WpcasamaSendMail();
+		new WPCasamaMigration();
 
 		add_action( 'plugins_loaded', array( $this, 'thfo_load_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'thfo_register_admin_style' ) );
