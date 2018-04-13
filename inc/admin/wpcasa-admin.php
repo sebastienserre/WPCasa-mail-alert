@@ -31,7 +31,7 @@
 				),
 				'wpcasama_migration_tool' => array(
 					'name'    => __( 'Migrate from version < 2.0 ', 'wpcasa-mail-alert' ),
-					'desc'    => __( '', 'wpcasa-mail-alert' ),
+					'desc'    => __( 'Needed to migrate your existing alerts if you use WPCasa mail Alert before it\'s 2.0.0 version', 'wpcasa-mail-alert' ),
 					'id'      => 'wpcasama_migration',
 					'type'    => 'checkbox',
 				),

@@ -90,3 +90,53 @@ if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 	
 	add_action('admin_head-post.php', 'wpcasama_hide_publishing_actions');
 	add_action('admin_head-post-new.php', 'wpcasama_hide_publishing_actions');
+	
+	
+	add_filter( 'manage_edit-wpcasa-mail-alerte_columns', 'wpcasama_edit_columns' ) ;
+	
+	function wpcasama_edit_columns( $columns ) {
+		
+		$columns = array(
+			'cb' => '<input type="checkbox" />',
+			'title' => __( 'Title', 'wpcasa-mail-alert' ),
+			'phone' => __( 'Phone', 'wpcasa-mail-alert' ),
+			'city' => __( 'City', 'wpcasa-mail-alert' ),
+			'min_price' => __( 'Min Price', 'wpcasa-mail-alert' ),
+			'max_price' => __( 'Max price', 'wpcasa-mail-alert' ),
+			'name'  =>  __('Name', 'wpcasa-mail-alert'),
+			'date' => __( 'Date', 'wpcasa-mail-alert' ),
+		);
+		
+		return $columns;
+	}
+	
+	function wpcasama_alert_colmuns($column, $post_id){
+		global $post;
+		$currency = wpsight_get_currency();
+		$meta = get_post_custom( $post->ID );
+		//var_dump($meta);
+		switch ($column) {
+			case 'phone' :
+				if ( ! empty ($meta['wpcasama_phone'][0] ) ) {
+					echo $meta['wpcasama_phone'][0];
+				} else {
+					_e('Not Provided', 'wpcasa-mail-alert');
+				}
+				break;
+			case 'city' :
+				echo $meta['wpcasama_city'][0];
+				break;
+			case 'min_price' :
+				echo $meta['wpcasama_min_price'][0] . $currency;
+				break;
+			case 'max_price' :
+				echo $meta['wpcasama_max_price'][0] . $currency;
+				break;
+			case 'name' :
+				
+				echo '<a href="'. admin_url('user-edit.php?user_id=' . get_the_author_meta('ID') ) .'">' . get_the_author() . '</a>';
+				break;
+		}
+	}
+	
+	add_action('manage_wpcasa-mail-alerte_posts_custom_column', 'wpcasama_alert_colmuns', 10, 2);
