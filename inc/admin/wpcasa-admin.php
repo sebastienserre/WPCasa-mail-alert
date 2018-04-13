@@ -29,7 +29,14 @@
 					'type'    => 'text',
 					'default' => __( '', 'wpcasa-listings-map' ),
 				),
-
+				'wpcasama_migration_tool' => array(
+					'name'    => __( 'Migrate from version < 2.0 ', 'wpcasa-mail-alert' ),
+					'desc'    => __( '', 'wpcasa-mail-alert' ),
+					'id'      => 'wpcasama_migration',
+					'type'    => 'checkbox',
+				),
+			
+			
 			);
 
 			do_action('wpcasama_after_settings');
@@ -38,8 +45,7 @@
 			__( 'WPCasa Mail Alert', 'wpcasa-mail-alert' ),
 			apply_filters( 'wpsight_listings_map_options', $options_wpacasama )
 		);
-
-		//var_dump($options['wpcasama']); die;
+		
 		return $options;
 	}
 
