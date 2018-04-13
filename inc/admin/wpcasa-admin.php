@@ -54,94 +54,11 @@
 	add_action('admin_menu', 'wpcasama_menu_list', 15);
 	function wpcasama_menu_list(){
 
-		add_submenu_page('wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Mail Alert', 'wpcasa' ), __('Mail Alert Listing','wpcasa-mail-alert'), 'manage_options', 'wpcasa-listing', 'wpcasama_menu_html');
-		add_submenu_page('wpsight-settings',__('Mail Settings', 'wpcasa-mail-alert'),__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'thfo-mailalert-mail-settings','wpcasama_menu');
+
+		add_submenu_page('wpsight-settings', 'WPCasa Mail Alert',__('Mail Settings', 'wpcasa-mail-alert'),'manage_options', 'wpcasama-mail-settings','wpcasama_menu');
 
 	}
-
-	function wpcasama_menu_html(){
-	global $wpdb;
-	$subscribers = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpcasama_mailalert ORDER BY subscription DESC");
-	$count = count($subscribers);
-
-
-	if (defined('WPCASAMA_PRO_VERSION')){
-		echo '<h1>' . get_admin_page_title() . ' Pro ' . WPCASAMA_PRO_VERSION .'</h1>';
-
-	} else {
-		echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
-		echo '</h1>';
-	}
-
-	echo '<p>';
-	if ( $count === 0 ){
-		_e('0 subscriber' , 'wpcasa-mail-alert');
-	} else {
-		printf( _n( '%s subscriber:', '%s subscribers:', $count, 'wpcasa-mail-alert' ), number_format_i18n( $count ) );
-	}
-
-	//printf( _n( '%s subscriber:', '%s subscribers:', $count, 'wpcasa-mail-alert' ), number_format_i18n( $count ) );
-
-	echo '</p>';
-
-?>
-<div class="wpcasama-subscriber">
-<table class="thfo_subscriber <?php if ( defined('WPCASAMA_PRO_VERSION')){ echo 'fullwidth'; } ?>" >
-	<tr>
-		<th><?php _e('Date', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Name', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Email', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Phone', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('City Searched', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Minimum price', 'wpcasa-mail-alert') ?></th>
-		<th><?php _e('Maximum price', 'wpcasa-mail-alert') ?></th>
-		<?php do_action('thfo_after_header_subscriber_table', 10,1); ?>
-		<th><?php _e('Delete', 'wpcasa-mail-alert') ?></th>
-
-	</tr>
-	<?php
-		foreach ($subscribers as $subscriber){
-			$date = mysql2date('G', $subscriber->subscription, true) ?>
-			<tr>
-				<td><?php echo date_i18n('d/m/Y', $date ); ?></td>
-				<td><?php echo $subscriber->name ?></td>
-				<td><?php echo $subscriber->email ?></td>
-				<td><?php echo $subscriber->tel ?></td>
-				<td><?php echo $subscriber->city ?></td>
-				<td><?php echo $subscriber->min_price ?>€</td>
-				<td><?php echo $subscriber->max_price ?>€</td>
-				<?php do_action('thfo_after_tr_subscriber_table', $subscriber); ?>
-
-				<td>
-					<?php
-
-						$url = add_query_arg(array(
-							'remove' => $subscriber->email,
-							'_nonce' => wp_create_nonce('_nonce-' . $subscriber->email)
-						));
-					?>
-					<a href="<?php echo esc_url($url); ?>" title="<?php _e('Delete', 'wpcasa-mail-alert') ?>"><span class="dashicons dashicons-trash"></span> </a>
-				</td>
-
-			</tr>
-
-		<?php }
-
-	?>
-</table>
-</div>
-        <?php do_action('thfo/wpcasama/after-table'); ?>
-        <?php if ( !defined('WPCASAMA_PRO_VERSION')){ ?>
-		
-            <?php wpcasama_display_ads(); ?>
-
-        <?php } ?>
-        <div class="clear"></div>
-
-<?php
-
-	}
-
+	
 	function wpcasama_stars(){ ?>
 	            <div class="wpcasama-stars">
         <span id="wpcasama-footer-credits">
@@ -203,9 +120,17 @@
         <?php
     }
 
-	function wpcasama_menu()
-{
-	echo '<h1>'.get_admin_page_title().'</h1>'; ?>
+	function wpcasama_menu(){
+	   
+    if (defined('WPCASAMA_PRO_VERSION')){
+    echo '<h1>' . get_admin_page_title() . ' Pro ' . WPCASAMA_PRO_VERSION .'</h1>';
+
+    } else {
+    echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
+    echo '</h1>';
+    }
+    
+    ?>
 
     <form method="post" action="options.php" class="wpcasama-settings-form">
 		<?php settings_fields('thfo_newsletter_settings') ?>
@@ -222,7 +147,7 @@
 	function register_settings()
 {
 	/* Mail Settings */
-	add_settings_section('thfo_newsletter_section', __('Outgoing parameters','wpcasa-mail-alert'), 'section_html', 'thfo_newsletter_settings');
+	add_settings_section('thfo_newsletter_section', __('Email parameters','wpcasa-mail-alert'), 'section_html', 'thfo_newsletter_settings');
 
 	register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender');
 	register_setting('thfo_newsletter_settings', 'thfo_newsletter_sender_mail');
