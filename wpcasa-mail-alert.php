@@ -60,6 +60,7 @@ class thfo_mail_alert {
 		add_filter('acf/helpers/get_path', array($this, 'wpcasama_settings_path') );
 		add_filter('acf/helpers/get_dir', array( $this, 'wpcasama_settings_dir') );
 		add_action('init', array($this, 'wpcasama_remove_adminbar'));
+		add_action('wpcasama_after_settings', array($this, 'wpcasa_test'));
 		
 
 		if (is_multisite()) {
@@ -120,6 +121,12 @@ class thfo_mail_alert {
 
 		}
 	}
+	
+	function wpcasa_test() {
+		echo 'plop';
+	}
+	
+
 
 }
 

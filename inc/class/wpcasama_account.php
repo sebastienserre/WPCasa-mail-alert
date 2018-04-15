@@ -127,8 +127,8 @@
 			
 			ob_start(); ?>
 			<form method="post">
-				<label for="ID"><?php _e('ID:', 'wpcasa-mail-alert') ?></label>
-				<input name="ID" type="text" value="<?php if (!empty($user_data)){ echo $user_data->ID; } ?>" readonly>
+				<label for="ID" hidden><?php _e('ID:', 'wpcasa-mail-alert') ?></label>
+				<input  hidden name="ID" type="hidden" value="<?php if (!empty($user_data)){ echo $user_data->ID; } ?>" readonly>
 				
 				<label for="last_name"><?php _e('Name:', 'wpcasa-mail-alert') ?></label>
 				<input name="last_name" type="text" value="<?php if (!empty($user_data)){ echo $user_data->last_name; } ?>">

@@ -48,3 +48,7 @@ Account Page
 	float: left;
 	margin-right: 1em;
 }
+
+input[type="submit"] {
+	margin-top: 10px;
+}

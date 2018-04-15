@@ -11,8 +11,6 @@
 
 	function wpcasama_options( $options ) {
 
-		do_action('wpcasama_before_settings');
-
 			$options_wpacasama = array(
 
 				'thfo_unsubscribe_page' => array(
@@ -39,11 +37,11 @@
 			
 			);
 
-			do_action('wpcasama_after_settings');
+			
 
 		$options['wpcasama'] = array(
 			__( 'WPCasa Mail Alert', 'wpcasa-mail-alert' ),
-			apply_filters( 'wpsight_listings_map_options', $options_wpacasama )
+			apply_filters( 'wpsight_listings_map_options', $options_wpacasama ),
 		);
 		
 		return $options;
