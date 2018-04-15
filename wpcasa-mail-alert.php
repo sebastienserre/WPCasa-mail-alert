@@ -26,7 +26,6 @@ class thfo_mail_alert {
 		
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
-		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/admin/wpcasa-admin.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_search.php';
@@ -88,27 +87,7 @@ class thfo_mail_alert {
 	}
 
 	function wpcasama_pro_activation() {
-		global $wpdb;
 
-		$charset_collate = $wpdb->get_charset_collate();
-
-		$table_name = $wpdb->prefix . 'wpcasama_mailalert';
-
-		$sql = "CREATE TABLE $table_name (
-  id mediumint(9) NOT NULL AUTO_INCREMENT,
-name VARCHAR (255),
-email VARCHAR (255) NOT NULL,
-tel VARCHAR (20),
-city VARCHAR (255),
-max_price VARCHAR (10),
-min_price VARCHAR (10),
-subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-  PRIMARY KEY  (id)
-) $charset_collate;";
-
-
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		dbDelta( $sql );
 		do_action( 'wpcasama_pro_activation' );
 		
 		wpcasama_cpt();
@@ -129,7 +108,7 @@ subscription datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 	}
 
 	public function thfo_register_style() {
-		wp_enqueue_style( 'thfo_mailalert_style', plugins_url( 'assets/css/styles.css', __FILE__ ) );
+		wp_enqueue_style( 'wpcasa_style', plugins_url( 'assets/css/wpcasa-mail-alert.css', __FILE__ ) );
 	}
 
 	public function wpcasa_mailalert_check_wpcasa(){

@@ -11,7 +11,7 @@ Stable tag: 2.0.0
 License: GPL V2 or later
 
 == Description ==
-WPCasa Mail Alert will display a widget to add a form on your Website using WPCasa Framework from WPSIght. Once registred, you'll receive a mail when the RealEstate Agency will add or update a property corresponding to your search!
+WPCasa Mail Alert will display a widget to add a form on your Website using WPCasa Plugin from WPSIght. Once registred, you'll receive a mail when the RealEstate Agency will add or update a property corresponding to your search!
 
 <h3>Features</h3>
 
@@ -26,7 +26,6 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 <ul>
 	<li>Allow search by all of standards features form WPCasa</li>
 	<li>Allow export of subscribers list in CSV format</li>
-	<li>Allow search by type (For Sale or For Rent)</li>
 	<li>Add a Shortcode to display the form where ever you want</li>
 </ul>
 
@@ -44,9 +43,6 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 = Is my subscriber can easily unsubscribe to the mail? =
 * Yes! They have to click on the link present on all mail received or make a link somewhere to the unsubscribe page created at the plugin activation.
 
-= Do I need to remove something after de-activation and deletion of this plugin? =
-* I'm sorry you leave. The plugin is deleting all DB created by the plugin activation. You only have to manually delete the unsubscribe page.
-
 
 == Upgrade Notice ==
 
@@ -59,6 +55,12 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+
+* 2.0.0 April 2018 -- Great Improvement
+    Alerts are now Custom Post Type.
+    Criterias are Custom Metabox.
+    Add a Front subscribers account (by shortcode)
+    Subscribers are now WP User (need allow user registration).
 
 * 1.2.6 Add style to subscribers list
 * 1.2.5 Fix a function name to avoid conflicts

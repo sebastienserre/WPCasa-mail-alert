@@ -31,7 +31,7 @@ Account Page
 .alert_main {
 	float: left;
 	width: auto;
-	margin: 0 10px 0 0;
+	margin: 10px 10px 0 0;
 	border: 1px black solid;
 	padding: 5px;
 }

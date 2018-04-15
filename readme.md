@@ -16,7 +16,6 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 * Allow search by all of standards features form WPCasa
 * Allow export of subscribers list in CSV format
-* Allow search by type (For Sale or For Rent)
 * Add a Shortcode to display the form where ever you want
 
 ## Installation
@@ -35,11 +34,6 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 * Yes! They have to click on the link present on all mail received or make a link somewhere to the unsubscribe page created at the plugin activation.
 
-### Do I need to remove something after de-acivation and deletion of this plugin?  
-
-* I'm sorry you leave. The plugin is deleting all DB created by the plugin activation. You only have to manually delete the unsubscribe page.
-
-
 ## Screenshots
 
 ![Widget](https://ps.w.org/wpcasa-mail-alert/assets/screenshot-1.png "Widget")
@@ -49,6 +43,12 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Changelog
 
+### 2.0.0 -- April 2018 -- Great Improvement
+  * Alerts are now Custom Post Type.
+  * Criterias are Custom Metabox.
+  * Add a Front subscribers account (by shortcode)
+  * Subscribers are now WP User (need allow user registration).
+  
 ### 1.2.6
  * Add style to subscribers list
 ### 1.2.5 
