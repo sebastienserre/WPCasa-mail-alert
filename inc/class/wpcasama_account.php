@@ -118,7 +118,7 @@
 		function wpcasama_account_profile(){
 			
 			$user_data = get_userdata($this->user_id);
-			
+			$user_meta = get_user_meta($this->user_id);
 			$delete_link = add_query_arg( array(
 				'action' => 'delete',
 				'id'     => $this->user_id,
@@ -141,6 +141,9 @@
 				
 				<label for="user_email"><?php _e('E-mail:', 'wpcasa-mail-alert') ?></label>
 				<input name="user_email" type="text" value="<?php if (!empty($user_data)){ echo $user_data->user_email; } ?>">
+
+                <label for="user_phone"><?php _e('Phone:', 'wpcasa-mail-alert') ?></label>
+                <input name="user_phone" type="text" value="<?php if (!empty($user_meta['wpcasama_phone'][0])){ echo $user_meta['wpcasama_phone'][0]; } ?>">
 				
 				<input name="save_profile" type="submit">
 			</form>
@@ -153,6 +156,9 @@
 			
 			if (isset($_POST['save_profile']) && ! empty($_POST['save_profile'])){
 				wp_update_user($_POST);
+				
+				$user_id = get_current_user_id();
+				$update = update_user_meta($user_id, 'wpcasama_phone', $_POST['user_phone'] );
 			}
 		}
 		

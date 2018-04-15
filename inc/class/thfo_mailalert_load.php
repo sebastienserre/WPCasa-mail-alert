@@ -47,7 +47,6 @@ class thfo_mailalert {
 			);
 			
 			apply_filters('wpcasama/savedata/user', $userdata);
-			
 			$user_exists = get_user_by('email', $userdata['user_email']);
 			
 			
@@ -57,6 +56,7 @@ class thfo_mailalert {
 				$user_id = $user_exists->ID;
 			}
 			
+			$update = update_user_meta($user_id, 'wpcasama_phone', $_POST['thfo_mailalert_phone'] );
 			
 			/**
 			 * User created, create alert
@@ -68,7 +68,6 @@ class thfo_mailalert {
 				'post_status'   => 'publish',
 				'post_type' =>  'wpcasa-mail-alerte',
 				'meta_input' => array(
-					'wpcasama_phone' => $_POST['thfo_mailalert_phone'],
 					'wpcasama_city' => $_POST['thfo_mailalert_city'],
 					'wpcasama_min_price' => intval($_POST['thfo_mailalert_min_price']),
 					'wpcasama_max_price' => intval($_POST['thfo_mailalert_price']),

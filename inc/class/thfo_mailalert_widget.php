@@ -50,22 +50,32 @@
 
 			$prices   = $this->multiexplode( array( ',', ', ' ), $prices );
 			$currency = wpsight_get_currency();
-
+			
+			if (is_user_logged_in()){
+			    $current_user_id = get_current_user_id();
+			    
+			    $user_info = get_userdata($current_user_id);
+			    $user_meta = get_user_meta($current_user_id);
+			    $_POST['thfo_mailalert_name'] = $user_info->data->user_nicename;
+			    $_POST['thfo_mailalert_email'] = $user_info->data->user_email;
+			    $_POST['thfo_mailalert_phone'] = $user_meta['wpcasama_phone'][0];
+			}
+			
 			do_action( 'wpcasama_info' );
 			?>
 
             <form action="" method="post">
                 <div class="wpcasama-widget-field"><label
                             for="thfo_mailalert_name"> <?php _e( 'Your name', 'wpcasa-mail-alert' ) ?>*</label>
-                    <input id="thfo_mailalert_name" name="thfo_mailalert_name" value="<?php if (isset($_POST['thfo_mailalert']) && !empty($_POST['thfo_mailalert_name']) ){ echo $_POST['thfo_mailalert_name']; } ?>" required/>
+                    <input id="thfo_mailalert_name" name="thfo_mailalert_name" value="<?php if (isset($_POST['thfo_mailalert_name']) && !empty($_POST['thfo_mailalert_name']) ){ echo $_POST['thfo_mailalert_name']; } ?>" required/>
                 </div>
                 <div class="wpcasama-widget-field">
                     <label for="thfo_mailalert_email"> <?php _e( 'Your Email', 'wpcasa-mail-alert' ) ?>*</label>
-                    <input id="thfo_mailalert_email" name="thfo_mailalert_email" type="email" required/>
+                    <input id="thfo_mailalert_email" name="thfo_mailalert_email" type="email" value="<?php if (isset($_POST['thfo_mailalert_email']) && !empty($_POST['thfo_mailalert_email']) ){ echo $_POST['thfo_mailalert_email']; } ?>" required/>
                 </div>
                 <div class="wpcasama-widget-field">
                     <label for="thfo_mailalert_phone"> <?php _e( 'Your Phone number', 'wpcasa-mail-alert' ) ?></label>
-                    <input id="thfo_mailalert_phone" name="thfo_mailalert_phone"/>
+                    <input id="thfo_mailalert_phone" name="thfo_mailalert_phone" value="<?php if (isset($_POST['thfo_mailalert_phone']) && !empty($_POST['thfo_mailalert_phone']) ){ echo $_POST['thfo_mailalert_phone']; } ?>"/>
                 </div>
                 <div class="wpcasama-widget-field">
                     <label for="thfo_mailalert_city"> <?php _e( 'City', 'wpcasa-mail-alert' ) ?></label>
