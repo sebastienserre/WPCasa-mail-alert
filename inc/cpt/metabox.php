@@ -46,7 +46,11 @@
 		
 		
 		function wpcasama_alert_data($post_id){
-			$meta = get_post_custom($post_id->ID); ?>
+			$meta = get_post_custom($post_id->ID);
+			
+			do_action('wpcasama/before/alert/data');
+			
+			?>
 			
 			<div class="wpcasama_search_criteria wpcasama_phone">
 				<h2><?php _e('Phone number:', 'wpcasa-mail-alert') ?></h2>
