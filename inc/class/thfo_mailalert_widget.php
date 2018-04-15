@@ -116,10 +116,12 @@
                                 value="more"><?php _e( 'Infinite', 'wpcasa-mail-alert' ) ?></option>
                     </select>
                 </div>
+                <?php if (! is_user_logged_in()){ ?>
                 <div class="wpcasama-widget-field">
                     <label for="wpcasama-account-agreement" required ><?php printf(__('I agree to create an account on %1$s to receive e-mail alerts.', 'wpcasa-mail-alert'), get_bloginfo('name'))?></label>
                     <input name="wpcasama-account-agreement" type="checkbox" value="checked" >
                 </div>
+                <?php } ?>
 
 				<?php do_action( 'wpcasama_end_widget' ); ?>
 				
