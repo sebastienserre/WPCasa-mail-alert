@@ -64,6 +64,9 @@
 				<h2><?php _e('Maximum Price:', 'wpcasa-mail-alert') ?></h2>
 				<p><?php echo $meta['wpcasama_max_price'][0]; ?></p>
 			</div>
+   
 			
-		<?php }
+		<?php do_action('wpcasama/after/alert/data');
+		
+		}
 	}
