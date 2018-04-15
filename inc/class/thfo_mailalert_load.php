@@ -27,7 +27,7 @@ class thfo_mailalert {
 			 * If no agreement => back to form with error message
 			 */
 			
-			if ($_POST['wpcasama-account-agreement'] != 'checked'){
+			if ($_POST['wpcasama-account-agreement'] != 'checked' && ! is_user_logged_in()){
 				
 				
 				add_action('wpcasama_info', array($this, 'wpcasama_error_message'));
