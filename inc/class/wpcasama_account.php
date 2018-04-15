@@ -58,7 +58,7 @@
 			
 			$output .=  '<div class="wpcasama-account-bottom clear">';
 			
-			if (isset($_GET['page']) && $_GET['page'] == 'alert'){
+			if (isset($_GET['page']) && $_GET['page'] == 'alert' || ! isset($_GET['page'])){
 				$output .=  $this->wpcasama_account_alert();
 			}
 			if (isset($_GET['page']) && $_GET['page'] == 'profile'){
