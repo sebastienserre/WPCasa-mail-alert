@@ -23,6 +23,7 @@ class thfo_mail_alert {
 		define('WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 		define('WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ));
 		define('WPCASAMA_PLUGIN_PRICE', '19,90€');
+		define('WPCASAMAPRO_LINK', 'https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/');
 		
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 		include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';

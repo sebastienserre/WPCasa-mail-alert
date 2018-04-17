@@ -34,9 +34,11 @@
 			$post_author_id   = get_post_field( 'post_author', $post_id );
 			$post_author_mail = get_the_author_meta( 'email', $post_author_id );
 			$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
+			$post_author_phone = get_the_author_meta('wpcasama_phone', $post_author_id);
 			
 			echo '<p>' . antispambot( $post_author_mail ) . '</p>';
 			echo '<p><a href="' . admin_url( 'user-edit.php?user_id=' . $post_author_id ) . '" >' . $post_author_name . '</a></p>';
+			if ( !empty ($post_author_phone) ) { echo '<p>' . __('Phone Number: ') . $post_author_phone; }
 		}
 		
 		function wpcasama_ads_metabox() {
@@ -54,10 +56,7 @@
 			
 			?>
             <div class="wpcasama_search_criteria_left">
-                <div class="wpcasama_search_criteria wpcasama_phone">
-                    <p><?php _e( 'Phone number: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_phone'][0]; ?></p>
-                    <div class="clear"></div>
-                </div>
+
                 <div class="wpcasama_search_criteria wpcasama_city">
                     <p><?php _e( 'City: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_city'][0]; ?></p>
                     <div class="clear"></div>
@@ -74,37 +73,25 @@
 			
 			<?php if ( defined( 'WPCASAMA_PRO_VERSION' ) ) {
 			    do_action('wpcasama/pro/criteria');
-            } else { ?>
+            } else {
+				$details = wpsight_details();
+			    
+			    ?>
                 <div class="wpcasama_search_criteria_right wpcasama_search_criteria_free">
                     <fieldset>
                         <legend>Pro Features</legend>
-                        <p><?php printf(__('Allow Search on all <a href="%s"> WPCasa standard features</a>', 'wpcasa-mail-alert' ), admin_url('admin.php?page=wpsight-settings')) ?></p>
+                        <p><?php printf(__('<a href="%s">With the Pro version, you could also allowing search on :</a>', 'wpcasa-mail-alert' ), WPCASAMAPRO_LINK) ?></p>
                         
-                        <div class="wpcasama_search_criteria wpcasama_details_1">
-                            <p><?php _e( 'details_1: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
+                        <?php foreach ($details as $detail){ ?>
+                        
+                        <div class="wpcasama_search_criteria wpcasama_<?php $detail['id'] ?>">
+                            <?php //var_dump($detail); ?>
+                            <p><?php echo $detail['label'] ?>: <?php echo rand(0, 500);if ( !empty($detail['unit'])) { echo $detail['unit']; } ?> </p>
                             <div class="clear"></div>
                         </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_2">
-                            <p><?php _e( 'details_2: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_3">
-                            <p><?php _e( 'details_3: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_4">
-                            <p><?php _e( 'details_4: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_5">
-                            <p><?php _e( 'details_5: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_6">
-                            <p><?php _e( 'details_6: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_7">
-                            <p><?php _e( 'details_7: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
-                        <div class="wpcasama_search_criteria wpcasama_details_8">
-                            <p><?php _e( 'details_8: ', 'wpcasa-mail-alert' ) ?><?php _e( 'details_1', 'wpcasa-mail-alert' ) ?></p>
-                        </div>
+                    
+                    <?php } ?>
+                    
                     </fieldset>
 
                 </div>
