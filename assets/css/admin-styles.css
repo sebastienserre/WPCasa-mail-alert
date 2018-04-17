@@ -26,7 +26,8 @@ table.thfo_subscriber {
     padding: 1%;
     margin-top: 10px;
 }
-.ads {
+
+.ads-wpcasa_page_wpcasama-mail-settings {
     width: 20%;
     float: right;
     border: solid 1px #fe5000;
@@ -38,9 +39,16 @@ table.thfo_subscriber {
     text-align: center;
 }
 
+.ads-wpcasa-mail-alerte {
+    border: solid 1px #fe5000;
+    padding: 0.5em;
+    background: #fe5000;
+    color: #ffffff;
+}
+
 .ads h4 {
-    font-size: x-large;
-    text-align: center;
+    /*font-size: x-large;*/
+    /*text-align: center;*/
 }
 
 .ads ul {
@@ -53,7 +61,7 @@ table.thfo_subscriber {
 .ads a {
     color: #ffffff;
     font-size: 2em;
-    line-height: 2em;
+    line-height: 1.2em;
     text-align: center;
 }
 
