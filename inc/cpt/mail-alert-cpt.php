@@ -114,11 +114,13 @@ if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 		global $post;
 		$currency = wpsight_get_currency();
 		$meta = get_post_custom( $post->ID );
+		$post_author_id   = get_post_field( 'post_author', $post->ID );
+		$post_author_phone = get_the_author_meta('wpcasama_phone', $post_author_id);
 		//var_dump($meta);
 		switch ($column) {
 			case 'phone' :
-				if ( ! empty ($meta['wpcasama_phone'][0] ) ) {
-					echo $meta['wpcasama_phone'][0];
+				if ( ! empty ($post_author_phone ) ) {
+					echo $post_author_phone;
 				} else {
 					_e('Not Provided', 'wpcasa-mail-alert');
 				}
