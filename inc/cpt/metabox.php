@@ -47,7 +47,7 @@
 		
 		function wpcasama_alert_data( $post_id ) {
 			
-			
+			$currency = wpsight_get_currency();
 			$meta = get_post_custom( $post_id->ID );
 			
 			do_action( 'wpcasama/before/alert/data' );
@@ -63,11 +63,11 @@
                     <div class="clear"></div>
                 </div>
                 <div class="wpcasama_search_criteria wpcasama_min_price">
-                    <p><?php _e( 'Minimum Price: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_min_price'][0]; ?></p>
+                    <p><?php _e( 'Minimum Price: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_min_price'][0] . $currency; ?></p>
                     <div class="clear"></div>
                 </div>
                 <div class="wpcasama_search_criteria wpcasama_max_price">
-                    <p><?php _e( 'Maximum Price: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_max_price'][0]; ?></p>
+                    <p><?php _e( 'Maximum Price: ', 'wpcasa-mail-alert' ) ?><?php echo $meta['wpcasama_max_price'][0] . $currency; ?></p>
 
                 </div>
             </div>
