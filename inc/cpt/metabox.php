@@ -96,8 +96,14 @@
 
                 </div>
 				
-				<?php do_action( 'wpcasama/after/alert/data' );
+                
+				<?php
+    
 				
 			}
+			/**
+			 * @since 2.0.0
+			 */
+			do_action( 'wpcasama/after/alert/data' );
 		}
 	}
