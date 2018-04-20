@@ -4,7 +4,7 @@ Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
 Contributors: sebastien@thivinfo.com
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
-Requires at least: 3.9
+Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 4.9
 Stable tag: 2.0.0
