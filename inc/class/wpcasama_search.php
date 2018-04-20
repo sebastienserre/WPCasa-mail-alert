@@ -7,7 +7,7 @@
 		public $subscribers = array();
 		
 		function __construct() {
-			//add_action( 'post_submitbox_misc_actions', array( $this, 'wpcasama_search_alert' ) );
+
 		}
 		
 		
@@ -35,26 +35,29 @@
 				$price = (int) $prices[0];
 			}
 			
+			$args = array(
+				'relation'  =>  'AND',
+				array(
+					'key'   =>  'wpcasama_city',
+					'value'    =>  $city,
+				),
+				array(
+					'key'   =>  'wpcasama_min_price',
+					'value' =>  $price,
+					'compare'   =>  '<='
+				),
+				array(
+					'key'   =>  'wpcasama_max_price',
+					'value' =>  $price,
+					'compare'   =>  '>='
+				)
+			);
+			
+			$args = apply_filters('wpcasama/search/subscriber', $args);
 			
 			$alerts = get_posts( array(
 			'post_type' =>  'wpcasa-mail-alerte',
-				'meta_query'    => array(
-					'relation'  =>  'AND',
-					array(
-						'key'   =>  'wpcasama_city',
-						'value'    =>  $city,
-					),
-					array(
-						'key'   =>  'wpcasama_min_price',
-						'value' =>  $price,
-						'compare'   =>  '<='
-					),
-					array(
-						'key'   =>  'wpcasama_max_price',
-						'value' =>  $price,
-						'compare'   =>  '>='
-					)
-				)
+				'meta_query'    => $args,
 			) );
 			
 			/**

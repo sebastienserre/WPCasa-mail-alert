@@ -116,7 +116,6 @@ if ( ! defined( 'ABSPATH' ) ){ exit; } // Exit if accessed directly
 		$meta = get_post_custom( $post->ID );
 		$post_author_id   = get_post_field( 'post_author', $post->ID );
 		$post_author_phone = get_the_author_meta('wpcasama_phone', $post_author_id);
-		//var_dump($meta);
 		switch ($column) {
 			case 'phone' :
 				if ( ! empty ($post_author_phone ) ) {

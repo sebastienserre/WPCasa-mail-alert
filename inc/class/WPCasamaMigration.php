@@ -20,8 +20,6 @@
 				
 				
 				foreach ( $alerts as $alert ) {
-					
-					//var_dump($alert);
 					$userdata = array(
 						'user_login'    => $alert->name,
 						'user_email'    => $alert->email,

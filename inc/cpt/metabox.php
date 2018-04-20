@@ -85,7 +85,6 @@
                         <?php foreach ($details as $detail){ ?>
                         
                         <div class="wpcasama_search_criteria wpcasama_<?php $detail['id'] ?>">
-                            <?php //var_dump($detail); ?>
                             <p><?php echo $detail['label'] ?>: <?php echo rand(0, 500);if ( !empty($detail['unit'])) { echo $detail['unit']; } ?> </p>
                             <div class="clear"></div>
                         </div>
