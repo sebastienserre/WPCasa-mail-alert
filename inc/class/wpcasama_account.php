@@ -164,7 +164,9 @@
 		
 		
 		function wpcasama_account_delete_alert(){
-			$nonce = $_GET['nonce'];
+		    if (isset($_GET['nonce'])) {
+			    $nonce = $_GET['nonce'];
+		    }
 			require_once(ABSPATH.'wp-admin/includes/user.php' );
 			
 			if ( isset( $_GET['action'] ) && $_GET['action'] == 'delete' &&  wp_verify_nonce( $nonce, 'delete_user' ) ) {
