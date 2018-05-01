@@ -11,8 +11,14 @@
 		
 		function wpcasama_select_old_alert(){
 			$migrate = wpsight_get_option('wpcasama_migration');
-			
-			if ( !defined( 'WPCASAMA_MIGRATED') && $migrate = '1' ) {
+
+			if ('WPCASAMA_MIGRATED' == true){
+				//die('defined');
+				return;
+			}
+
+			if ( $migrate != false ) {
+
 				global $wpdb;
 				
 				$table_name = $wpdb->prefix . 'wpcasama_mailalert';
