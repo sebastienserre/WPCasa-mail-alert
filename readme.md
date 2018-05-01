@@ -43,6 +43,8 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Changelog
 
+### 2.0.1 -- 1st May 2018
+   * Remove PHP Notices
 ### 2.0.0 -- April 2018 -- Great Improvement
   * Alerts are now Custom Post Type.
   * Criterias are Custom Metabox.
