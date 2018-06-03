@@ -43,6 +43,9 @@ This is the github version of the official repository for WPCasa Mail Alert.
 
 ## Changelog
 
+### 2.0.2 3rd june 2018 --
+   * Add an example of text with data collected by WPCasa Mail Alert to be Compliant with RGPD
+
 ### 2.0.1 -- 1st May 2018
    * Remove PHP Notices
 ### 2.0.0 -- April 2018 -- Great Improvement

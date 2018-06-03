@@ -7,7 +7,7 @@ Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, transla
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 4.9
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPL V2 or later
 
 == Description ==
@@ -55,6 +55,9 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+
+* 2.0.2 3rd june 2018 --
+    Add an example of text with data collected by WPCasa Mail Alert to be Compliant with RGPD
 
 * 2.0.1 1st May 2018 --
     remove PHP Notices
