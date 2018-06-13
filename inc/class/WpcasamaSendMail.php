@@ -15,8 +15,13 @@
 		function wpcasama_send_mail() {
 			
 			global $post;
+
+			/**
+			 * CPT listing for WPCasa Plugin
+			 * CPT Property for old Framework theme with WPCASA plugin and WPCASA Legacy Plugin
+			 */
 			
-			if ( $post->post_type == 'listing' ) {
+			if ( $post->post_type == 'listing' || $post->post_type == 'property' ) {
 				
 				$subscribers = new wpcasama_search();
 				$subscribers = $subscribers->wpcasama_search_alert();
