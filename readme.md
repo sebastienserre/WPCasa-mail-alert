@@ -42,8 +42,10 @@ This is the github version of the official repository for WPCasa Mail Alert.
 ![E-mail Options](https://ps.w.org/wpcasa-mail-alert/assets/screenshot-1.png "E-mail Options")
 
 ## Changelog
+### 2.0.3 -- 14 june 2018
+   * bugfix in min/max price criterias
 
-### 2.0.2 3rd june 2018 --
+### 2.0.2 -- 3rd june 2018 
    * Add an example of text with data collected by WPCasa Mail Alert to be Compliant with RGPD
 
 ### 2.0.1 -- 1st May 2018

@@ -56,6 +56,9 @@ use automatic upgrade
 
 == Changelog ==
 
+* 2.0.3 14 june 2018 --
+    bugfix in min/max price criterias
+
 * 2.0.2 3rd june 2018 --
     Add an example of text with data collected by WPCasa Mail Alert to be Compliant with RGPD
 
