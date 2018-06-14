@@ -26,7 +26,7 @@
 			if ( ! empty( $terms ) ) {
 				$city = $terms[0]->name;
 			}
-			
+
 			/**
 			 * get price from property
 			 */
@@ -34,9 +34,9 @@
 			if ( ! empty( $prices ) ) {
 				$price = (int) $prices[0];
 			}
-			
+
 			$args = array(
-				'relation'  =>  'AND',
+				'relation'  =>  'OR',
 				array(
 					'key'   =>  'wpcasama_city',
 					'value'    =>  $city,
@@ -59,7 +59,8 @@
 			'post_type' =>  'wpcasa-mail-alerte',
 				'meta_query'    => $args,
 			) );
-			
+
+			var_dump($alerts);
 			/**
 			 * Get Emails from alerts in an array
 			 */
