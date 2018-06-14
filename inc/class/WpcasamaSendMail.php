@@ -25,7 +25,6 @@
 				
 				$subscribers = new wpcasama_search();
 				$subscribers = $subscribers->wpcasama_search_alert();
-				
 				foreach ( $subscribers as $subscriber ) {
 					if ( ! is_email( $subscriber->data->user_email ) ) {
 						

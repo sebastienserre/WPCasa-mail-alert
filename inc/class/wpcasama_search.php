@@ -60,7 +60,6 @@
 				'meta_query'    => $args,
 			) );
 
-			var_dump($alerts);
 			/**
 			 * Get Emails from alerts in an array
 			 */
