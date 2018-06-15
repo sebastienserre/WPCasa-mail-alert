@@ -7,7 +7,7 @@ Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, transla
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 4.9
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPL V2 or later
 
 == Description ==
