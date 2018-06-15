@@ -21,7 +21,7 @@
 			 * CPT Property for old Framework theme with WPCASA plugin and WPCASA Legacy Plugin
 			 */
 			
-			if ( $post->post_type == 'listing' || $post->post_type == 'property' ) {
+			if ( $post->post_type == 'listing' ) {
 				
 				$subscribers = new wpcasama_search();
 				$subscribers = $subscribers->wpcasama_search_alert();
@@ -46,9 +46,8 @@
 						
 						$content .= '<img src="' . $img . '" alt="logo" /><br />';
 						$content .= get_option( 'thfo_newsletter_content' );
-						$content .= '<br /><a href="' . get_permalink() . '"></a><br />';
+						$content .= '<br /><a href="' . get_permalink( $post->ID) . '"></a><br />';
 						$content .= $post->guid . "<br />";
-						
 						$content .= '<p>' . __( 'To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert' );
 						
 						$url     = get_option( 'thfo_unsubscribe_page' );
