@@ -7,7 +7,7 @@ Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, transla
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 4.9
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPL V2 or later
 
 == Description ==
@@ -55,6 +55,9 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+
+* 2.0.4 -- 15 june 2018
+    minor bugfix in URL construction
 
 * 2.0.3 14 june 2018 --
     bugfix in min/max price criterias
