@@ -55,6 +55,13 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 2.0.4 -- 18 june 2018
+    Add a filter to feat old WPCasa Framework CPT.
+    Add in your (child) themes functions.php:
+    function wpcasama_change_cpt($cpt){
+    	return 'property';
+    }
+    add_filter('wpcasama/cpt', 'wpcasama_change_cpt');
 
 * 2.0.4 -- 15 june 2018
     minor bugfix in URL construction

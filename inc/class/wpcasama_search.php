@@ -59,7 +59,6 @@
 			'post_type' =>  'wpcasa-mail-alerte',
 				'meta_query'    => $args,
 			) );
-
 			/**
 			 * Get Emails from alerts in an array
 			 */
