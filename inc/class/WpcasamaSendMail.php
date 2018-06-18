@@ -20,11 +20,11 @@
 			 * CPT listing for WPCasa Plugin
 			 * CPT Property for old Framework theme with WPCASA plugin and WPCASA Legacy Plugin
 			 */
+
 			$cpt = apply_filters('wpcasama/cpt','listing');
 			if ( $post->post_type === $cpt ) {
 				$subscribers = new wpcasama_search();
 				$subscribers = $subscribers->wpcasama_search_alert();
-				
 				foreach ( $subscribers as $subscriber ) {
 					if ( ! is_email( $subscriber->data->user_email ) ) {
 						
@@ -46,9 +46,8 @@
 						
 						$content .= '<img src="' . $img . '" alt="logo" /><br />';
 						$content .= get_option( 'thfo_newsletter_content' );
-						$content .= '<br /><a href="' . get_permalink() . '"></a><br />';
+						$content .= '<br /><a href="' . get_permalink( $post->ID) . '"></a><br />';
 						$content .= $post->guid . "<br />";
-						
 						$content .= '<p>' . __( 'To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert' );
 						
 						$url     = get_option( 'thfo_unsubscribe_page' );
