@@ -1,17 +1,17 @@
 === WPCasa Mail Alert ===
 Plugin Name: WPCasa Mail Alert
 Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
-Contributors: sebastien@thivinfo.com
+Contributors: sebastienserre, freemius
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 4.9
-Stable tag: 2.0.5
+Stable tag: 3.0.1
 License: GPL V2 or later
 
 == Description ==
-WPCasa Mail Alert will display a widget to add a form on your Website using WPCasa Plugin from WPSIght. Once registred, you'll receive a mail when the RealEstate Agency will add or update a property corresponding to your search!
+WPCasa Mail Alert will display a widget to add a form on your Website using WPCasa from WPSight. Once registered, you'll receive a mail when the RealEstate Agency will add or update a property corresponding to your search!
 
 <h3>Features</h3>
 
@@ -43,6 +43,8 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
 = Is my subscriber can easily unsubscribe to the mail? =
 * Yes! They have to click on the link present on all mail received or make a link somewhere to the unsubscribe page created at the plugin activation.
 
+= Is WPCasa Mail Alert available for old WPCasa Framework ? =
+Yes it is!
 
 == Upgrade Notice ==
 
@@ -55,12 +57,20 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.0.1 -- to be defined
+    Add option to activate the old Framework post type (Property).
+    WPCasa Mail Alert is now fully compatible with both WPCasa version (old 'Framework theme' and new plugin)
+    reformat code
+
+* 3.0.0 -- 14 august 2018
+    Move from Easy Digital Download and integrate Freemius
+
 * 2.0.5 -- 18 june 2018
     Add a filter to feat old WPCasa Framework CPT.
     Add in your (child) themes functions.php:
     function wpcasama_change_cpt($cpt){
-    	return 'property';
-    }
+         	return 'property';
+         }
     add_filter('wpcasama/cpt', 'wpcasama_change_cpt');
 
 * 2.0.4 -- 15 june 2018
