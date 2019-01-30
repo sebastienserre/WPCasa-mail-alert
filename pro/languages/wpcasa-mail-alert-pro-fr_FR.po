@@ -1,0 +1,131 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCasa Mail Alert Pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-12 18:13+0000\n"
+"PO-Revision-Date: 2018-03-12 18:14+0000\n"
+"Last-Translator: sebastienserre <sebastien@thivinfo.com>\n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: wpcasa-mailalert-pro.php:92
+msgid "You need to activate your license key to receive update."
+msgstr "Vous devez activer votre licence pour obtenir des mises à jours."
+
+#: wpcasa-mailalert-pro.php:137
+msgid "Many thanks to register"
+msgstr "Merci de vous etre enregistré"
+
+#: wpcasa-mailalert-pro.php:148
+msgid ""
+"WPCASA Mail Alert free is not activated. WPCasa Mail-Alert need it to work "
+"properly."
+msgstr ""
+"WPCASA Mail Alert n'est pas activé. WPCasa Mail-Alert en a besoin pour "
+"fonctionner correctement."
+
+#: wpcasa-mailalert-pro.php:148
+msgid " download it for free!"
+msgstr "Le télécharger gratuitement"
+
+#: admin/wpcasamapro_admin_menu.php:19
+#, php-format
+msgid "Would you like allowing %1s filter ?"
+msgstr "Voulez vous ajouter un filtre %1s ?"
+
+#. Name of the plugin
+#: admin/wpcasamapro_admin_menu.php:26
+msgid "WPCasa Mail Alert Pro"
+msgstr "WPCasa Mail Alert Pro"
+
+#: admin/wpcasamapro_admin_menu.php:43
+msgid "Type"
+msgstr "Type"
+
+#: admin/wpcasama_pro_export.php:11
+msgid "Export to CSV"
+msgstr "Exporter vers un fichier CSV"
+
+#: admin/wpcasama-licence.php:7
+msgid "Fill in your License Key"
+msgstr "Saisissez votre clé de licence"
+
+#: inc/shortcode.php:26
+msgid "email alert"
+msgstr "Alerte Mail"
+
+#: inc/wpcasama-widget-pro-functions.php:41
+msgid "Offer Type"
+msgstr "Type d'offre"
+
+#: inc/wpcasama-widget-pro-functions.php:44
+msgid "For Sale"
+msgstr "Vente"
+
+#: inc/wpcasama-widget-pro-functions.php:46
+msgid "For Rent"
+msgstr "location"
+
+#: admin/updater/plugin-licence.php:6
+msgid "License WPCasa Mail Alert"
+msgstr "Licence WPCasa Mail Alert"
+
+#: admin/updater/plugin-licence.php:18
+msgid "Plugin License Options"
+msgstr "licence"
+
+#: admin/updater/plugin-licence.php:23
+msgid "The license key is used to access automatic updates and support."
+msgstr ""
+"la clé de licence est utilisé pour obtenir de l'aide et les mises à jour."
+
+#: admin/updater/plugin-licence.php:24
+msgid ""
+"Trouble to activate your licence key? Do it manually by adding your website "
+"to your Thivinfo account"
+msgstr ""
+"Un soucis pour activer votre licence? Faites le manuellement depuis votre "
+"compte sur le site de Thivinfo."
+
+#: admin/updater/plugin-licence.php:24
+msgid "Activate manually"
+msgstr "Activer manuellement"
+
+#: admin/updater/plugin-licence.php:30
+msgid "License Key"
+msgstr "Clé de licence"
+
+#: admin/updater/plugin-licence.php:34
+msgid "Enter your license key"
+msgstr "Saisissez votre clé de licence"
+
+#: admin/updater/plugin-licence.php:40 admin/updater/plugin-licence.php:50
+msgid "Activate License"
+msgstr "Activer votre licence"
+
+#: admin/updater/plugin-licence.php:46
+msgid "Deactivate License"
+msgstr "Désactiver votre licence"
+
+#. Description of the plugin
+msgid ""
+"Allow Visitor to subscribe to a mail alert to receive a mail when a new "
+"property is added."
+msgstr "Autorisez vos visiteurs a s'inscrire à une alerte mail."
+
+#. URI of the plugin
+msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+msgstr "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+
+#. Author of the plugin
+msgid "Sébastien Serre"
+msgstr "Sébastien Serre"
+
+#. Author URI of the plugin
+msgid "http://www.thivinfo.com"
+msgstr "http://www.thivinfo.com"

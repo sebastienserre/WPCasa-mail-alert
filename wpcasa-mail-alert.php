@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: WPCasa Mail Alert
+ * Plugin Name: WPCasa Mail Alert (Premium)
  * Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
  * Description: Allow Visitor to subscribe to a mail alert to receive a mail when a new property is added.
  * Version: 3.0.1
@@ -26,7 +26,7 @@ function wpcasama()
             'slug'            => 'wpcasa-mail-alert-pro',
             'type'            => 'plugin',
             'public_key'      => 'pk_ca3b288f887a547ff6b0b142f236f',
-            'is_premium'      => false,
+            'is_premium'      => true,
             'is_premium_only' => true,
             'has_addons'      => false,
             'has_paid_plans'  => true,
@@ -71,6 +71,9 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WpcasamaSendMail.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
+if ( wpcasamailalert()->is__premium_only() ) {
+    include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
+}
 new thfo_mailalert();
 new thfo_mailalert_widget();
 new wpcasama_metabox();
@@ -167,7 +170,7 @@ function wpcasamailalert()
             'slug'           => 'wpcasa-mail-alert-pro',
             'type'           => 'plugin',
             'public_key'     => 'pk_ca3b288f887a547ff6b0b142f236f',
-            'is_premium'     => false,
+            'is_premium'     => true,
             'has_addons'     => false,
             'has_paid_plans' => true,
             'trial'          => array(

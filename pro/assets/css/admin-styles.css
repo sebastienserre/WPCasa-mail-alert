@@ -1,0 +1,24 @@
+.thfo_subscriber td,
+.thfo_subscriber th {
+    border-bottom: solid 1px black;
+    text-align: center;
+}
+
+.thfo_subscriber a {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.thfo_subscriber.fullwidth {
+    width: 99%;
+}
+
+.wpcasama-pro-export {
+    padding: 10px;
+    background: white;
+    margin-top: 7px;
+    display: inline-block;
+    border-radius: 10px;
+    border: solid 1px;
+}
