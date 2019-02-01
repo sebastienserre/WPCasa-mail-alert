@@ -120,6 +120,7 @@ function wpcasama_pro_activation()
     do_action( 'wpcasama_pro_activation' );
     wpcasama_cpt();
     flush_rewrite_rules();
+    wpcasama_create_table();
 }
 
 function wpcasama_uninstall()
@@ -161,4 +162,19 @@ function wpcasa_mailalert_policy()
     $content = __( 'When you register to receive a mail alert, we\'re registering your name, your e-mail address and your phone number', 'wpcasa-mail-alert' );
     $content = apply_filters( 'wpcasama/policy/text', $content );
     wp_add_privacy_policy_content( 'WPCasa Mail Alert', wp_kses_post( wpautop( $content, false ) ) );
+}
+
+function wpcasama_create_table() {
+	global $wpdb;
+	$charset_collate = $wpdb->get_charset_collate();
+	$table_name      = $wpdb->prefix . 'wpcasama';
+	$sql             = "CREATE TABLE IF NOT EXISTS $table_name(
+id mediumint(9) NOT NULL AUTO_INCREMENT,
+user_mail varchar (45) DEFAULT NULL,
+bien mediumint (9) DEFAULT NULL,
+PRIMARY KEY (id)
+) $charset_collate;";
+
+	require_once( ABSPATH . 'wp-admin/includes/update.php' );
+	dbDelta( $sql );
 }
