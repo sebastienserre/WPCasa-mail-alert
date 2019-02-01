@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: WPCasa Mail Alert (Premium)
+ * Plugin Name: WPCasa Mail Alert
  * Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
  * Description: Allow Visitor to subscribe to a mail alert to receive a mail when a new property is added.
  * Version: 3.0.1
@@ -14,44 +14,50 @@
  * @fs_premium_only /pro/, /.idea/
  **/
 // Create a helper function for easy SDK access.
-function wpcasama()
-{
-    global  $wpcasama ;
-    
-    if ( !isset( $wpcasama ) ) {
-        // Include Freemius SDK.
-        require_once dirname( __FILE__ ) . '/freemius/start.php';
-        $wpcasama = fs_dynamic_init( array(
-            'id'              => '2209',
-            'slug'            => 'wpcasa-mail-alert-pro',
-            'type'            => 'plugin',
-            'public_key'      => 'pk_ca3b288f887a547ff6b0b142f236f',
-            'is_premium'      => true,
-            'is_premium_only' => true,
-            'has_addons'      => false,
-            'has_paid_plans'  => true,
-            'trial'           => array(
-            'days'               => 30,
-            'is_require_payment' => false,
-        ),
-            'menu'            => array(
-            'slug'    => 'wpsight-settings',
-            'support' => false,
-            'parent'  => array(
-            'slug' => 'options-general.php',
-        ),
-        ),
-            'is_live'         => true,
-        ) );
-    }
-    
-    return $wpcasama;
-}
+if ( ! function_exists( 'wpcasamailalert' ) ) {
+	// Create a helper function for easy SDK access.
+	function wpcasamailalert() {
+		global $wpcasamailalert;
 
-// Init Freemius.
-wpcasama();
-// Signal that SDK was initiated.
-do_action( 'wpcasama_loaded' );
+		if ( ! isset( $wpcasamailalert ) ) {
+			// Include Freemius SDK.
+			require_once dirname(__FILE__) . '/freemius/start.php';
+
+			$wpcasamailalert = fs_dynamic_init( array(
+				'id'                  => '2209',
+				'slug'                => 'wpcasa-mail-alert-pro',
+				'type'                => 'plugin',
+				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
+				'is_premium'          => true,
+				'premium_suffix'      => 'Pro',
+				// If your plugin is a serviceware, set this option to false.
+				'has_premium_version' => true,
+				'has_addons'          => false,
+				'has_paid_plans'      => true,
+				'trial'               => array(
+					'days'               => 30,
+					'is_require_payment' => false,
+				),
+				'has_affiliation'     => 'selected',
+				'menu'                => array(
+					'slug'           => 'edit.php?post_type=wpcasa-mail-alerte',
+					'first-path'     => 'admin.php?page=wpsight-settings',
+					'support'        => false,
+				),
+				// Set the SDK to work in a sandbox mode (for development & testing).
+				// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+				'secret_key'          => 'sk_fry3a~w=nyBnJTm)xSlc-[@W{B#gH',
+			) );
+		}
+
+		return $wpcasamailalert;
+	}
+
+	// Init Freemius.
+	wpcasamailalert();
+	// Signal that SDK was initiated.
+	do_action( 'wpcasamailalert_loaded' );
+}
 define( 'PLUGIN_VERSION', '3.0.1' );
 define( 'WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -139,7 +145,7 @@ function thfo_register_style()
 
 function wpcasa_mailalert_check_wpcasa()
 {
-    
+
     if ( !class_exists( 'WPSight_Framework' ) ) {
         echo  '<div class="notice notice-error"><p>' . __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>' ;
         deactivate_plugins( plugin_basename( __FILE__ ) );
@@ -156,40 +162,3 @@ function wpcasa_mailalert_policy()
     $content = apply_filters( 'wpcasama/policy/text', $content );
     wp_add_privacy_policy_content( 'WPCasa Mail Alert', wp_kses_post( wpautop( $content, false ) ) );
 }
-
-// Create a helper function for easy SDK access.
-function wpcasamailalert()
-{
-    global  $wpcasamailalert ;
-    
-    if ( !isset( $wpcasamailalert ) ) {
-        // Include Freemius SDK.
-        require_once dirname( __FILE__ ) . '/freemius/start.php';
-        $wpcasamailalert = fs_dynamic_init( array(
-            'id'             => '2209',
-            'slug'           => 'wpcasa-mail-alert-pro',
-            'type'           => 'plugin',
-            'public_key'     => 'pk_ca3b288f887a547ff6b0b142f236f',
-            'is_premium'     => true,
-            'has_addons'     => false,
-            'has_paid_plans' => true,
-            'trial'          => array(
-            'days'               => 30,
-            'is_require_payment' => false,
-        ),
-            'menu'           => array(
-            'slug'       => 'edit.php?post_type=wpcasa-mail-alerte',
-            'first-path' => 'admin.php?page=wpsight-settings',
-            'support'    => false,
-        ),
-            'is_live'        => true,
-        ) );
-    }
-    
-    return $wpcasamailalert;
-}
-
-// Init Freemius.
-wpcasamailalert();
-// Signal that SDK was initiated.
-do_action( 'wpcasamailalert_loaded' );
