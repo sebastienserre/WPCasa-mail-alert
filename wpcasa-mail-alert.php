@@ -75,7 +75,6 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/mail-alert-cpt.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
-include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WpcasamaSendMail.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 if ( wpcasamailalert()->is__premium_only() ) {
     include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
@@ -85,7 +84,6 @@ new thfo_mailalert_widget();
 new wpcasama_metabox();
 new wpcasama_account();
 new wpcasama_search();
-new WpcasamaSendMail();
 new WPCasamaMigration();
 add_action( 'plugins_loaded', 'thfo_load_textdomain' );
 add_action( 'admin_init', 'thfo_register_admin_style' );
@@ -121,6 +119,10 @@ function wpcasama_pro_activation()
     wpcasama_cpt();
     flush_rewrite_rules();
     wpcasama_create_table();
+
+	if (! wp_next_scheduled ( 'wpcasama_hourly' )) {
+		wp_schedule_event(time(), 'hourly', 'wpcasama_hourly');
+	}
 }
 
 function wpcasama_uninstall()

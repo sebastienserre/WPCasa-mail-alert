@@ -9,7 +9,8 @@ class wpcasama_search {
 	public $subscribers = array();
 
 	public function __construct() {
-		//	add_action( 'init', array( $this, 'wpcasama_search_alert' ) );
+		add_action( 'wpcasama_hourly', array( $this, 'wpcasama_search_alert' ) );
+		add_action( 'save_post', array( $this, 'wpcasama_delete_db' ) );
 	}
 
 
@@ -91,7 +92,7 @@ class wpcasama_search {
 			$properties = get_posts(
 				array(
 					'post_type'  => apply_filters( 'wpcasama/cpt', 'listing' ),
-					'meta_query' => $meta,
+					'meta_query' => apply_filters( 'wpcasama/search/subscriber', $meta, $alert ),
 					'tax_query'  => $tax,
 				)
 			);
@@ -107,8 +108,13 @@ class wpcasama_search {
 	}
 
 	public function wpcasama_send_mail( $alert, $property ) {
+
 		$recipient = get_the_author_meta( 'user_email', $alert->post_author );
 		if ( empty( $recipient ) ) {
+			return;
+		}
+		$check = $this->wpcasama_check_db( $recipient, $property );
+		if ( ! empty( $check ) ) {
 			return;
 		}
 		$user_name   = get_the_author_meta( 'user_nicename', $alert->post_author );
@@ -158,15 +164,27 @@ class wpcasama_search {
 				'user_mail' => $recipient,
 				'bien'      => $property->ID,
 			);
-			$wpdb->insert( $table_name, $data );
+			$format     = array( '%s', '%d' );
+			$wpdb->insert( $table_name, $data, $format );
 
 		}
 	}
 
-	public function wpcasama_check_db( $recipient, $property ){
+	public function wpcasama_check_db( $recipient, $property ) {
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'wpcasama';
+		$bien       = $property->ID;
+		$search     = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $table_name WHERE `user_mail` = %s AND `bien` = %d ", $recipient, $bien ), 'ARRAY_A' );
 
+		return $search;
+	}
+
+	public function wpcasama_delete_db( $post_id ) {
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'wpcasama';
+		$wpdb->delete( $table_name, array( 'bien' => $post_id ), array( '%d' ) );
+
+		return;
 	}
 
 }
