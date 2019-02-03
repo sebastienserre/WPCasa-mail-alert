@@ -24,7 +24,6 @@ class wpcasama_search {
 		 * Retrieve Alerts
 		 */
 
-
 		$alerts = get_posts( array(
 				'post_type'      => 'wpcasa-mail-alerte',
 				'posts_per_page' => - 1,
@@ -77,6 +76,8 @@ class wpcasama_search {
 
 			);
 
+			$meta = apply_filters( 'wpcasama/search/subscriber', $meta, $alert );
+
 			$tax = array(
 				array(
 					'taxonomy' => 'location',
@@ -92,7 +93,7 @@ class wpcasama_search {
 			$properties = get_posts(
 				array(
 					'post_type'  => apply_filters( 'wpcasama/cpt', 'listing' ),
-					'meta_query' => apply_filters( 'wpcasama/search/subscriber', $meta, $alert ),
+					'meta_query' => $meta,
 					'tax_query'  => $tax,
 				)
 			);
