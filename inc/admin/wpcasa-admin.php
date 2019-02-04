@@ -17,7 +17,7 @@ function wpcasama_options( $options ) {
 			'name' => __( 'Unsubscribe Page', 'wpcasa-mail-alert' ),
 			'desc' => sprintf( __( 'Please select the page that uses %s on the selected page.', 'wpcasa-mail-alert' ), '[thfo_mailalert_unsubscribe]' ),
 			'id'   => 'thfo_unsubscribe_page',
-			'type' => 'pages'
+			'type' => 'pages',
 		),
 
 		'thfo_max_price'          => array(
@@ -82,7 +82,7 @@ function wpcasama_menu_list() {
 }
 
 function wpcasama_stars() { ?>
-    <div class="wpcasama-stars">
+	<div class="wpcasama-stars">
         <span id="wpcasama-footer-credits">
                 <span class="dashicons dashicons-wordpress"></span>
 	        <?php _e( "You like WPCasa Mail Alert? Don't forget to rate it 5 stars!", "wpcasa-mail-alert" ) ?>
@@ -123,36 +123,42 @@ function wpcasama_stars() { ?>
                     });
                 </script>
             </span>
-    </div> <?php
+	</div> <?php
 }
 
 function wpcasama_display_ads() {
 	$slug = get_current_screen();
+	if ( ! wpcasamailalert()->is_premium() ) {
+		?>
+		<div class="ads ads-<?php echo $slug->id ?>">
+			<h4><a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
+			       title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>" target="_blank">WPCasa Mail
+					Alert
+					Pro</a></h4>
+			<ul>
+				<li><?php _e( 'No Advertising', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'All Standards features from WPCasa', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Shortcode to display the form where ever you want', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Automatic Update', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Priority support', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Export list of subscribers to CSV file', 'wpcasa-mail-alert' ); ?></li>
+				<p><?php _e( '... and soon ...', 'wpcasa-mail-alert' ); ?></p>
+				<li><?php _e( 'Offer filter: sale or rent', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Type of property filter', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Easy mail customization', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Gutenberg Blocks', 'wpcasa-mail-alert' ); ?></li>
+				<li><?php _e( 'Visual Composer Elements', 'wpcasa-mail-alert' ); ?></li>
+			</ul>
+			<a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
+			   title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>"
+			   target="_blank"><?php printf( __( 'Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert' ), WPCASAMA_PLUGIN_PRICE ); ?></a>
+		</div>
+		<?php
+	}
 	?>
-    <div class="ads ads-<?php echo $slug->id ?>">
-        <h4><a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
-               title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>" target="_blank">WPCasa Mail Alert
-                Pro</a></h4>
-        <ul>
-            <li><?php _e( 'No Advertising', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'All Standards features from WPCasa', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Shortcode to display the form where ever you want', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Automatic Update', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Priority support', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Export list of subscribers to CSV file', 'wpcasa-mail-alert' ); ?></li>
-            <p><?php _e( '... and soon ...', 'wpcasa-mail-alert' ); ?></p>
-            <li><?php _e( 'Offer filter: sale or rent', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Type of property filter', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Easy mail customization', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Gutenberg Blocks', 'wpcasa-mail-alert' ); ?></li>
-            <li><?php _e( 'Visual Composer Elements', 'wpcasa-mail-alert' ); ?></li>
-        </ul>
-        <a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
-           title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>"
-           target="_blank"><?php printf( __( 'Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert' ), WPCASAMA_PLUGIN_PRICE ); ?></a>
-    </div>
-    <div class="clear"></div>
+	<div class="clear"></div>
 	<?php
+
 }
 
 function wpcasama_menu() {
@@ -167,13 +173,13 @@ function wpcasama_menu() {
 
 	?>
 
-    <form method="post" action="options.php" class="wpcasama-settings-form">
-	    <?php settings_fields( 'thfo_newsletter_settings' ) ?>
-	    <?php do_settings_sections( 'thfo_newsletter_settings' ) ?>
-	    <?php submit_button( __( 'Save' ) ); ?>
+	<form method="post" action="options.php" class="wpcasama-settings-form">
+		<?php settings_fields( 'thfo_newsletter_settings' ) ?>
+		<?php do_settings_sections( 'thfo_newsletter_settings' ) ?>
+		<?php submit_button( __( 'Save' ) ); ?>
 
 
-    </form>
+	</form>
 
 	<?php wpcasama_display_ads();
 	wpcasama_stars();
@@ -200,6 +206,7 @@ function register_settings() {
 
 	/**
 	 * transform old settings to new WPCasa Options
+	 *
 	 * @since: 1.2.0
 	 */
 
@@ -218,10 +225,10 @@ function register_settings() {
 }
 
 function media_html() { ?>
-    <input type="text" name="empathy-setting-logo" id="empathy-setting-logo"
-           value="<?php echo esc_attr( get_option( 'empathy-setting-logo' ) ); ?>">
-    <a class="button" onclick="upload_image('empathy-setting-logo');"><?php _e( 'Upload', 'wpcasa-mail-alert' ) ?></a>
-    <script>
+	<input type="text" name="empathy-setting-logo" id="empathy-setting-logo"
+	       value="<?php echo esc_attr( get_option( 'empathy-setting-logo' ) ); ?>">
+	<a class="button" onclick="upload_image('empathy-setting-logo');"><?php _e( 'Upload', 'wpcasa-mail-alert' ) ?></a>
+	<script>
         var uploader;
 
         function upload_image(id) {
@@ -246,7 +253,7 @@ function media_html() { ?>
             //Open the uploader dialog
             uploader.open();
         }
-    </script>
+	</script>
 <?php }
 
 function section_html() {
@@ -257,28 +264,28 @@ function section_html() {
 
 function footer_html() {
 	?>
-    <textarea name="thfo_newsletter_footer"><?php echo get_option( 'thfo_newsletter_footer' ) ?></textarea>
+	<textarea name="thfo_newsletter_footer"><?php echo get_option( 'thfo_newsletter_footer' ) ?></textarea>
 
 	<?php
 }
 
 function sender_html() {
 	?>
-    <input type="text" name="thfo_newsletter_sender" value="<?php echo get_option( 'thfo_newsletter_sender' ) ?>"/>
+	<input type="text" name="thfo_newsletter_sender" value="<?php echo get_option( 'thfo_newsletter_sender' ) ?>"/>
 	<?php
 }
 
 function sender_mail_html() {
 	?>
-    <input type="email" name="thfo_newsletter_sender_mail"
-           value="<?php echo get_option( 'thfo_newsletter_sender_mail' ) ?>"/>
+	<input type="email" name="thfo_newsletter_sender_mail"
+	       value="<?php echo get_option( 'thfo_newsletter_sender_mail' ) ?>"/>
 	<?php
 }
 
 function object_html() {
 	?>
 
-    <input type="text" name="thfo_newsletter_object" value="<?php echo get_option( 'thfo_newsletter_object' ) ?>"/>
+	<input type="text" name="thfo_newsletter_object" value="<?php echo get_option( 'thfo_newsletter_object' ) ?>"/>
 	<?php
 
 
