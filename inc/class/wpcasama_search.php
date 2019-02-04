@@ -130,7 +130,7 @@ class wpcasama_search {
 		$img     = get_option( 'empathy-setting-logo' );
 		$content .= '<img src="' . $img . '" alt="logo" /><br />';
 		$content .= get_option( 'thfo_newsletter_content' );
-		$content .= '<br /><a href="' . get_permalink( $property->ID ) . '"></a><br />';
+		$content .= '<br /><a href="' . get_permalink( $property->ID ) . '">'. get_permalink( $property->ID ) .'</a><br />';
 		$content .= $property->guid . '<br />';
 		$content .= '<p>' . __( 'To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert' );
 
