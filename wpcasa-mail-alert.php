@@ -8,7 +8,7 @@
  * Author: Sébastien Serre
  * Author URI: http://www.thivinfo.com
  * License: GPL2
- * Tested up to: 4.9
+ * Tested up to: 5.0
  * Text Domain: wpcasa-mail-alert
  * Domain Path: /languages
  * @fs_premium_only /pro/, /.idea/
