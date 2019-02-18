@@ -1,13 +1,13 @@
 === WPCasa Mail Alert ===
 Plugin Name: WPCasa Mail Alert
-Plugin URI: https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/
+Plugin URI: https://www.thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/
 Contributors: sebastienserre, freemius
 Donate link: http://paypal.me/sebastienserre
-Tags: wpcasa, update, post, mail, subscription, notifier, status, alert, translation ready, e-mail
+Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
 Requires PHP: 5.6
-Tested up to: 4.9
-Stable tag: 3.0.2
+Tested up to: 5.1
+Stable tag: 3.0.3
 License: GPL V2 or later
 
 == Description ==
@@ -57,7 +57,11 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
-* 3.0.1 -- to be defined
+* 3.0.2 -- 04 Fev 2019
+    Improve research
+    Research and mail sending are cron scheduled each hour
+
+* 3.0.1 -- to be defined --oups
     Add option to activate the old Framework post type (Property).
     WPCasa Mail Alert is now fully compatible with both WPCasa version (old 'Framework theme' and new plugin)
     reformat code
