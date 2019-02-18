@@ -10,6 +10,7 @@ class wpcasama_search {
 
 	public function __construct() {
 		add_action( 'wpcasama_hourly', array( $this, 'wpcasama_search_alert' ) );
+		add_action( 'admin_init', array( $this, 'wpcasama_search_alert' ) );
 		add_action( 'save_post', array( $this, 'wpcasama_delete_db' ) );
 	}
 

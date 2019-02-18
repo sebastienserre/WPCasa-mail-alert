@@ -30,9 +30,11 @@ add_filter( 'wpcasama/search/tax', 'wpcasama_add_listing_type', 10, 2 );
 function wpcasama_add_listing_type( $args, $alert ) {
 	$meta = get_post_custom( $alert->ID );
 	$tax  = array(
-		'key'     => 'wpcasama_listing_type',
-		'value'   => $meta['wpcasama_listing_type'],
-		'compare' => '=',
+		array(
+			'taxonomy' => 'listing-type',
+			'terms'    => $meta['wpcasama_listing_type'][0],
+			'field'    => 'term_id',
+		),
 	);
 	$args = array_merge( $args, $tax );
 
