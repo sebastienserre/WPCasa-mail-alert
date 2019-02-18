@@ -163,8 +163,28 @@ function wpcasama_display_ads() {
 
 function wpcasama_menu() {
 
-	if ( defined( 'WPCASAMA_PRO_VERSION' ) ) {
-		echo '<h1>' . get_admin_page_title() . ' Pro ' . WPCASAMA_PRO_VERSION . '</h1>';
+	/**
+	 * Filter this hooks to add a tab in the setting page
+	 */
+	$tabs = apply_filters( 'wpcasama_setting_tabs',
+		array(
+			'mail' => __( 'E-mail', 'wpcasa-mail-alert' ),
+			'help' => __( 'help', 'wpcasa-mail-alert' ),
+
+		)
+	);
+
+	if ( isset( $_GET['tab'] ) ) {
+
+		$active_tab = $_GET['tab'];
+
+	} else {
+		$active_tab = 'mail';
+	}
+
+
+	if ( defined( 'PLUGIN_VERSION' ) ) {
+		echo '<h1>' . get_admin_page_title() . ' Pro ' . PLUGIN_VERSION . '</h1>';
 
 	} else {
 		echo '<h1>' . get_admin_page_title() . ' ' . PLUGIN_VERSION;
@@ -172,14 +192,48 @@ function wpcasama_menu() {
 	}
 
 	?>
+	<div class="wrap">
 
-	<form method="post" action="options.php" class="wpcasama-settings-form">
-		<?php settings_fields( 'thfo_newsletter_settings' ) ?>
-		<?php do_settings_sections( 'thfo_newsletter_settings' ) ?>
-		<?php submit_button( __( 'Save' ) ); ?>
+		<h2><?php _e( 'Settings', 'wpcasa-mail-alert' ); ?></h2>
+		<!--<div class="description">This is description of the page.</div>-->
+		<?php settings_errors(); ?>
 
+		<h2 class="nav-tab-wrapper">
+			<?php
+			foreach ( $tabs as $tab => $value ) {
+				?>
+				<a href="<?php echo esc_url( admin_url( 'admin.php?page=wpcasama-mail-settings&tab=' . $tab ) ); ?>"
+				   class="nav-tab <?php echo 'nav-tab-' . $tab;
+				   echo $active_tab === $tab ? ' nav-tab-active' : ''; ?>"><?php echo $value ?></a>
+			<?php } ?>
+		</h2>
 
-	</form>
+		<?php
+		$active_tab = apply_filters( 'wpcasama_setting_tabs', $active_tab );
+		?>
+
+		<form method="post" action="options.php" class="wpcasama-settings-form">
+			<?php
+			switch ( $active_tab ) {
+				case 'mail' :
+					settings_fields( 'thfo_newsletter_settings' );
+					do_settings_sections( 'thfo_newsletter_settings' );
+					submit_button( __( 'Save' ) );
+					break;
+				case 'help' :
+					$url = esc_url( 'https://www.thivinfo.com/en/docs/wpcasa-mail-alert/' );
+					?>
+				<h2><?php _e('Help', 'wpcasa-mail-alert'); ?></h2>
+				<p><?php _e('The easiest way to find help is coming on my website and read the documentation.', 'wpcasa-mail-alert'); ?></p>
+				<p><?php _e('If you don\'t find the help needed. Feel free to contact me.', 'wpcasa-mail-alert'); ?></p>
+				<a href="<?php echo $url; ?>" target="_blank"><?php _e('Online Documentation.', 'wpcasa-mail-alert'); ?></a>
+			<?php
+					break;
+			}
+
+			?>
+		</form>
+	</div>
 
 	<?php wpcasama_display_ads();
 	wpcasama_stars();
