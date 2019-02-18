@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
+add_filter( 'wpcasama/search/subscriber', 'wpcasama_pro_search', 10, 2 );
 function wpcasama_pro_search( $args, $alert ) {
 	$meta     = get_post_custom( $alert->ID );
 	$i        = 1;
@@ -25,4 +26,15 @@ function wpcasama_pro_search( $args, $alert ) {
 	return $args;
 }
 
-add_filter( 'wpcasama/search/subscriber', 'wpcasama_pro_search', 10, 2 );
+add_filter( 'wpcasama/search/tax', 'wpcasama_add_listing_type', 10, 2 );
+function wpcasama_add_listing_type( $args, $alert ) {
+	$meta = get_post_custom( $alert->ID );
+	$tax  = array(
+		'key'     => 'wpcasama_listing_type',
+		'value'   => $meta['wpcasama_listing_type'],
+		'compare' => '=',
+	);
+	$args = array_merge( $args, $tax );
+
+	return $args;
+}
