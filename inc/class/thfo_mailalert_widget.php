@@ -1,14 +1,28 @@
 <?php
-
 	defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 	class thfo_mailalert_widget extends WP_Widget {
 
 		function __construct() {
-			parent::__construct( 'thfo_mailalert', __( 'Mail Alert', 'wpcasa-mail-alert' ), array( 'description' => __( 'Form to add a property search mail alert', 'wpcasa-mail-alert' ) ) );
+			$widget_args = array(
+			'classname'   => 'WPCasa_Mail_Alert_Widget',
+			'description' => __( 'Add a WPCasa mail Alert Form', 'wpcasa-mail-alert' ),
+		);
+			parent::__construct(
+					'WPCasa_Mail_Alert_Widget',
+					__( 'Mail Alert', 'wpcasa-mail-alert' ),
+					 $widget_args
+					 );
+			add_action( 'widgets_init', array( $this, 'init_wpcasa_mail_alert_widget' ) );
 
 		}
 
+		/**
+	 * Initialize a new Widget.
+	 */
+	public function init_wpcasa_mail_alert_widget() {
+		register_widget( 'thfo_mailalert_widget' );
+	}
 		/**
 		 * explode a string with multiple value separated by $delimiter
 		 *
@@ -50,17 +64,17 @@
 
 			$prices   = $this->multiexplode( array( ',', ', ' ), $prices );
 			$currency = wpsight_get_currency();
-			
+
 			if (is_user_logged_in()){
 			    $current_user_id = get_current_user_id();
-			    
+
 			    $user_info = get_userdata($current_user_id);
 			    $user_meta = get_user_meta($current_user_id);
 			    $_POST['thfo_mailalert_name'] = $user_info->data->user_nicename;
 			    $_POST['thfo_mailalert_email'] = $user_info->data->user_email;
 			    $_POST['thfo_mailalert_phone'] = $user_meta['wpcasama_phone'][0];
 			}
-			
+
 			do_action( 'wpcasama_info' );
 			?>
 
@@ -124,12 +138,12 @@
                 <?php } ?>
 
 				<?php do_action( 'wpcasama_end_widget' ); ?>
-				
+
                 <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>
             </form>
             <?php $url     = wpsight_get_option( 'thfo_unsubscribe_page' );?>
             <div class="unsubscribe_link clear"><a href=" <?php echo get_the_permalink( $url ) . '">'.  __( 'Link to unsubscribe page', 'wpcasa-mail-alert' ) ?></a> </div>
-            
+
 			<?php
 			echo $args['after_widget'];
 		}
