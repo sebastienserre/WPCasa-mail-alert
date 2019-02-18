@@ -12,7 +12,7 @@ class thfo_mailalert {
 
 		add_action( 'wp_loaded', array( $this, 'save_results' ) );
 		add_action( 'wp_loaded', array( $this, 'thfo_delete_subscriber' ) );
-		
+
 	}
 
 	/**
@@ -22,43 +22,43 @@ class thfo_mailalert {
 	public function save_results() {
 
 		if ( isset( $_POST['thfo_mailalert'] ) ) {
-			
+
 			/**
 			 * If no agreement => back to form with error message
 			 */
-			
+
 			if ($_POST['wpcasama-account-agreement'] != 'checked' && ! is_user_logged_in()){
-				
-				
+
+
 				add_action('wpcasama_info', array($this, 'wpcasama_error_message'));
 				return false;
 			}
-			
-			
+
+
 			/**
 			 * If agreement ok, then, we registered the user
 			 */
-			
+
 			$userdata = array(
 				'user_login' => $_POST['thfo_mailalert_email'],
 				'user_email' => $_POST['thfo_mailalert_email'],
 				'user_nicename' => $_POST['thfo_mailalert_name'],
-				
+
 			);
-			
+
 			$userdata = apply_filters('wpcasama/savedata/user', $userdata);
-			
+
 			$user_exists = get_user_by('email', $userdata['user_email']);
-			
-			
+
+
 			if ( $user_exists == false ){
 				$user_id = wp_insert_user( $userdata );
 			} else {
 				$user_id = $user_exists->ID;
 			}
-			
+
 			$update = update_user_meta($user_id, 'wpcasama_phone', $_POST['thfo_mailalert_phone'] );
-			
+
 			/**
 			 * User created, create alert
 			 */
@@ -66,23 +66,24 @@ class thfo_mailalert {
 				'wpcasama_city' => $_POST['thfo_mailalert_city'],
 				'wpcasama_min_price' => intval($_POST['thfo_mailalert_min_price']),
 				'wpcasama_max_price' => intval($_POST['thfo_mailalert_price']),
+				'wpcasama_listing_type' =>  $_POST['wpcasama_type'],
 			);
-			
+
 			$meta = apply_filters('wpcasama/pro/save/meta', $meta);
-			
+
 			$postarr = array(
 				'post_author'   => $user_id,
 				'post_title'    => $_POST['thfo_mailalert_name'] . '-' . $_POST['thfo_mailalert_city'],
 				'post_status'   => 'publish',
 				'post_type' =>  'wpcasa-mail-alerte',
 				'meta_input' => $meta,
-				
+
 			);
-			
+
 			apply_filters('wpcasama/savedata/post', $userdata);
-			
+
 			wp_insert_post($postarr);
-			
+
 		}
 	}
 
@@ -92,15 +93,15 @@ class thfo_mailalert {
 			$wpdb->delete("{$wpdb->prefix}wpcasama_mailalert", array('email' => $_GET['delete']));
 		}
 	}
-	
+
 	/**
 	 * @since 2.0.0
 	 * @return string|void
 	 */
-	
+
 	public function wpcasama_error_message() {
 		$error = '<p class="wpcasama_error">' . _e('To receive an alert, you need to accept creating an account', 'wpcasa-mail-alert') .'</p>';
-		
+
 		return $error;
 	}
 
