@@ -79,12 +79,15 @@ class wpcasama_search {
 			$meta = apply_filters( 'wpcasama/search/subscriber', $meta, $alert );
 
 			$tax = array(
+				'relation' => 'AND',
 				array(
 					'taxonomy' => 'location',
 					'field'    => 'slug',
 					'terms'    => $city,
 				),
 			);
+
+			$tax = apply_filters( 'wpcasama/search/tax', $tax, $alert );
 
 			/**
 			 * Get Emails from alerts in an array
