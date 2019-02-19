@@ -76,6 +76,7 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/cpt/metabox.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
+include_once WPCASAMA_PLUGIN_PATH . '/inc/blocks/class-blocks-form.php';
 if ( wpcasamailalert()->is__premium_only() ) {
     include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
 }
@@ -179,4 +180,13 @@ PRIMARY KEY (id)
 
 	require_once( ABSPATH . 'wp-admin/includes/update.php' );
 	dbDelta( $sql );
+}
+
+/**
+ * Load carbon Fields
+ */
+add_action( 'after_setup_theme', 'crb_load' );
+function crb_load() {
+	require_once( WPCASAMA_PLUGIN_PATH . '/inc/3rd-party/vendor/autoload.php' );
+	\Carbon_Fields\Carbon_Fields::boot();
 }
