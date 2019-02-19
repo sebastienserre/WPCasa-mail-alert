@@ -7,7 +7,7 @@ Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.1
-Stable tag: 3.0.3
+Stable tag: 3.1.0
 License: GPL V2 or later
 
 == Description ==
@@ -57,6 +57,12 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.1.0 -- 19 fev 2019
+    * Add Gutenberg Block
+    * Add Listing type search criteria (Pro)
+    * Fix Broken Widget
+    * Test on WP 5.1 -- OK --
+
 * 3.0.2 -- 04 Fev 2019
     Improve research
     Research and mail sending are cron scheduled each hour
