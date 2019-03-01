@@ -57,6 +57,10 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.1.1 -- 01 march 2019
+    * Correct several notices
+    * Load correctly dbDelta()
+
 * 3.1.0 -- 19 fev 2019
     * Add Gutenberg Block
     * Add Listing type search criteria (Pro)
