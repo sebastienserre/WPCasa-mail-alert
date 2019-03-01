@@ -28,7 +28,7 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 				'slug'                => 'wpcasa-mail-alert-pro',
 				'type'                => 'plugin',
 				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
-				'is_premium'          => true,
+				'is_premium'          => false,
 				'premium_suffix'      => 'Pro',
 				// If your plugin is a serviceware, set this option to false.
 				'has_premium_version' => true,
@@ -100,7 +100,7 @@ if ( is_multisite() ) {
     add_action( 'admin_notices', 'wpcasa_mailalert_check_wpcasa' );
 }
 
-register_activation_hook( __FILE__, 'wpcasama_pro_activation' );
+register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 /**
  * Hide admin bar for non admin
@@ -114,7 +114,7 @@ function wpcasama_remove_adminbar()
     }
 }
 
-function wpcasama_pro_activation()
+function wpcasama_activation()
 {
     do_action( 'wpcasama_pro_activation' );
     wpcasama_cpt();
@@ -178,7 +178,7 @@ bien mediumint (9) DEFAULT NULL,
 PRIMARY KEY (id)
 ) $charset_collate;";
 
-	require_once( ABSPATH . 'wp-admin/includes/update.php' );
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
 }
 
