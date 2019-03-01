@@ -7,7 +7,7 @@ Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.1
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPL V2 or later
 
 == Description ==
@@ -57,6 +57,10 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.1.1 -- 01 march 2019
+    * Correct several notices
+    * Load correctly dbDelta()
+
 * 3.1.0 -- 19 fev 2019
     * Add Gutenberg Block
     * Add Listing type search criteria (Pro)
