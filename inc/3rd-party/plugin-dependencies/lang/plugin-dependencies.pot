@@ -1,0 +1,99 @@
+# Translation of the WordPress plugin Plugin Dependencies 1.0 by scribu.
+# Copyright (C) 2010 scribu
+# This file is distributed under the same license as the Plugin Dependencies package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin Dependencies\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/plugin-dependencies\n"
+"POT-Creation-Date: 2014-09-20 16:16+0100\n"
+"PO-Revision-Date: 2014-09-20 16:17+0100\n"
+"Last-Translator: EJ Reinders Folmer <poedit_nospam@adviesenzo.nl>\n"
+"Language-Team: \n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_html__;esc_html_e;esc_html_x;"
+"esc_attr__;esc_attr_e;esc_attr_x;_n_noop;_nx_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../plugin-dependencies.php:569
+msgid ""
+"The following plugins have (also) been deactivated as a plugin they depend "
+"on has been deactivated:"
+msgstr ""
+
+#: ../plugin-dependencies.php:570
+msgid ""
+"The following plugins have been deactivated due to dependency conflicts:"
+msgstr ""
+
+#: ../plugin-dependencies.php:571
+msgid ""
+"One or more plugins were not activated as their dependencies were not met at "
+"the time of activation. If the dependencies have been met in the mean time, "
+"please try and activate them again:"
+msgstr ""
+
+#: ../plugin-dependencies.php:572
+msgid ""
+"The plugin(s) which was just deactivated provided a dependency for other "
+"plugins. Dependent plugin(s) on the following sites in your network have "
+"been deactivated:"
+msgstr ""
+
+#: ../plugin-dependencies.php:721
+msgid "Required plugins:"
+msgstr ""
+
+#: ../plugin-dependencies.php:736
+msgid "Dependency: Unsatisfied"
+msgstr ""
+
+#: ../plugin-dependencies.php:740
+msgid "Dependency: Network unsatisfied"
+msgstr ""
+
+#: ../plugin-dependencies.php:744
+msgid "Dependency: Satisfied"
+msgstr ""
+
+#: ../plugin-dependencies.php:759 ../plugin-dependencies.php:772
+#, php-format
+msgid "%s (%s)"
+msgstr ""
+
+#: ../plugin-dependencies.php:761
+msgid "network"
+msgstr ""
+
+#: ../plugin-dependencies.php:774
+msgid "must-use"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Plugin Dependencies"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://scribu.net/wordpress/plugin-dependencies"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Prevent activating plugins that don't have all their dependencies satisfied"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "scribu"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://scribu.net/"
+msgstr ""

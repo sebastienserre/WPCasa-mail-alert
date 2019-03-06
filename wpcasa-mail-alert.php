@@ -11,8 +11,10 @@
  * Tested up to: 5.1
  * Text Domain: wpcasa-mail-alert
  * Domain Path: /languages
+ * Depends: WPCasa,
  * @fs_premium_only /pro/, /.idea/
  **/
+
 
 // Create a helper function for easy SDK access.
 if ( ! function_exists( 'wpcasamailalert' ) ) {
@@ -78,6 +80,7 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/blocks/class-blocks-form.php';
+include_once WPCASAMA_PLUGIN_PATH . 'inc/3rd-party/plugin-dependencies/plugin-dependencies.php';
 if ( wpcasamailalert()->is__premium_only() ) {
     include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
 }
@@ -98,12 +101,20 @@ add_action( 'admin_init', 'wpcasa_mailalert_policy' );
 register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 
+//add_action( 'admin_init', 'wpcasama_check' );
+function wpcasama_check(){
+	if ( ! class_exists( 'WPSight_Framework' ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+}
+
 function wpcasama_activation()
 {
 
 	// Is WPCasa activated
 	if ( ! class_exists( 'WPSight_Framework' ) ) {
 		wp_die( __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) );
+
 	}
 
 	do_action( 'wpcasama_pro_activation' );
