@@ -94,12 +94,6 @@ add_filter( 'acf/helpers/get_dir', 'wpcasama_settings_dir' );
 add_action( 'init', 'wpcasama_remove_adminbar' );
 add_action( 'admin_init', 'wpcasa_mailalert_policy' );
 
-if ( is_multisite() ) {
-    add_action( 'network_admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-} else {
-    add_action( 'admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-}
-
 register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 /**
@@ -113,9 +107,22 @@ function wpcasama_remove_adminbar()
         add_filter( 'show_admin_bar', '__return_false' );
     }
 }
+function wpcasa_mailalert_check_wpcasa() {
+
+	if ( ! class_exists( 'WPSight_Framework' ) ) {
+		echo  '<div class="notice notice-error"><p>' . __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>' ;
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+}
 
 function wpcasama_activation()
 {
+	if ( is_multisite() ) {
+		add_action( 'network_admin_notices', 'wpcasa_mailalert_check_wpcasa' );
+	} else {
+		add_action( 'admin_notices', 'wpcasa_mailalert_check_wpcasa' );
+	}
+
     do_action( 'wpcasama_pro_activation' );
     wpcasama_cpt();
     flush_rewrite_rules();
@@ -145,16 +152,6 @@ function thfo_register_admin_style()
 function thfo_register_style()
 {
     wp_enqueue_style( 'wpcasa_style', plugins_url( 'assets/css/wpcasa-mail-alert.css', __FILE__ ) );
-}
-
-function wpcasa_mailalert_check_wpcasa()
-{
-
-    if ( !class_exists( 'WPSight_Framework' ) ) {
-        echo  '<div class="notice notice-error"><p>' . __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>' ;
-        deactivate_plugins( plugin_basename( __FILE__ ) );
-    }
-
 }
 
 function wpcasa_mailalert_policy()
