@@ -13,6 +13,7 @@
  * Domain Path: /languages
  * @fs_premium_only /pro/, /.idea/
  **/
+
 // Create a helper function for easy SDK access.
 if ( ! function_exists( 'wpcasamailalert' ) ) {
 	// Create a helper function for easy SDK access.
@@ -96,6 +97,24 @@ add_action( 'admin_init', 'wpcasa_mailalert_policy' );
 
 register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
+
+function wpcasama_activation()
+{
+
+	// Is WPCasa activated
+	if ( ! class_exists( 'WPSight_Framework' ) ) {
+		wp_die( __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) );
+	}
+
+	do_action( 'wpcasama_pro_activation' );
+	wpcasama_cpt();
+	flush_rewrite_rules();
+	wpcasama_create_table();
+
+	if (! wp_next_scheduled ( 'wpcasama_hourly' )) {
+		wp_schedule_event(time(), 'hourly', 'wpcasama_hourly');
+	}
+}
 /**
  * Hide admin bar for non admin
  */
@@ -106,31 +125,6 @@ function wpcasama_remove_adminbar()
     if ( !array_intersect( $allowed_roles, $user->roles ) ) {
         add_filter( 'show_admin_bar', '__return_false' );
     }
-}
-function wpcasa_mailalert_check_wpcasa() {
-
-	if ( ! class_exists( 'WPSight_Framework' ) ) {
-		echo  '<div class="notice notice-error"><p>' . __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>' ;
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-	}
-}
-
-function wpcasama_activation()
-{
-	if ( is_multisite() ) {
-		add_action( 'network_admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-	} else {
-		add_action( 'admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-	}
-
-    do_action( 'wpcasama_pro_activation' );
-    wpcasama_cpt();
-    flush_rewrite_rules();
-    wpcasama_create_table();
-
-	if (! wp_next_scheduled ( 'wpcasama_hourly' )) {
-		wp_schedule_event(time(), 'hourly', 'wpcasama_hourly');
-	}
 }
 
 function wpcasama_uninstall()
