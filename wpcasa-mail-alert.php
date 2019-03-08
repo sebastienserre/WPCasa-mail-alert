@@ -31,7 +31,7 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 				'slug'                => 'wpcasa-mail-alert-pro',
 				'type'                => 'plugin',
 				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
-				'is_premium'          => false,
+				'is_premium'          => true,
 				'premium_suffix'      => 'Pro',
 				// If your plugin is a serviceware, set this option to false.
 				'has_premium_version' => true,
