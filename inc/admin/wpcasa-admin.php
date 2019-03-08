@@ -346,5 +346,28 @@ function object_html() {
 }
 
 function content_html() {
-	wp_editor( get_option( 'thfo_newsletter_content' ), 'thfo_newsletter_content' );
+	ob_start();
+	?>
+	<p><?php printf( __( 'Hello %s', 'wpcasa-mail-alert'), '{firstname}' ) ?></p>
+	<p><?php printf( __( '%s find property matching with your criterias', 'wpcasa-mail-alert' ), '{company}'); ?></p>
+	<p><?php _e( 'You can find them on following links', 'wpcasa-mail-alert' ); ?></p>
+	<?php
+	//delete_option( 'thfo_newsletter_content' );
+	$default = ob_get_clean();
+	$content = get_option( 'thfo_newsletter_content' );
+	if (false === $content ) {
+		update_option( 'thfo_newsletter_content', $default );
+		$content = get_option( 'thfo_newsletter_content' );
+	}
+	wp_editor( $content, 'thfo_newsletter_content', array( 'wpautop' => false ) );
+	?>
+	<p>{firstname}</p>
+	<p>{company}</p>
+	<p>{email}</p>
+	<p>{listing}</p>
+	<p>{city}</p>
+	<p>{min_price}</p>
+	<p>{max_price}</p>
+	<?php
+
 }
