@@ -31,7 +31,7 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 				'slug'                => 'wpcasa-mail-alert-pro',
 				'type'                => 'plugin',
 				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
-				'is_premium'          => false,
+				'is_premium'          => true,
 				'premium_suffix'      => 'Pro',
 				// If your plugin is a serviceware, set this option to false.
 				'has_premium_version' => true,
@@ -61,7 +61,7 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 	// Signal that SDK was initiated.
 	do_action( 'wpcasamailalert_loaded' );
 }
-define( 'PLUGIN_VERSION', '3.1.0' );
+define( 'PLUGIN_VERSION', '3.1.1' );
 define( 'WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ) );
