@@ -122,18 +122,22 @@ class wpcasama_search {
 		if ( ! empty( $check ) ) {
 			return;
 		}
-		$user_name   = get_the_author_meta( 'user_nicename', $alert->post_author );
+
 		$sender_mail = get_option( 'thfo_newsletter_sender_mail' );
 		if ( empty( $sender_mail ) ) {
 			$sender_mail = get_option( 'admin_email' );
 		}
+
+		$main_content = get_option( 'thfo_newsletter_content' );
+		$main_content = $this->wpcasama_replace_tags( $main_content, $alert );
+
 
 		$sender  = get_option( 'thfo_newsletter_sender' );
 		$content = '';
 		$object  = get_option( 'thfo_newsletter_object' );
 		$img     = get_option( 'empathy-setting-logo' );
 		$content .= '<img src="' . $img . '" alt="logo" /><br />';
-		$content .= get_option( 'thfo_newsletter_content' );
+		$content .= $main_content;
 		$content .= '<br /><a href="' . get_permalink( $property->ID ) . '">'. get_permalink( $property->ID ) .'</a><br />';
 		$content .= $property->guid . '<br />';
 		$content .= '<p>' . __( 'To unsubscribe to this mail please follow this link: ', 'wpcasa-mail-alert' );
@@ -159,6 +163,19 @@ class wpcasama_search {
 
 		wp_mail( $recipient, $object, $content, $headers );
 		$this->wpcasama_insert_db( $recipient, $property );
+	}
+
+	public function wpcasama_replace_tags( $main_content, $alert ){
+		$city = get_post_meta( $alert->ID, 'wpcasama_city' );
+		$min_price = get_post_meta( $alert->ID, 'wpcasama_min_price' );
+		$max_price = get_post_meta( $alert->ID, 'wpcasama_max_price' );
+		$main_content = str_replace( '{company}', get_bloginfo('name'), $main_content );
+		$main_content = str_replace( '{displayname}', get_the_author_meta( 'user_nicename', $alert->post_author ), $main_content );
+		$main_content = str_replace( '{listing}', $alert->post_title, $main_content );
+		$main_content = str_replace( '{city}', $city, $main_content );
+		$main_content = str_replace( '{min_price}', $min_price, $main_content );
+		$main_content = str_replace( '{max_price}', $max_price, $main_content );
+		return $main_content;
 	}
 
 	public function wpcasama_insert_db( $recipient, $property ) {

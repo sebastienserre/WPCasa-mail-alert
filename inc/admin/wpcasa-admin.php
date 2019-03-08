@@ -348,7 +348,7 @@ function object_html() {
 function content_html() {
 	ob_start();
 	?>
-	<p><?php printf( __( 'Hello %s', 'wpcasa-mail-alert'), '{firstname}' ) ?></p>
+	<p><?php printf( __( 'Hello %s', 'wpcasa-mail-alert'), '{displayname}' ) ?></p>
 	<p><?php printf( __( '%s find property matching with your criterias', 'wpcasa-mail-alert' ), '{company}'); ?></p>
 	<p><?php _e( 'You can find them on following links', 'wpcasa-mail-alert' ); ?></p>
 	<?php
@@ -361,7 +361,7 @@ function content_html() {
 	}
 	wp_editor( $content, 'thfo_newsletter_content', array( 'wpautop' => false ) );
 	?>
-	<p>{firstname}</p>
+	<p>{displayname}</p>
 	<p>{company}</p>
 	<p>{email}</p>
 	<p>{listing}</p>
