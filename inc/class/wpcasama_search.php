@@ -10,7 +10,7 @@ class wpcasama_search {
 
 	public function __construct() {
 		add_action( 'wpcasama_hourly', array( $this, 'wpcasama_search_alert' ) );
-		add_action( 'admin_init', array( $this, 'wpcasama_search_alert' ) );
+		//add_action( 'admin_init', array( $this, 'wpcasama_search_alert' ) );
 		add_action( 'save_post', array( $this, 'wpcasama_delete_db' ) );
 	}
 
@@ -130,11 +130,13 @@ class wpcasama_search {
 
 		$main_content = get_option( 'thfo_newsletter_content' );
 		$main_content = $this->wpcasama_replace_tags( $main_content, $alert );
+		$object  = get_option( 'thfo_newsletter_object' );
+		$object = $this->wpcasama_replace_tags( $object, $alert );
 
 
 		$sender  = get_option( 'thfo_newsletter_sender' );
 		$content = '';
-		$object  = get_option( 'thfo_newsletter_object' );
+
 		$img     = get_option( 'empathy-setting-logo' );
 		$content .= '<img src="' . $img . '" alt="logo" /><br />';
 		$content .= $main_content;

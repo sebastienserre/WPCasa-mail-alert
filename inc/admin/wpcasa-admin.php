@@ -361,6 +361,7 @@ function content_html() {
 	}
 	wp_editor( $content, 'thfo_newsletter_content', array( 'wpautop' => false ) );
 	?>
+	<p class="bold"><?php _e( 'You can use these t ags to dynamically customize email in content and subject:', 'wpcasa-mail-alert'); ?></p>
 	<p>{displayname}</p>
 	<p>{company}</p>
 	<p>{email}</p>
@@ -368,6 +369,17 @@ function content_html() {
 	<p>{city}</p>
 	<p>{min_price}</p>
 	<p>{max_price}</p>
+	<p class="bold"><?php _e( 'In Pro Version, You\'ll can also use:', 'wpcasa-mail-alert'); ?></p>
+	<p>{firstname}</p>
+	<p>{lastname}</p>
+	<p>{details_1}</p>
+	<p>{details_2}</p>
+	<p>{details_3}</p>
+	<p>{details_4}</p>
+	<p>{details_5}</p>
+	<p>{details_6}</p>
+	<p>{details_7}</p>
+	<p>{details_8}</p>
 	<?php
 
 }
