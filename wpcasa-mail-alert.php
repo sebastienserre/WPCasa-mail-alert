@@ -66,7 +66,7 @@ define( 'WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ) );
 define( 'WPCASAMA_PLUGIN_PRICE', '29,90€' );
-define( 'WPCASAMAPRO_LINK', 'https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/' );
+define( 'WPCASAMAPRO_LINK', 'https://thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/' );
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
