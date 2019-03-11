@@ -4,15 +4,18 @@
  * Plugin Name: WPCasa Mail Alert
  * Plugin URI: https://www.thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/
  * Description: Allow Visitor to subscribe to a mail alert to receive a mail when a new property is added.
- * Version: 3.1.1
+ * Version: 3.2.0
  * Author: Sébastien Serre
  * Author URI: http://www.thivinfo.com
  * License: GPL2
  * Tested up to: 5.1
  * Text Domain: wpcasa-mail-alert
  * Domain Path: /languages
+ * Depends: WPCasa,
  * @fs_premium_only /pro/, /.idea/
  **/
+
+
 // Create a helper function for easy SDK access.
 if ( ! function_exists( 'wpcasamailalert' ) ) {
 	// Create a helper function for easy SDK access.
@@ -28,7 +31,7 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 				'slug'                => 'wpcasa-mail-alert-pro',
 				'type'                => 'plugin',
 				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
-				'is_premium'          => false,
+				'is_premium'          => true,
 				'premium_suffix'      => 'Pro',
 				// If your plugin is a serviceware, set this option to false.
 				'has_premium_version' => true,
@@ -58,12 +61,12 @@ if ( ! function_exists( 'wpcasamailalert' ) ) {
 	// Signal that SDK was initiated.
 	do_action( 'wpcasamailalert_loaded' );
 }
-define( 'PLUGIN_VERSION', '3.1.0' );
+define( 'PLUGIN_VERSION', '3.2.0' );
 define( 'WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_DIR', untrailingslashit( WPCASAMA_PLUGIN_PATH ) );
 define( 'WPCASAMA_PLUGIN_PRICE', '29,90€' );
-define( 'WPCASAMAPRO_LINK', 'https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/' );
+define( 'WPCASAMAPRO_LINK', 'https://thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/' );
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_load.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_widget.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/thfo_mailalert_unsubscribe.php';
@@ -77,6 +80,7 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_account.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/blocks/class-blocks-form.php';
+include_once WPCASAMA_PLUGIN_PATH . 'inc/3rd-party/plugin-dependencies/plugin-dependencies.php';
 if ( wpcasamailalert()->is__premium_only() ) {
     include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
 }
@@ -96,6 +100,32 @@ add_action( 'admin_init', 'wpcasa_mailalert_policy' );
 
 register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
+
+//add_action( 'admin_init', 'wpcasama_check' );
+function wpcasama_check(){
+	if ( ! class_exists( 'WPSight_Framework' ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+}
+
+function wpcasama_activation()
+{
+
+	// Is WPCasa activated
+	if ( ! class_exists( 'WPSight_Framework' ) ) {
+		wp_die( __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) );
+
+	}
+
+	do_action( 'wpcasama_pro_activation' );
+	wpcasama_cpt();
+	flush_rewrite_rules();
+	wpcasama_create_table();
+
+	if (! wp_next_scheduled ( 'wpcasama_hourly' )) {
+		wp_schedule_event(time(), 'hourly', 'wpcasama_hourly');
+	}
+}
 /**
  * Hide admin bar for non admin
  */
@@ -106,31 +136,6 @@ function wpcasama_remove_adminbar()
     if ( !array_intersect( $allowed_roles, $user->roles ) ) {
         add_filter( 'show_admin_bar', '__return_false' );
     }
-}
-function wpcasa_mailalert_check_wpcasa() {
-
-	if ( ! class_exists( 'WPSight_Framework' ) ) {
-		echo  '<div class="notice notice-error"><p>' . __( 'WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please activate WPCasa.', 'wpcasa-mail-alert' ) . '</p></div>' ;
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-	}
-}
-
-function wpcasama_activation()
-{
-	if ( is_multisite() ) {
-		add_action( 'network_admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-	} else {
-		add_action( 'admin_notices', 'wpcasa_mailalert_check_wpcasa' );
-	}
-
-    do_action( 'wpcasama_pro_activation' );
-    wpcasama_cpt();
-    flush_rewrite_rules();
-    wpcasama_create_table();
-
-	if (! wp_next_scheduled ( 'wpcasama_hourly' )) {
-		wp_schedule_event(time(), 'hourly', 'wpcasama_hourly');
-	}
 }
 
 function wpcasama_uninstall()
