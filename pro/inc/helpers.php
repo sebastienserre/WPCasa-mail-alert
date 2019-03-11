@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'wpcasama_add_tags', 'wpcasama_pro_add_tags', 10, 2 );
 function wpcasama_pro_add_tags( $main_content, $alert ) {
 	$firstname = get_the_author_meta( 'first_name', $alert->post_author );
-	$lastname = get_the_author_meta( 'last_name', $alert->post_author );
+	$lastname  = get_the_author_meta( 'last_name', $alert->post_author );
 	$details_1 = get_post_meta( $id, '_details_1' );
 	$details_2 = get_post_meta( $id, '_details_2' );
 	$details_3 = get_post_meta( $id, '_details_3' );
