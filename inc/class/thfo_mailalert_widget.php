@@ -78,7 +78,9 @@ class thfo_mailalert_widget extends WP_Widget {
 			$user_meta                     = get_user_meta( $current_user_id );
 			$_POST['thfo_mailalert_name']  = $user_info->data->user_nicename;
 			$_POST['thfo_mailalert_email'] = $user_info->data->user_email;
-			$_POST['thfo_mailalert_phone'] = $user_meta['wpcasama_phone'][0];
+			if ( ! empty( $user_meta['wpcasama_phone'] ) ) {
+				$_POST['thfo_mailalert_phone'] = $user_meta['wpcasama_phone'][0];
+			}
 		}
 
 		do_action( 'wpcasama_info' );

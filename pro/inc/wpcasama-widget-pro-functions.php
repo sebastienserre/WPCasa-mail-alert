@@ -24,20 +24,22 @@ function wpcasama_pro_add_filters() {
 			$types[ $list->term_id ] = $list->name;
 		}
 
-		?>
-        <div class="wpcasama-widget-field">
-		<label for="wpcasama_type"><?php _e( 'Listing Type', 'wpcasa-mail-alert' ) ?></label>
-		<select name="wpcasama_type">
-			<?php
-			foreach ( $types as $key => $value ) {
-				?>
-				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-				<?php
-			}
+		if ( ! empty( $types ) ) {
 			?>
-		</select>
-        </div>
-		<?php
+            <div class="wpcasama-widget-field">
+                <label for="wpcasama_type"><?php _e( 'Listing Type', 'wpcasa-mail-alert' ) ?></label>
+                <select name="wpcasama_type">
+					<?php
+					foreach ( $types as $key => $value ) {
+						?>
+                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+						<?php
+					}
+					?>
+                </select>
+            </div>
+			<?php
+		}
 	}
 
 
