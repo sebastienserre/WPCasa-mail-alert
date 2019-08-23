@@ -29,6 +29,12 @@ function wpcasamapro_options( $options ) {
 		'id'   => 'wpcasama_pro_type',
 		'type' => 'checkbox',
 	);
+	$options_wpacasamapro['currency'] = array(
+		'name' => __( 'Display Currency Unit?', 'wpcasa-mail-alert-pro'),
+		'desc' => sprintf( __( 'Would you like to display the %1s  ?', 'wpcasa-mail-alert-pro' ), 'Currency Symbol' ),
+		'id'   => 'wpcasama_pro_display_currency',
+		'type' => 'checkbox',
+	);
 
 	$options[' '] = array(
 		__( 'WPCasa Mail Alert Pro', 'wpcasa-mail-alert-pro' ),

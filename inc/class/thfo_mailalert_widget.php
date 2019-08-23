@@ -63,7 +63,12 @@
 			$prices = wpsight_get_option( 'thfo_max_price' );
 
 			$prices   = $this->multiexplode( array( ',', ', ' ), $prices );
-			$currency = wpsight_get_currency();
+			$display_currency = wpsight_get_option( 'wpcasama_pro_display_currency' );
+			if ( '1' === $display_currency ){
+			    $currency_position = wpsight_get_option( 'currency_symbol' );
+			    $currency = wpsight_get_currency();
+
+			}
 
 			if (is_user_logged_in()){
 			    $current_user_id = get_current_user_id();
@@ -111,12 +116,36 @@
                 <div class="wpcasama-widget-field">
                     <label for="thfo_mailalert_min_price"> <?php _e( 'Minimum Price', 'wpcasa-mail-alert' ) ?></label>
                     <select name="thfo_mailalert_min_price">
-                        <option name="thfo_mailalert_min_price" value="0">0 <?php echo $currency ?></option>
+                        <option name="thfo_mailalert_min_price" value="0">
+                        <?php
+                        if ( 'before' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?>
+                        0
+                        <?php
+                        if ( 'after' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?>
+                        </option>
 						<?php
 							foreach ( $prices as $price ) { ?>
 
                                 <option name="thfo_mailalert_min_price"
-                                        value="<?php echo $price ?>"><?php echo $price ?><?php echo $currency ?></option>
+                                        value="<?php echo $price ?>">
+                                        <?php
+                        if ( 'before' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?>
+                                        <?php echo $price ?>
+
+<?php
+                        if ( 'after' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?></option>
 							<?php }
 						?>
                     </select>
@@ -127,7 +156,20 @@
 						<?php
 							foreach ( $prices as $price ) { ?>
                                 <option name="thfo_mailalert_price"
-                                        value="<?php echo $price ?>"><?php echo $price ?><?php echo $currency ?></option>
+                                        value="<?php echo $price ?>">
+                                        <?php
+                        if ( 'before' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?>
+                                        <?php echo $price ?>
+                                        <?php
+                        if ( 'after' === $currency_position ){
+                        echo $currency;
+                        }
+                        ?>
+
+</option>
 							<?php }
 						?>
                         <option name="thfo_mailalert_price"
@@ -136,7 +178,9 @@
                 </div>
                 <?php if (! is_user_logged_in()){ ?>
                 <div class="wpcasama-widget-field">
-                    <label for="wpcasama-account-agreement" required ><?php printf(__('I agree to create an account on %1$s to receive e-mail alerts.', 'wpcasa-mail-alert'), get_bloginfo('name'))?></label>
+                    <label for="wpcasama-account-agreement" required >
+                    <?php printf(__('I agree to create an account on %1$s to receive e-mail alerts.', 'wpcasa-mail-alert'), get_bloginfo('name'))?>
+                    </label>
                     <input name="wpcasama-account-agreement" type="checkbox" value="checked" >
                 </div>
                 <?php } ?>
@@ -146,7 +190,9 @@
                 <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>
             </form>
             <?php $url     = wpsight_get_option( 'thfo_unsubscribe_page' );?>
-            <div class="unsubscribe_link clear"><a href=" <?php echo get_the_permalink( $url ) . '">'.  __( 'Link to unsubscribe page', 'wpcasa-mail-alert' ) ?></a> </div>
+            <div class="unsubscribe_link clear" >
+            <a href=" <?php echo get_the_permalink( $url ) . '">'.  __( 'Link to unsubscribe page', 'wpcasa-mail-alert' ) ?></a>
+            </div>
 
 			<?php
 			echo $args['after_widget'];
