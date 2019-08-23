@@ -10,7 +10,7 @@
  * License: GPL2
  * Tested up to: 5.2
  * Text Domain: wpcasa-mail-alert
- * Domain Path: /languages
+ * Domain Path: /pro/languages
  * Depends: WPCasa,
  * @fs_premium_only /pro/, /.idea/
  **/
