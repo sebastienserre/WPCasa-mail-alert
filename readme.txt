@@ -5,9 +5,9 @@ Contributors: sebastienserre, freemius
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
-Requires PHP: 5.6
-Tested up to: 5.1
-Stable tag: 1.0.1
+Requires PHP: 7.0
+Tested up to: 5.2
+Stable tag: 3.2.1
 License: GPL V2 or later
 
 == Description ==
@@ -57,6 +57,12 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.2.1 -- 23 Aout 2019
+    * FIX remove some Notices
+    * Add settings on Currency Unit
+    * Update Freemius SDK
+    * tested on WP 5.2.2
+
 * 3.2.0 -- 11 mars 2019
     * FEATURES: add tags to customize email content
 
