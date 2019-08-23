@@ -196,7 +196,9 @@ class thfo_mailalert_widget extends WP_Widget {
 			<?php } ?>
 
 			<?php do_action( 'wpcasama_end_widget' ); ?>
+            <div class="wpcasama-submit">
             <input name="thfo_mailalert" class="moretag btn btn-primary" type="submit"/>
+            </div>
         </form>
 		<?php $url = wpsight_get_option( 'thfo_unsubscribe_page' ); ?>
         <div class="unsubscribe_link clear" >

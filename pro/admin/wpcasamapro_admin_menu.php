@@ -35,6 +35,12 @@ function wpcasamapro_options( $options ) {
 		'id'   => 'wpcasama_pro_display_currency',
 		'type' => 'checkbox',
 	);
+	$options_wpacasamapro['css'] = array(
+		'name' => __( 'Load a basic CSS file?', 'wpcasa-mail-alert-pro'),
+		'desc' => __( 'If checked a basic CSS file with rules to beautify will be loaded', 'wpcasa-mail-alert-pro' ),
+		'id'   => 'wpcasama_pro_load_css',
+		'type' => 'checkbox',
+	);
 
 	$options[' '] = array(
 		__( 'WPCasa Mail Alert Pro', 'wpcasa-mail-alert-pro' ),

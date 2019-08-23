@@ -25,6 +25,7 @@ function wpcasama_pro_add_filters() {
 		}
 
 		?>
+        <div class="wpcasama-widget-field">
 		<label for="wpcasama_type"><?php _e( 'Listing Type:', 'wpcasa-mail-alert-pro' ) ?></label>
 		<select name="wpcasama_type">
 			<?php
@@ -35,6 +36,7 @@ function wpcasama_pro_add_filters() {
 			}
 			?>
 		</select>
+        </div>
 		<?php
 	}
 

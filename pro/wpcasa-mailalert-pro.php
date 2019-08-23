@@ -40,5 +40,7 @@ function wpcasama_register_admin_style() {
 }
 
 function wpcasama_register_style() {
-	wp_enqueue_style( 'wpcasama_pro_style', plugins_url( 'assets/css/wpcasama-pro.css', __FILE__ ), array( 'wpcasa_style' ) );
+	if ( '1' === wpsight_get_option( 'wpcasama_pro_load_css' ) ) {
+		wp_enqueue_style( 'wpcasama_pro_style', plugins_url( 'assets/css/wpcasama-pro.css', __FILE__ ), array( 'wpcasa_style' ) );
+	}
 }
