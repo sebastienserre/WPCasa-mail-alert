@@ -87,7 +87,7 @@ class thfo_mailalert_widget extends WP_Widget {
         <form action="" method="post">
 			<?php if ( wpcasamailalert()->is_free_plan() ) { ?>
                 <div class="wpcasama-widget-field"><label
-                            for="thfo_mailalert_name"> <?php _e( 'Your name', 'wpcasa-mail-alert' ) ?>*</label>
+                            for="thfo_mailalert_name"> <?php _e( 'Name', 'wpcasa-mail-alert' ) ?>*</label>
                     <input id="thfo_mailalert_name" name="thfo_mailalert_name"
                            value="<?php if ( isset( $_POST['thfo_mailalert_name'] ) && ! empty( $_POST['thfo_mailalert_name'] ) ) {
 						       echo $_POST['thfo_mailalert_name'];
@@ -97,14 +97,14 @@ class thfo_mailalert_widget extends WP_Widget {
 				do_action( 'wpcasama_pro_form_name' );
 			} ?>
             <div class="wpcasama-widget-field">
-                <label for="thfo_mailalert_email"> <?php _e( 'Your Email', 'wpcasa-mail-alert' ) ?>*</label>
+                <label for="thfo_mailalert_email"> <?php _e( 'Email', 'wpcasa-mail-alert' ) ?>*</label>
                 <input id="thfo_mailalert_email" name="thfo_mailalert_email" type="email"
                        value="<?php if ( isset( $_POST['thfo_mailalert_email'] ) && ! empty( $_POST['thfo_mailalert_email'] ) ) {
 					       echo $_POST['thfo_mailalert_email'];
 				       } ?>" required/>
             </div>
             <div class="wpcasama-widget-field">
-                <label for="thfo_mailalert_phone"> <?php _e( 'Your Phone number', 'wpcasa-mail-alert' ) ?></label>
+                <label for="thfo_mailalert_phone"> <?php _e( 'Phone number', 'wpcasa-mail-alert' ) ?></label>
                 <input id="thfo_mailalert_phone" name="thfo_mailalert_phone"
                        value="<?php if ( isset( $_POST['thfo_mailalert_phone'] ) && ! empty( $_POST['thfo_mailalert_phone'] ) ) {
 					       echo $_POST['thfo_mailalert_phone'];

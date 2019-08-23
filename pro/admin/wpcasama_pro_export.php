@@ -8,7 +8,7 @@
 		?>
         <div class="wpcasama-pro-export">
             <a href="<?php echo $url ?>"
-               title="<?php _e( 'Export to CSV', 'wpcasa-mail-alert-pro' ); ?>"><?php _e( 'Export to CSV', 'wpcasa-mail-alert-pro' ); ?></a>
+               title="<?php _e( 'Export to CSV', 'wpcasa-mail-alert' ); ?>"><?php _e( 'Export to CSV', 'wpcasa-mail-alert' ); ?></a>
         </div>
 	<?php }
 	
@@ -83,7 +83,7 @@
 	 * @return mixed
 	 */
 	function wpcasama_pro_bulk_actions( $bulk_actions ) {
-		$bulk_actions['export_to_csv'] = __( 'Export to CSV', 'wpcasa-mail-alert-pro' );
+		$bulk_actions['export_to_csv'] = __( 'Export to CSV', 'wpcasa-mail-alert' );
 		
 		return $bulk_actions;
 	}

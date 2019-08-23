@@ -26,7 +26,7 @@ function wpcasama_pro_add_filters() {
 
 		?>
         <div class="wpcasama-widget-field">
-		<label for="wpcasama_type"><?php _e( 'Listing Type:', 'wpcasa-mail-alert-pro' ) ?></label>
+		<label for="wpcasama_type"><?php _e( 'Listing Type', 'wpcasa-mail-alert' ) ?></label>
 		<select name="wpcasama_type">
 			<?php
 			foreach ( $types as $key => $value ) {
@@ -68,12 +68,12 @@ function wpcasama_pro_add_filters() {
 function wpcasama_add_filter_offer() {
 	?>
 	<div class="wpcasama-widget-field">
-		<label for="thfo_mailalert_offer"> <?php _e( 'Offer Type', 'wpcasa-mail-alert-pro' ) ?></label>
+		<label for="thfo_mailalert_offer"> <?php _e( 'Offer Type', 'wpcasa-mail-alert' ) ?></label>
 		<select name="thfo_mailalert_offer">
 			<option name="thfo_mailalert_offer"
-			        value="sale"><?php _e( 'For Sale', 'wpcasa-mail-alert-pro' ) ?></option>
+			        value="sale"><?php _e( 'For Sale', 'wpcasa-mail-alert' ) ?></option>
 			<option name="thfo_mailalert_offer"
-			        value="rent"><?php _e( 'For Rent', 'wpcasa-mail-alert-pro' ) ?></option>
+			        value="rent"><?php _e( 'For Rent', 'wpcasa-mail-alert' ) ?></option>
 		</select>
 	</div>
 	<?php
@@ -124,7 +124,7 @@ function wpcasama_pro_metabox_alert() {
 			if ( $key ) { ?>
 
 				<div class="wpcasama_search_criteria wpcasama_<?php $detail['id'] ?>">
-					<p><?php echo $detail['label'] ?>: <?php echo $meta[ $detail['id'] ][0];
+					<p><?php echo $detail['label'] ?> <?php echo $meta[ $detail['id'] ][0];
 						if ( ! empty( $detail['unit'] ) ) {
 							echo $detail['unit'];
 						} ?> </p>
@@ -133,7 +133,7 @@ function wpcasama_pro_metabox_alert() {
 
 			<?php }
 		} ?>
-		<p><?php echo __( 'Listing Type: ', 'wpcasa-mail-alert-pro' ) . $type; ?></p>
+		<p><?php echo __( 'Listing Type ', 'wpcasa-mail-alert' ) . $type; ?></p>
 
 	</div>
 	<?php
@@ -143,14 +143,14 @@ add_action( 'wpcasama_pro_form_name', 'wpcasama_pro_first_lastname' );
 function wpcasama_pro_first_lastname() {
 	?>
 	<div class="wpcasama-widget-field"><label
-				for="thfo_mailalert_firstname"> <?php _e( 'Your firstname: ', 'wpcasa-mail-alert' ) ?></label>
+				for="thfo_mailalert_firstname"> <?php _e( 'Firstname ', 'wpcasa-mail-alert' ) ?></label>
 		<input id="thfo_mailalert_firstname" name="thfo_mailalert_firstname"
 		       value="<?php if ( ! empty( $_POST['thfo_mailalert_firstname'] ) ) {
 			       echo $_POST['thfo_mailalert_firstname'];
 		       } ?>" />
 	</div>
 	<div class="wpcasama-widget-field"><label
-				for="thfo_mailalert_lastname"> <?php _e( 'Your Lastname: ', 'wpcasa-mail-alert' ) ?></label>
+				for="thfo_mailalert_lastname"> <?php _e( 'Lastname ', 'wpcasa-mail-alert' ) ?></label>
 		<input id="thfo_mailalert_lastname" name="thfo_mailalert_lastname"
 		       value="<?php if ( ! empty( $_POST['thfo_mailalert_lastname'] ) ) {
 			       echo $_POST['thfo_mailalert_lastname'];

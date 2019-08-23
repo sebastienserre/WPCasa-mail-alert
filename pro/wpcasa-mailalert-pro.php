@@ -32,7 +32,7 @@ function wpcasama_pro_uninstall() {
 
 
 function wpcasama_load_textdomain() {
-	load_plugin_textdomain( 'wpcasa-mail-alert-pro', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'wpcasa-mail-alert', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 function wpcasama_register_admin_style() {

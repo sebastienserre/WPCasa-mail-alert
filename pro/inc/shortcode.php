@@ -23,7 +23,7 @@ add_shortcode('wpcasa-mail-alert', 'wpcasama_shortcode');
 function wpcasama_shortcode($atts){
 
 	$atts = shortcode_atts( array(
-		'title' => __('email alert', 'wpcasa-mail-alert-pro'),
+		'title' => __('email alert', 'wpcasa-mail-alert'),
 	), $atts );
 
 

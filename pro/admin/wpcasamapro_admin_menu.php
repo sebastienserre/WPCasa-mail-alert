@@ -18,32 +18,32 @@ function wpcasamapro_options( $options ) {
 	foreach ( $details as $key => $detail ) {
 		$options_wpacasamapro[ $key ] = array(
 			'name' => $detail['label'],
-			'desc' => sprintf( __( 'Would you like allowing %1s filter ?', 'wpcasa-mail-alert-pro' ), $detail['label'] ),
+			'desc' => sprintf( __( 'Would you like allowing %1s filter ?', 'wpcasa-mail-alert' ), $detail['label'] ),
 			'id'   => 'wpcasama_pro_' . $detail['label'],
 			'type' => 'checkbox',
 		);
 	}
 	$options_wpacasamapro['type'] = array(
-		'name' => __( 'Listing Type', 'wpcasa-mail-alert-pro'),
-		'desc' => sprintf( __( 'Would you like allowing %1s filter ?', 'wpcasa-mail-alert-pro' ), 'Listing type' ),
+		'name' => __( 'Listing Type', 'wpcasa-mail-alert'),
+		'desc' => sprintf( __( 'Would you like allowing %1s filter ?', 'wpcasa-mail-alert' ), 'Listing type' ),
 		'id'   => 'wpcasama_pro_type',
 		'type' => 'checkbox',
 	);
 	$options_wpacasamapro['currency'] = array(
-		'name' => __( 'Display Currency Unit?', 'wpcasa-mail-alert-pro'),
-		'desc' => sprintf( __( 'Would you like to display the %1s  ?', 'wpcasa-mail-alert-pro' ), 'Currency Symbol' ),
+		'name' => __( 'Display Currency Unit?', 'wpcasa-mail-alert'),
+		'desc' => sprintf( __( 'Would you like to display the %1s  ?', 'wpcasa-mail-alert' ), 'Currency Symbol' ),
 		'id'   => 'wpcasama_pro_display_currency',
 		'type' => 'checkbox',
 	);
 	$options_wpacasamapro['css'] = array(
-		'name' => __( 'Load a basic CSS file?', 'wpcasa-mail-alert-pro'),
-		'desc' => __( 'If checked a basic CSS file with rules to beautify will be loaded', 'wpcasa-mail-alert-pro' ),
+		'name' => __( 'Load a basic CSS file?', 'wpcasa-mail-alert'),
+		'desc' => __( 'If checked a basic CSS file with rules to beautify will be loaded', 'wpcasa-mail-alert' ),
 		'id'   => 'wpcasama_pro_load_css',
 		'type' => 'checkbox',
 	);
 
 	$options[' '] = array(
-		__( 'WPCasa Mail Alert Pro', 'wpcasa-mail-alert-pro' ),
+		__( 'WPCasa Mail Alert Pro', 'wpcasa-mail-alert' ),
 		apply_filters( 'wpsight_listings_map_options', $options_wpacasamapro ),
 	);
 
@@ -60,7 +60,7 @@ function wpcasama_add_columns_th() {
 
 	<?php } ?>
 
-	<th><?php _e( 'Type', 'wpcasa-mail-alert-pro' ) ?></th>
+	<th><?php _e( 'Type', 'wpcasa-mail-alert' ) ?></th>
 
 	<?php
 }

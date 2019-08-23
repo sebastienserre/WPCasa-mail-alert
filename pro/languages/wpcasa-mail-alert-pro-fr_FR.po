@@ -119,8 +119,8 @@ msgid ""
 msgstr "Autorisez vos visiteurs a s'inscrire à une alerte mail."
 
 #. URI of the plugin
-msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
-msgstr "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert/"
+msgstr "https://www.thivinfo.com/downloads/wpcasa-mail-alert/"
 
 #. Author of the plugin
 msgid "Sébastien Serre"

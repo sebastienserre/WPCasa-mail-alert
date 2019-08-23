@@ -115,7 +115,7 @@ msgid ""
 msgstr ""
 
 #. URI of the plugin
-msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert-pro/"
+msgid "https://www.thivinfo.com/downloads/wpcasa-mail-alert/"
 msgstr ""
 
 #. Author of the plugin
