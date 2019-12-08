@@ -1,0 +1,613 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCasa Mail Alert Pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-23 14:32+0000\n"
+"PO-Revision-Date: 2019-08-23 14:33+0000\n"
+"Last-Translator: sebastienserre <sebastien@thivinfo.com>\n"
+"Language-Team: Français\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.2"
+
+#: wpcasa-mail-alert.php:116
+msgid ""
+"WPCASA is not activated. WPCasa Mail-Alert need it to work properly. Please "
+"activate WPCasa."
+msgstr ""
+
+#: wpcasa-mail-alert.php:167
+msgid ""
+"When you register to receive a mail alert, we're registering your name, your "
+"e-mail address and your phone number"
+msgstr ""
+
+#: pro/admin/wpcasamapro_admin_menu.php:21
+#: pro/admin/wpcasamapro_admin_menu.php:28
+#, php-format
+msgid "Would you like allowing %1s filter ?"
+msgstr "Voulez vous ajouter un filtre %1s ?"
+
+#: pro/admin/wpcasamapro_admin_menu.php:27
+#: pro/inc/wpcasama-widget-pro-functions.php:30
+msgid "Listing Type"
+msgstr ""
+
+#: pro/admin/wpcasamapro_admin_menu.php:33
+msgid "Display Currency Unit?"
+msgstr ""
+
+#: pro/admin/wpcasamapro_admin_menu.php:34
+#, php-format
+msgid "Would you like to display the %1s  ?"
+msgstr ""
+
+#: pro/admin/wpcasamapro_admin_menu.php:39
+msgid "Load a basic CSS file?"
+msgstr "Charger une feuille de Style?"
+
+#: pro/admin/wpcasamapro_admin_menu.php:40
+msgid "If checked a basic CSS file with rules to beautify will be loaded"
+msgstr ""
+
+#. Name of the plugin
+#: pro/admin/wpcasamapro_admin_menu.php:46
+msgid "WPCasa Mail Alert Pro"
+msgstr "WPCasa Mail Alert Pro"
+
+#: pro/admin/wpcasamapro_admin_menu.php:63
+msgid "Type"
+msgstr "Type"
+
+#: pro/admin/wpcasama_pro_export.php:11 pro/admin/wpcasama_pro_export.php:86
+msgid "Export to CSV"
+msgstr "Exporter vers un fichier CSV"
+
+#: pro/inc/shortcode.php:26
+msgid "email alert"
+msgstr "Alerte Mail"
+
+#: pro/inc/wpcasama-widget-pro-functions.php:73
+msgid "Offer Type"
+msgstr "Type d'offre"
+
+#: pro/inc/wpcasama-widget-pro-functions.php:76
+msgid "For Sale"
+msgstr "Vente"
+
+#: pro/inc/wpcasama-widget-pro-functions.php:78
+msgid "For Rent"
+msgstr "location"
+
+#: pro/inc/wpcasama-widget-pro-functions.php:138
+msgid "Listing Type "
+msgstr ""
+
+#: pro/inc/wpcasama-widget-pro-functions.php:148
+msgid "Firstname "
+msgstr ""
+
+#: pro/inc/wpcasama-widget-pro-functions.php:155
+msgid "Lastname "
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:17
+msgid "Unsubscribe Page"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:18
+#, php-format
+msgid "Please select the page that uses %s on the selected page."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:24 inc/class/thfo_mailalert_widget.php:166
+msgid "Maximum Price"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:25
+msgid "Please enter maximum price separated by a comma"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:31
+msgid "Migrate from version < 2.0 "
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:32
+msgid ""
+"Needed to migrate your existing alerts if you use WPCasa mail Alert before "
+"it's 2.0.0 version"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:37
+msgid "Are you using the old WPCasa Theme Framework"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:38
+msgid ""
+"In old theme version (before WPCasa become a plugin), some settings were "
+"diferent. This tool will match the old settings"
+msgstr ""
+
+#. Name of the plugin
+#: inc/admin/wpcasa-admin.php:48
+msgid "WPCasa Mail Alert"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:80
+msgid "Mail Settings"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:88
+msgid "You like WPCasa Mail Alert? Don't forget to rate it 5 stars!"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:135 inc/admin/wpcasa-admin.php:153
+msgid "link to Premium Version"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:139
+msgid "No Advertising"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:140
+msgid "All Standards features from WPCasa"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:141
+msgid "Shortcode to display the form where ever you want"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:142
+msgid "Automatic Update"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:143
+msgid "Priority support"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:144
+msgid "Export list of subscribers to CSV file"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:145
+msgid "... and soon ..."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:146
+msgid "Offer filter: sale or rent"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:147
+msgid "Type of property filter"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:148
+msgid "Easy mail customization"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:149
+msgid "Gutenberg Blocks"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:150
+msgid "Visual Composer Elements"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:154
+#, php-format
+msgid "Buy WPCasa MailAlert Pro for only %s"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:171
+msgid "E-mail"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:172
+msgid "help"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:197
+msgid "Settings"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:226
+msgid "Help"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:227
+msgid ""
+"The easiest way to find help is coming on my website and read the "
+"documentation."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:228
+msgid "If you don't find the help needed. Feel free to contact me."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:229
+msgid "Online Documentation."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:244
+msgid "Email parameters"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:253
+msgid "Sender"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:254
+msgid "Header picture"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:255
+msgid "footer"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:256
+msgid "email"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:257
+msgid "Object"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:258
+msgid "Content"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:284
+msgid "Upload"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:315
+msgid "Advise about outgoing parameters."
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:351
+#, php-format
+msgid "Hello %s"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:352
+#, php-format
+msgid "%s find property matching with your criterias"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:353
+msgid "You can find them on following links"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:364
+msgid ""
+"You can use these t ags to dynamically customize email in content and "
+"subject:"
+msgstr ""
+
+#: inc/admin/wpcasa-admin.php:372
+msgid "In Pro Version, You'll can also use:"
+msgstr ""
+
+#: inc/cpt/metabox.php:14
+msgid "About Author"
+msgstr ""
+
+#: inc/cpt/metabox.php:19
+msgid "Alert Details"
+msgstr ""
+
+#: inc/cpt/metabox.php:25
+msgid "Discover Pro Version"
+msgstr ""
+
+#: inc/cpt/metabox.php:61
+msgid "City: "
+msgstr ""
+
+#: inc/cpt/metabox.php:65
+msgid "Minimum Price: "
+msgstr ""
+
+#: inc/cpt/metabox.php:69
+msgid "Maximum Price: "
+msgstr ""
+
+#: inc/cpt/metabox.php:83
+#, php-format
+msgid ""
+"<a href=\"%s\">With the Pro version, you could also allowing search on :</a>"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:10
+msgctxt "Post Type General Name"
+msgid "Email Alerts"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:11
+msgctxt "Post Type Singular Name"
+msgid "Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:12 inc/cpt/mail-alert-cpt.php:13
+#: inc/cpt/mail-alert-cpt.php:48
+msgid "Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:14
+msgid "Email Alert Archives"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:15
+msgid "Email Alert Attributes"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:16
+msgid "Parent Email Alert:"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:17
+msgid "All Email Alerts"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:18
+msgid "Add New Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:19
+msgid "Add New"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:20
+msgid "New Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:21
+msgid "Edit Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:22
+msgid "Update Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:23
+msgid "View Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:24
+msgid "View Email Alerts"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:25
+msgid "Search Email Alert"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:26
+msgid "Not found"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:27
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:28
+msgid "Featured Image"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:29
+msgid "Set featured image"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:30
+msgid "Remove featured image"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:31
+msgid "Use as featured image"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:32
+msgid "Insert into item"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:33
+msgid "Uploaded to this item"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:34
+msgid "Email Alerts list"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:35
+msgid "Email Alerts navigation"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:36
+msgid "Filter Email Alerts list"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:49
+msgid "Receive an email when listings match your criterias"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:101
+msgid "Title"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:102
+msgid "Phone"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:103 inc/class/thfo_mailalert_widget.php:116
+msgid "City"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:104
+msgid "Min Price"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:105
+msgid "Max price"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:106 inc/class/thfo_mailalert_widget.php:92
+msgid "Name"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:107
+msgid "Date"
+msgstr ""
+
+#: inc/cpt/mail-alert-cpt.php:124
+msgid "Not Provided"
+msgstr ""
+
+#: inc/class/thfo_mailalert_load.php:113
+msgid "To receive an alert, you need to accept creating an account"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:42
+msgid "You need to be logged in to view this content"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:55
+msgid "My alerts"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:56
+msgid "My Profile"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:101 inc/class/wpcasama_account.php:130
+msgid "ID:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:102
+msgid "City:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:103
+msgid "Minimum Price:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:104
+msgid "Maximum Price:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:105
+msgid "Delete"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:111
+msgid "You do not have any e-mail alert"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:133
+msgid "Name:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:136
+msgid "Firstame:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:139
+msgid "Display Name:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:142
+msgid "E-mail:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:145
+msgid "Phone:"
+msgstr ""
+
+#: inc/class/wpcasama_account.php:150
+msgid "Delete my account"
+msgstr ""
+
+#: inc/class/thfo_mailalert_unsubscribe.php:12
+msgid "Please add your mail"
+msgstr ""
+
+#: inc/class/thfo_mailalert_unsubscribe.php:22
+msgid "unsubscribe"
+msgstr ""
+
+#: inc/class/thfo_mailalert_unsubscribe.php:40
+msgid "Your mail address has been successfully deleted from our database"
+msgstr ""
+
+#: inc/class/thfo_mailalert_unsubscribe.php:44
+msgid "Your mail address doesn't exist in our database"
+msgstr ""
+
+#: inc/class/wpcasama_search.php:147
+msgid "To unsubscribe to this mail please follow this link: "
+msgstr ""
+
+#: inc/class/wpcasama_search.php:153
+msgid "Here"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:9
+msgid "Add a WPCasa mail Alert Form"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:13
+msgid "Mail Alert"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:102
+msgid "Email"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:109
+msgid "Phone number"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:129
+msgid "Minimum Price"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:188
+msgid "Infinite"
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:194
+#, php-format
+msgid "I agree to create an account on %1$s to receive e-mail alerts."
+msgstr ""
+
+#: inc/class/thfo_mailalert_widget.php:207
+msgid "Link to unsubscribe page"
+msgstr ""
+
+#: inc/blocks/class-blocks-form.php:20 inc/blocks/class-blocks-form.php:26
+msgid "WPCasa Mail Alert Block"
+msgstr ""
+
+#: inc/blocks/class-blocks-form.php:22
+msgid "Block Title"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Allow Visitor to subscribe to a mail alert to receive a mail when a new "
+"property is added."
+msgstr "Autorisez vos visiteurs a s'inscrire à une alerte mail."
+
+#. URI of the plugin
+msgid "https://www.thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Sébastien Serre"
+msgstr "Sébastien Serre"
+
+#. Author URI of the plugin
+msgid "http://www.thivinfo.com"
+msgstr "http://www.thivinfo.com"
