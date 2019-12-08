@@ -7,7 +7,7 @@ Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
 Requires PHP: 7.0
 Tested up to: 5.2
-Stable tag: 3.2.1
+Stable tag: 3.2.2
 License: GPL V2 or later
 
 == Description ==
