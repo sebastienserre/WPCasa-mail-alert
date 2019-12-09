@@ -21,7 +21,7 @@
 				'wpcasama_alert_data',
 			), 'wpcasa-mail-alerte', 'normal' );
 			
-			if ( ! defined( 'WPCASAMA_PRO_VERSION' ) ) {
+			if ( wpcasamailalert()->is_not_paying() ) {
 				add_meta_box( 'wpcasama_ads_alert', __( 'Discover Pro Version', 'wpcasa-mail-alert' ), array(
 					$this,
 					'wpcasama_ads_metabox',
@@ -71,11 +71,12 @@
                 </div>
             </div>
 			
-			<?php if ( defined( 'WPCASAMA_PRO_VERSION' ) ) {
+			<?php if ( wpcasamailalert()->is__premium_only() ) {
 			    do_action('wpcasama/pro/criteria');
-            } else {
-				$details = wpsight_details();
-			    
+            }
+            if ( wpcasamailalert()->is_not_paying() ) {
+	            $details = wpsight_details();
+
 			    ?>
                 <div class="wpcasama_search_criteria_right wpcasama_search_criteria_free">
                     <fieldset>
