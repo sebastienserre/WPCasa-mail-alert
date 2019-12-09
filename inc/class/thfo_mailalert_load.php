@@ -93,6 +93,8 @@ class thfo_mailalert {
 			apply_filters( 'wpcasama/savedata/post', $userdata );
 
 			wp_insert_post( $postarr );
+			$search = new wpcasama_search;
+			$search->wpcasama_search_alert();
 
 		}
 	}
