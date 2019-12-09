@@ -30,11 +30,11 @@
 		}
 		
 		function wpcasama_author_metabox( $post_id ) {
-			
-			$post_author_id   = get_post_field( 'post_author', $post_id );
-			$post_author_mail = get_the_author_meta( 'email', $post_author_id );
-			$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
-			$post_author_phone = get_the_author_meta('wpcasama_phone', $post_author_id);
+
+			$post_author_id    = get_post_field( 'post_author', $post_id );
+			$post_author_mail  = get_the_author_meta( 'email', $post_author_id );
+			$post_author_name  = get_the_author_meta( 'display_name', $post_author_id );
+			$post_author_phone = get_the_author_meta( 'wpcasama_phone', $post_author_id );
 			
 			echo '<p>' . antispambot( $post_author_mail ) . '</p>';
 			echo '<p><a href="' . admin_url( 'user-edit.php?user_id=' . $post_author_id ) . '" >' . $post_author_name . '</a></p>';
