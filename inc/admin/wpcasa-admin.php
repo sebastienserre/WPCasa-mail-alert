@@ -221,7 +221,7 @@ function wpcasama_menu() {
 					submit_button( __( 'Save' ) );
 					break;
 				case 'help' :
-					$url = esc_url( 'https://www.thivinfo.com/en/docs/wpcasa-mail-alert/' );
+					$url = esc_url( 'https://docs.thivinfo.com/collection/25-wpcasa-mail-alert' );
 					?>
 				<h2><?php _e('Help', 'wpcasa-mail-alert'); ?></h2>
 				<p><?php _e('The easiest way to find help is coming on my website and read the documentation.', 'wpcasa-mail-alert'); ?></p>
