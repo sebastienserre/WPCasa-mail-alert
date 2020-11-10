@@ -16,51 +16,6 @@
  **/
 
 
-// Create a helper function for easy SDK access.
-if ( ! function_exists( 'wpcasamailalert' ) ) {
-	// Create a helper function for easy SDK access.
-	function wpcasamailalert() {
-		global $wpcasamailalert;
-
-		if ( ! isset( $wpcasamailalert ) ) {
-			// Include Freemius SDK.
-			require_once dirname(__FILE__) . '/freemius/start.php';
-
-			$wpcasamailalert = fs_dynamic_init( array(
-				'id'                  => '2209',
-				'slug'                => 'wpcasa-mail-alert-pro',
-				'type'                => 'plugin',
-				'public_key'          => 'pk_ca3b288f887a547ff6b0b142f236f',
-				'is_premium'          => true,
-				'premium_suffix'      => 'Pro',
-				// If your plugin is a serviceware, set this option to false.
-				'has_premium_version' => true,
-				'has_addons'          => false,
-				'has_paid_plans'      => true,
-				'trial'               => array(
-					'days'               => 30,
-					'is_require_payment' => false,
-				),
-				'has_affiliation'     => 'selected',
-				'menu'                => array(
-					'slug'           => 'edit.php?post_type=wpcasa-mail-alerte',
-					'first-path'     => 'admin.php?page=wpsight-settings',
-					'support'        => false,
-				),
-				// Set the SDK to work in a sandbox mode (for development & testing).
-				// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-				'secret_key'          => 'sk_fry3a~w=nyBnJTm)xSlc-[@W{B#gH',
-			) );
-		}
-
-		return $wpcasamailalert;
-	}
-
-	// Init Freemius.
-	wpcasamailalert();
-	// Signal that SDK was initiated.
-	do_action( 'wpcasamailalert_loaded' );
-}
 define( 'PLUGIN_VERSION', '3.2.3' );
 define( 'WPCASAMA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCASAMA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -81,9 +36,7 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/class/wpcasama_search.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/blocks/class-blocks-form.php';
 include_once WPCASAMA_PLUGIN_PATH . 'inc/3rd-party/plugin-dependencies/plugin-dependencies.php';
-if ( wpcasamailalert()->is__premium_only() ) {
-    include_once WPCASAMA_PLUGIN_PATH . '/pro/wpcasa-mailalert-pro.php';
-}
+
 new thfo_mailalert();
 new thfo_mailalert_widget();
 new wpcasama_metabox();
@@ -101,12 +54,6 @@ add_action( 'admin_init', 'wpcasa_mailalert_policy' );
 register_activation_hook( __FILE__, 'wpcasama_activation' );
 register_uninstall_hook( __FILE__, 'wpcasama_uninstall' );
 
-//add_action( 'admin_init', 'wpcasama_check' );
-function wpcasama_check(){
-	if ( ! class_exists( 'WPSight_Framework' ) ) {
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-	}
-}
 
 function wpcasama_activation()
 {
