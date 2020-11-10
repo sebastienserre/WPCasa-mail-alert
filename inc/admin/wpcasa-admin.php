@@ -200,7 +200,7 @@ function wpcasama_menu() {
 		</form>
 	</div>
 
-	<?php wpcasama_display_ads();
+	<?php
 	wpcasama_stars();
 }
 

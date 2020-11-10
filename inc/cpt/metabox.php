@@ -37,12 +37,6 @@ class wpcasama_metabox {
 		}
 	}
 
-	function wpcasama_ads_metabox() {
-
-		echo wpcasama_display_ads();
-	}
-
-
 	function wpcasama_alert_data( $post_id ) {
 
 		$currency = wpsight_get_currency();
