@@ -41,10 +41,10 @@ class thfo_mailalert {
 			/**
 			 * If agreement ok, then, we registered the user
 			 */
-			if ( wpcasamailalert()->is_premium() ) {
+
 				$userdata['first_name'] = sanitize_text_field( $_POST['thfo_mailalert_firstname'] );
 				$userdata['last_name']  = sanitize_text_field( $_POST['thfo_mailalert_lastname'] );
-			}
+
 
 			if (is_email( $_POST['thfo_mailalert_email'] ) ){
 				$email = $_POST['thfo_mailalert_email'];

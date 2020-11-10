@@ -87,7 +87,7 @@ class thfo_mailalert_widget extends WP_Widget {
 		?>
 
         <form action="" method="post">
-			<?php if ( wpcasamailalert()->is_free_plan() ) { ?>
+
                 <div class="wpcasama-widget-field"><label
                             for="thfo_mailalert_name"> <?php _e( 'Name', 'wpcasa-mail-alert' ) ?>*</label>
                     <input id="thfo_mailalert_name" name="thfo_mailalert_name"
@@ -95,9 +95,9 @@ class thfo_mailalert_widget extends WP_Widget {
 						       echo $_POST['thfo_mailalert_name'];
 					       } ?>" required/>
                 </div>
-			<?php } else {
+			<?php
 				do_action( 'wpcasama_pro_form_name' );
-			} ?>
+			?>
             <div class="wpcasama-widget-field">
                 <label for="thfo_mailalert_email"> <?php _e( 'Email', 'wpcasa-mail-alert' ) ?>*</label>
                 <input id="thfo_mailalert_email" name="thfo_mailalert_email" type="email"

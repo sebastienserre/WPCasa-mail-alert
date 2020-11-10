@@ -126,41 +126,6 @@ function wpcasama_stars() { ?>
 	</div> <?php
 }
 
-function wpcasama_display_ads() {
-	$slug = get_current_screen();
-	if ( ! wpcasamailalert()->is_premium() ) {
-		?>
-		<div class="ads ads-<?php echo $slug->id ?>">
-			<h4><a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
-			       title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>" target="_blank">WPCasa Mail
-					Alert
-					Pro</a></h4>
-			<ul>
-				<li><?php _e( 'No Advertising', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'All Standards features from WPCasa', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Shortcode to display the form where ever you want', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Automatic Update', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Priority support', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Export list of subscribers to CSV file', 'wpcasa-mail-alert' ); ?></li>
-				<p><?php _e( '... and soon ...', 'wpcasa-mail-alert' ); ?></p>
-				<li><?php _e( 'Offer filter: sale or rent', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Type of property filter', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Easy mail customization', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Gutenberg Blocks', 'wpcasa-mail-alert' ); ?></li>
-				<li><?php _e( 'Visual Composer Elements', 'wpcasa-mail-alert' ); ?></li>
-			</ul>
-			<a href="<?php echo esc_url( WPCASAMAPRO_LINK ); ?>"
-			   title="<?php _e( 'link to Premium Version', 'wpcasa-mail-alert' ) ?>"
-			   target="_blank"><?php printf( __( 'Buy WPCasa MailAlert Pro for only %s', 'wpcasa-mail-alert' ), WPCASAMA_PLUGIN_PRICE ); ?></a>
-		</div>
-		<?php
-	}
-	?>
-	<div class="clear"></div>
-	<?php
-
-}
-
 function wpcasama_menu() {
 
 	/**

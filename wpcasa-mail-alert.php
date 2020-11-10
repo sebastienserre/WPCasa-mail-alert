@@ -12,7 +12,6 @@
  * Text Domain: wpcasa-mail-alert
  * Domain Path: /pro/languages
  * Depends: WPCasa,
- * @fs_premium_only /pro/, /.idea/
  **/
 
 
