@@ -57,6 +57,11 @@ use automatic upgrade
 4. E-mail Options
 
 == Changelog ==
+* 3.3.0 -- 10 Nov 2020
+    * Remove Freemius SDK
+    * All Pro features becomes Free
+    * Tested on WP 5.5.3
+
 * 3.2.1 -- 23 Aout 2019
     * FIX remove some Notices
     * Add settings on Currency Unit
