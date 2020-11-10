@@ -334,7 +334,6 @@ function content_html() {
 	<p>{city}</p>
 	<p>{min_price}</p>
 	<p>{max_price}</p>
-	<p class="bold"><?php _e( 'In Pro Version, You\'ll can also use:', 'wpcasa-mail-alert'); ?></p>
 	<p>{firstname}</p>
 	<p>{lastname}</p>
 	<p>{details_1}</p>

@@ -66,6 +66,7 @@ table.thfo_subscriber {
 }
 
 .wpcasama-stars {
+    clear: both;
     margin-top: 1em;
 }
 
