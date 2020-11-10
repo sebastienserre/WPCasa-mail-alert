@@ -1,7 +1,7 @@
 === WPCasa Mail Alert ===
 Plugin Name: WPCasa Mail Alert
-Plugin URI: https://www.thivinfo.com/en/shop/add-mail-alert-to-your-wpcasa-website/
-Contributors: sebastienserre, freemius
+Plugin URI: https://thivinfo.com/
+Contributors: sebastienserre
 Donate link: http://paypal.me/sebastienserre
 Tags: wpcasa, e-mail, subscription, notifier, alert
 Requires at least: 4.6
@@ -19,11 +19,6 @@ WPCasa Mail Alert will display a widget to add a form on your Website using WPCa
     <li>Allow Search city</li>
     <li>Allow search by minimum Price</li>
     <li>Allow search by maximum Price</li>
-</ul>
-
-<h3><a href='https://www.thivinfo.com/en/downloads/wpcasa-mail-alert-pro/ref/4/' title='Link to WPCasa Mail Alert Pro' >WPCasa Mail Alert PRO</a></h3>
-
-<ul>
 	<li>Allow search by all of standards features form WPCasa</li>
 	<li>Allow export of subscribers list in CSV format</li>
 	<li>Add a Shortcode to display the form where ever you want</li>
