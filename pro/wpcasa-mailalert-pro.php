@@ -29,11 +29,6 @@ function wpcasama_pro_uninstall() {
 	do_action( 'wpcasama/pro/before/uninstall' );
 }
 
-
-function wpcasama_load_textdomain() {
-	load_plugin_textdomain( 'wpcasa-mail-alert', false, dirname( plugin_basename( __FILE__ ) ) . '/pro/languages' );
-}
-
 function wpcasama_register_admin_style() {
 	wp_enqueue_style( 'wpcasama_mailalert_admin_style', plugins_url( 'assets/css/admin-styles.css', __FILE__ ) );
 }
