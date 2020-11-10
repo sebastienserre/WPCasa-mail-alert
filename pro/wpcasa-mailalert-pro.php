@@ -2,7 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly.
-
 require_once plugin_dir_path( __FILE__ ) . '/admin/wpcasamapro_admin_menu.php';
 require_once plugin_dir_path( __FILE__ ) . '/admin/wpcasama_pro_export.php';
 require_once plugin_dir_path( __FILE__ ) . '/inc/wpcasama-widget-pro-functions.php';

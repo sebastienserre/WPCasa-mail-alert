@@ -34,6 +34,8 @@ include_once WPCASAMA_PLUGIN_PATH . '/inc/class/WPCasamaMigration.php';
 include_once WPCASAMA_PLUGIN_PATH . '/inc/blocks/class-blocks-form.php';
 include_once WPCASAMA_PLUGIN_PATH . 'inc/3rd-party/plugin-dependencies/plugin-dependencies.php';
 
+include_once WPCASAMA_PLUGIN_PATH . 'pro/wpcasa-mailalert-pro.php';
+
 new thfo_mailalert();
 new thfo_mailalert_widget();
 new wpcasama_metabox();
