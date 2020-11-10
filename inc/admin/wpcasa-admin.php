@@ -134,7 +134,7 @@ function wpcasama_menu() {
 	$tabs = apply_filters( 'wpcasama_setting_tabs',
 		array(
 			'mail' => __( 'E-mail', 'wpcasa-mail-alert' ),
-			'help' => __( 'help', 'wpcasa-mail-alert' ),
+			/*'help' => __( 'help', 'wpcasa-mail-alert' ),*/
 
 		)
 	);
@@ -185,13 +185,13 @@ function wpcasama_menu() {
 					do_settings_sections( 'thfo_newsletter_settings' );
 					submit_button( __( 'Save' ) );
 					break;
-				case 'help' :
+/*				case 'help' :
 					$url = esc_url( 'https://docs.thivinfo.com/collection/25-wpcasa-mail-alert' );
-					?>
-				<h2><?php _e('Help', 'wpcasa-mail-alert'); ?></h2>
-				<p><?php _e('The easiest way to find help is coming on my website and read the documentation.', 'wpcasa-mail-alert'); ?></p>
-				<p><?php _e('If you don\'t find the help needed. Feel free to contact me.', 'wpcasa-mail-alert'); ?></p>
-				<a href="<?php echo $url; ?>" target="_blank"><?php _e('Online Documentation.', 'wpcasa-mail-alert'); ?></a>
+					*/?><!--
+				<h2><?php /*_e('Help', 'wpcasa-mail-alert'); */?></h2>
+				<p><?php /*_e('The easiest way to find help is coming on my website and read the documentation.', 'wpcasa-mail-alert'); */?></p>
+				<p><?php /*_e('If you don\'t find the help needed. Feel free to contact me.', 'wpcasa-mail-alert'); */?></p>
+				<a href="<?php /*echo $url; */?>" target="_blank"><?php /*_e('Online Documentation.', 'wpcasa-mail-alert'); */?></a>-->
 			<?php
 					break;
 			}
